@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Compiler {
-	class Scanner {
+	class Parser {
+		public Parser(Scanner scanner) {
+
+		}
+		public void ParseProgram() {
+
+		}
 	}
 }
