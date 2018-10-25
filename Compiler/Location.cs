@@ -1,5 +1,5 @@
 ﻿namespace Compiler {
-	class Location {
+	public class Location {
 		/* ATTRIBUTES */
 			private uint LineNumber { get; } = 0;
 			private uint RowNumber { get; } = 0;

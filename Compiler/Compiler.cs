@@ -24,6 +24,10 @@ namespace Compiler {
 					parser = new Parser(scanner);
 				}
 			// entry point
+				/**
+				 * Build a Compiler instance.
+				 * @param args	command-line one and only argument, the source code file
+				 */
 				public static void Main(string[] args) {
 					if(args.Length != 1) {
 						Console.WriteLine("Must provide exactly one argument - the source code file");
