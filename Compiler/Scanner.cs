@@ -8,16 +8,16 @@ using System.Text;
 namespace Compiler {
 	class Scanner : IEnumerable<Token> {
 		/* ATTRIBUTES */
+			// public
+				static public bool Debug { get; set; } = true;
 			// private
 				static bool atEndOfFile = false;
-				static readonly char[] operators = { '+', '-', '*', '/', '=', '<', '>' }, special = { '.', '!', '?', '_', ' ' };
+				static readonly char[] operators = { '+', '-', '*', '/', '=', '<', '>' }, specials = { '.', '!', '?', '_', ' ' };
 				static SourceFile source = null;
 				static StringBuilder currentSpelling = null;
 				static readonly ImmutableDictionary<string, TokenKind> ReservedWords =
 					Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While)
 					.Cast<TokenKind>().ToImmutableDictionary(kind => kind.ToString().ToLower(), kind => kind);
-			// public
-				static public bool Debug { get; set; } = true;
 		/* MEMBERS */
 			// public 
 				// constructor
@@ -34,9 +34,9 @@ namespace Compiler {
 						while(!atEndOfFile) {
 							currentSpelling.Clear();
 							IgnoreUseless();
-							start = source.Location;
+							start = source._Location;
 							kind = ScanToken();
-							token = new Token(kind, currentSpelling.ToString(), new SourcePosition(start, source.Location));
+							token = new Token(kind, currentSpelling.ToString(), new SourcePosition(start, source._Location));
 
 							if(kind == TokenKind.EndOfText)
 								atEndOfFile = true;
@@ -66,6 +66,7 @@ namespace Compiler {
 						}
 					}
 				}
+			// private
 				private TokenKind ScanToken() {
 				/*
 					if(IsOperator(source.Current)) {

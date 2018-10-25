@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace Compiler {
+﻿namespace Compiler {
 	class SourcePosition {
 		/* ATTRIBUTES */
-			readonly Location Start = null, End = null;
+			public Location Start = null, End = null;
 		/* MEMBERS */
 			public SourcePosition(Location _Start, Location _End) {
 				Start = _Start;
