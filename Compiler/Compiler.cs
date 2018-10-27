@@ -26,7 +26,7 @@ namespace Compiler {
 			// entry point
 				/**
 				 * Build a Compiler instance.
-				 * @param args	command-line one and only argument, the source code file
+				 * @param args	command-line one and only argument, the source code file.
 				 */
 				public static void Main(string[] args) {
 					Console.ResetColor();
@@ -50,6 +50,13 @@ namespace Compiler {
 					}
 				}
 			// output
+				/**
+				 * Displays an error.
+				 * @param origin		class name of the object sender.
+				 * @param code			error code.
+				 * @param msg			arguments for the error message. Can be empty.
+				 * @param indentlevel	indentation level.
+				 */
 				public static void Error(string origin, uint code, string[] msg, uint indentlevel = 0) {
 					Console.ForegroundColor = ConsoleColor.Red;
 					string error_message = "";
@@ -183,6 +190,12 @@ namespace Compiler {
 					Console.WriteLine(error_message);
 					Console.ResetColor();
 				}
+				/**
+				 * Displays an error.
+				 * @param origin		class name of the object sender.
+				 * @param msg			body of the info message.
+				 * @param indentlevel	indentation level.
+				 */
 				public static void Info(string origin, string msg, uint indentlevel = 0) {
 					Console.ForegroundColor = ConsoleColor.Blue;
 					string message = "";
@@ -197,7 +210,7 @@ namespace Compiler {
 						case "Scanner":
 						case "Parser":
 							message = $"[{origin}]";
-							message +=msg;
+							message += msg;
 							break;
 						default:
 							Error(typeof(Compiler).Name, 1, new string[]{ origin }, ++indentlevel);
