@@ -54,17 +54,17 @@ namespace Compiler {
 					}
 				// value-or-variable nae parsing
 					protected void ParseVname() {
-						Console.WriteLine("parsing variable name");
+						Compiler.Info(typeof(Parser).Name, "parsing variable name", 1);
 						ParseIdentifier();
 					}
 				// terminals parsing
 					// Parses an identifier, and constructs a leaf AST to represent it.
 					protected void ParseIdentifier() {
-						Console.WriteLine("parsing identifier");
+						Compiler.Info(typeof(Parser).Name, "parsing identifier", 1);
 						Accept(TokenKind.Identifier);
 					}
 					protected void ParseOperator() {
-						Console.WriteLine("parsing operator");
+						Compiler.Info(typeof(Parser).Name, "parsing operator", 1);
 						switch(tokens.Current.Spelling) {
 							case "+":
 							case "-":
@@ -80,7 +80,7 @@ namespace Compiler {
 						}
 					}
 					protected void ParseIntLiteral() {
-						Console.WriteLine("parsing identifier");
+						Compiler.Info(typeof(Parser).Name, "parsing integer literal", 1);
 					}
 				// command parsing
 					/// Parses the command

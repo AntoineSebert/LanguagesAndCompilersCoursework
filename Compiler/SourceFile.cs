@@ -13,52 +13,57 @@ namespace Compiler {
 				public bool IsValid { get { return source != null; } }
 				public Location _Location { get { return new Location(lineNumber, index); } }
 			// private
-				private uint index = 0;
-				private uint lineNumber = 0;
+				private uint index = 0, lineNumber = 0;
 				private string buffer = "";
 				private StreamReader source = null;
 		/* MEMBERS */
 			// public
-				public bool MoveNext() {
-					if(buffer != null) {
-						index++;
-						if(buffer.Length < index)
-							ReadLine();
+				// constructor
+					public SourceFile(string sourceFileName) {
+						Name = sourceFileName;
+						try {
+							if(new FileInfo(sourceFileName).Length == 0) {
+								Compiler.Error(typeof(Compiler).Name, 6, new string[]{ Name }, 1);
+								System.Environment.Exit(1);
+							}
+							source = new StreamReader(new FileStream(sourceFileName, FileMode.Open));
+							Reset();
+						}
+						catch(Exception e) {
+							Compiler.Error(typeof(Compiler).Name, 7, new string[]{ Name, e.Message }, 1);
+							System.Environment.Exit(1);
+						}
 					}
-					return buffer != null;
-				}
-				public void Reset() {
-					if(source == null)
-						throw new InvalidOperationException();
-					if(!source.BaseStream.CanSeek)
-						throw new NotSupportedException();
-
-					source.BaseStream.Seek(0L, SeekOrigin.Begin);
-					source.DiscardBufferedData();
-
-					index = 0;
-					lineNumber = 0;
-
-					ReadLine();
-				}
-				public SourceFile(string sourceFileName) {
-					Name = sourceFileName;
-					try {
-						source = new StreamReader(new FileStream(sourceFileName, FileMode.Open));
-						Reset();
+				// other
+					public bool MoveNext() {
+						Console.WriteLine(index + "==" + buffer.Length);
+						if(buffer != null) {
+							index++;
+							if(index < buffer.Length)
+								ReadLine();
+						}
+						return buffer != null;
 					}
-					catch(FileNotFoundException) {
-						source = null;
+					public void Reset() {
+						if(source == null)
+							throw new InvalidOperationException();
+						if(!source.BaseStream.CanSeek)
+							throw new NotSupportedException();
+
+						source.BaseStream.Seek(0L, SeekOrigin.Begin);
+						source.DiscardBufferedData();
+						index = lineNumber = 0;
+
+						ReadLine();
 					}
-				}
-				public void Dispose() {
-					Dispose(true);
-					GC.SuppressFinalize(this);
-				}
-				public bool SkipRestOfLine() {
-					index = (uint)buffer.Length;
-					return MoveNext();
-				}
+					public void Dispose() {
+						Dispose(true);
+						GC.SuppressFinalize(this);
+					}
+					public bool SkipRestOfLine() {
+						index = (uint)buffer.Length;
+						return MoveNext();
+					}
 			// protected
 				protected virtual void Dispose(bool disposing) {
 					if(disposing && source != null) {
@@ -70,7 +75,7 @@ namespace Compiler {
 				private void ReadLine() {
 					buffer = source.ReadLine();
 					if(buffer != null)
-						buffer += "\n";
+						buffer += '\n';
 
 					index = 0;
 					lineNumber++;

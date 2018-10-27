@@ -42,7 +42,7 @@ namespace Compiler {
 								atEndOfFile = true;
 
 							if(Debug)
-								Console.WriteLine(token);
+								Compiler.Info(typeof(Scanner).Name, token.ToString(), 1);
 
 							yield return token;
 						}
@@ -50,8 +50,8 @@ namespace Compiler {
 					IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
 			// protected
 				protected bool IsOperator(char c) { return Array.IndexOf(operators, c) != -1; }
-				protected bool IsSpecial(char c) { return Array.IndexOf(special, c) != -1; }
-				protected bool IsGraphic(char c) { return Char.IsLetterOrDigit(c) || IsOperator(c) || IsSpecial(c); }
+				protected bool IsSpecial(char c) { return Array.IndexOf(specials, c) != -1; }
+				protected bool IsGraphic(char c) { return char.IsLetterOrDigit(c) || IsOperator(c) || IsSpecial(c); }
 				protected void IgnoreUseless() {
 					while(source.Current == '!' || source.Current == ' ' || source.Current == '\t' || source.Current == '\n') {
 						switch(source.Current) {
@@ -68,29 +68,37 @@ namespace Compiler {
 				}
 			// private
 				private TokenKind ScanToken() {
-				/*
+					// operators + two-characters operators
 					if(IsOperator(source.Current)) {
 						TakeIt();
-						if(IsOperator(source.Current))
-							TakeIt();
+						if(IsOperator(source.Current)) {
+							if(source.Current == '=')
+								TakeIt();
+							else {
+								TakeIt();
+								Compiler.Error(typeof(Scanner).Name, 1, new string[]{
+									source._Location.LineNumber.ToString(),
+									source._Location.RowNumber.ToString(),
+									currentSpelling.ToString()
+								}, 1);
+							}
+						}
 						return TokenKind.Operator;
 					}
+					// integer literal
 					if(char.IsDigit(source.Current)) {
 						TakeIt();
+						do { TakeIt(); } while(char.IsDigit(source.Current));
 						return TokenKind.IntLiteral;
 					}
+					// identifier
 					if(char.IsLetter(source.Current)) {
-						do {
-							TakeIt();
-						}
-						while(char.IsLetter(source.Current) || char.IsDigit(source.Current));
+						do { TakeIt(); } while(char.IsLetter(source.Current) || char.IsDigit(source.Current) || source.Current == '_');
 						if(ReservedWords.TryGetValue(currentSpelling.ToString(), out TokenKind reservedWordType))
 							return reservedWordType;
 						return TokenKind.Identifier;
 					}
-					*/
 					switch(source.Current) {
-				/*
 						case default(char):
 							return TokenKind.EndOfText;
 						case ';':
@@ -99,42 +107,46 @@ namespace Compiler {
 						case ',':
 							TakeIt();
 							return TokenKind.Colon;
-						case '{':
-							TakeIt();
-							return TokenKind.LeftBracket;
-						case '}':
-							TakeIt();
-							return TokenKind.RightBracket;
 						case '(':
 							TakeIt();
 							return TokenKind.LeftParenthese;
 						case ')':
 							TakeIt();
 							return TokenKind.RightParenthese;
+						case '~':
+							TakeIt();
+							return TokenKind.Is;
 						case ':':
 							TakeIt();
-							if(IsOperator(source.Current)) {
+							if(source.Current == '=') {
 								TakeIt();
-								return TokenKind.Operator;
+								return TokenKind.Becomes;
 							}
-							return TokenKind.Becomes;
+							return TokenKind.Colon;
 						case '\'':
-							source.MoveNext();
+							TakeIt();
 							if(source.Current == '\'') {
-								source.MoveNext();
+								TakeIt();
 								return TokenKind.CharacterLiteral;
 							}
 							else {
-								TakeIt();
-								if(source.Current == '\'') {
-									source.MoveNext();
-									return TokenKind.CharacterLiteral;
+								if(IsGraphic(source.Current)) {
+									TakeIt();
+									if(source.Current == '\'') {
+										TakeIt();
+										return TokenKind.CharacterLiteral;
+									}
 								}
-								Console.WriteLine("Scanning error : ill-formed character literal");
+								TakeIt();
+								Compiler.Error(typeof(Scanner).Name, 0, new string[]{
+									source._Location.LineNumber.ToString(),
+									source._Location.RowNumber.ToString(),
+									currentSpelling.ToString()
+								}, 1);
 								return TokenKind.Error;
 							}
-					*/
 						default:
+							// not ASCII character ? => file encoding
 							TakeIt();
 							return TokenKind.Error;
 					}
