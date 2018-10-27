@@ -1,3 +1,7 @@
+/**
+ * @author Antoine/Anthony Sébert
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -1,22 +1,37 @@
-﻿using System;
-
-/**
- * @author Antoine/Anthony Sébert
+﻿/**
+ * @author	Antoine/Anthony Sébert
  */
+
+using System;
+
 namespace Compiler {
 	/**
-	 * Holds a scanner and a parser, is responsible for the whole process.
+	 * Holds a scanner, a parser, and the source file is responsible for the whole process.
+	 * @see	Scanner
+	 * @see	Parser
 	 */
 	class Compiler {
 		/* ATTRIBUTES */
+			/**
+			 * Holds a Scanner object, initialised in #constructor(string)
+			 * @see	Scanner
+			 */
 			readonly Scanner scanner = null;
+			/**
+			 * Holds a Parser object, initialised in #constructor(string)
+			 * @see	Parser
+			 */
 			readonly Parser parser = null;
+			/**
+			 * Holds the source code file, initialised in #constructor(string)
+			 * @see	SourceFile
+			 */
 			readonly SourceFile source = null;
 		/* MEMBERS */
 			// constructor
 				/**
-				 * Build a Compiler instance.
-				 * @param filename	name of the file to compile
+				 * Builds a Compiler instance.
+				 * @param	filename	name of the file to compile
 				 */
 				public Compiler(string fileName) {
 					source = new SourceFile(fileName);
@@ -25,18 +40,18 @@ namespace Compiler {
 				}
 			// entry point
 				/**
-				 * Build a Compiler instance.
-				 * @param args	command-line one and only argument, the source code file.
+				 * Builds a {@code Compiler} instance.
+				 * @param	args	command-line one and only argument, the source code file.
 				 */
 				public static void Main(string[] args) {
 					Console.ResetColor();
 					if(args.Length == 0) {
 						Error(typeof(Compiler).Name, 4, null);
-						System.Environment.Exit(1);
+						Environment.Exit(1);
 					}
 					else if(1 < args.Length) {
 						Error(typeof(Compiler).Name, 5, null);
-						System.Environment.Exit(1);
+						Environment.Exit(1);
 					}
 
 					string sourceFileName = args[0];
@@ -52,10 +67,10 @@ namespace Compiler {
 			// output
 				/**
 				 * Displays an error.
-				 * @param origin		class name of the object sender.
-				 * @param code			error code.
-				 * @param msg			arguments for the error message. Can be empty.
-				 * @param indentlevel	indentation level.
+				 * @param	origin		class name of the object sender.
+				 * @param	code		error code.
+				 * @param	msg			arguments for the error message. Can be empty.
+				 * @param	indentlevel	indentation level.
 				 */
 				public static void Error(string origin, uint code, string[] msg, uint indentlevel = 0) {
 					Console.ForegroundColor = ConsoleColor.Red;
@@ -192,9 +207,9 @@ namespace Compiler {
 				}
 				/**
 				 * Displays an error.
-				 * @param origin		class name of the object sender.
-				 * @param msg			body of the info message.
-				 * @param indentlevel	indentation level.
+				 * @param	origin		class name of the object sender.
+				 * @param	msg			body of the info message.
+				 * @param	indentlevel	indentation level.
 				 */
 				public static void Info(string origin, string msg, uint indentlevel = 0) {
 					Console.ForegroundColor = ConsoleColor.Blue;

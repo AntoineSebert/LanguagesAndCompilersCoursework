@@ -1,4 +1,8 @@
-﻿using System;
+﻿/**
+ * @author Antoine/Anthony Sébert
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -6,27 +10,67 @@ using System.Linq;
 using System.Text;
 
 namespace Compiler {
+	/**
+	 * Split the source file into tokens, checks the validity of the stream on the fly. Does not perform syntax checks.
+	 * @see	Token
+	 * @see	TokenKind
+	 */
 	class Scanner : IEnumerable<Token> {
 		/* ATTRIBUTES */
 			// public
+				/**
+				 * Holds a boolean set to true if the Scanner runs in debug mode. In that case the process is more verbose.
+				 */
 				static public bool Debug { get; set; } = true;
 			// private
+				/**
+				 * Holds a boolean set to true if the end of the source file has been reached.
+				 */
 				static bool atEndOfFile = false;
-				static readonly char[] operators = { '+', '-', '*', '/', '=', '<', '>' }, specials = { '.', '!', '?', '_', ' ' };
+				/**
+				 * Contains the atomic operators.
+				 */
+				static readonly char[] operators = { '+', '-', '*', '/', '=', '<', '>' },
+				/**
+				 * Contains the special characters.
+				 */
+					specials = { '.', '!', '?', '_', ' ' }; // is the space character really needed ? looks like it will be trimmed everytime
+				/**
+				 * Holds a reference to the source file.
+				 * @see	SourceFile
+				 */
 				static SourceFile source = null;
+				/**
+				 * Contains the characters being processed in order to determine which token to create.
+				 */
 				static StringBuilder currentSpelling = null;
+				/**
+				 * Contains the reserved keywords as strings, generated on the fly when the instance is created.
+				 * @see	TokenKind
+				 */
 				static readonly ImmutableDictionary<string, TokenKind> ReservedWords =
 					Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While)
 					.Cast<TokenKind>().ToImmutableDictionary(kind => kind.ToString().ToLower(), kind => kind);
 		/* MEMBERS */
 			// public 
 				// constructor
+					/**
+					 * Builds a {@code Scanner} instance.
+					 * @param	_source	reference to the source file to scan.
+					 * @see		SourceFile
+					 */
 					public Scanner(SourceFile _source) {
 						source = _source;
 						source.Reset();
 						currentSpelling = new StringBuilder();
 					}
 				// interface
+					/**
+					 * Responsible for the main process of creating a collection of tokens from the source file.
+					 * @return	a collection of tokens of type {@code IEnumerator<Token>}.
+					 * @see		Token
+					 * @see		SourceFile
+					 */
 					public IEnumerator<Token> GetEnumerator() {
 						Location start = null;
 						Token token = null;
@@ -50,11 +94,34 @@ namespace Compiler {
 							yield return token;
 						}
 					}
+					/**
+					 * Returns the collection of tokens built from the source file.
+					 */
 					IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
 			// protected
+				/**
+				 * Test if a character is an operator.
+				 * @param	c	the character to test.
+				 * @return	{@code true} if the character matches an operator, {@code false} otherwise.
+				 * @see		operators
+				 */
 				protected bool IsOperator(char c) { return Array.IndexOf(operators, c) != -1; }
+				/**
+				 * Test if a character is a special character.
+				 * @param	c	the character to test.
+				 * @return	{@code true} if the character matches a special character, {@code false} otherwise.
+				 * @see		specials
+				 */
 				protected bool IsSpecial(char c) { return Array.IndexOf(specials, c) != -1; }
+				/**
+				 * Test if a character is a graphic character. It includes digits, letters, operators and special characters.
+				 * @param	c	the character to test.
+				 * @return	{@code true} if the character is a graphic character, {@code false} otherwise.
+				 */
 				protected bool IsGraphic(char c) { return char.IsLetterOrDigit(c) || IsOperator(c) || IsSpecial(c); }
+				/**
+				 * Skips whitespaces and comments in the source file.
+				 */
 				protected void IgnoreUseless() {
 					while(source.Current == '!' || source.Current == ' ' || source.Current == '\t' || source.Current == '\n') {
 						switch(source.Current) {
@@ -70,6 +137,11 @@ namespace Compiler {
 					}
 				}
 			// private
+				/**
+				 * Determine the token kind to build from the characters processed. Reads the file stream to build the token.
+				 * @return	a token kind.
+				 * @see		TokenKind
+				 */
 				private TokenKind ScanToken() {
 					// operators + two-characters operators
 					if(IsOperator(source.Current)) {
@@ -159,6 +231,9 @@ namespace Compiler {
 							return TokenKind.Error;
 					}
 				}
+				/**
+				 * Append the current character to the buffer and move to the next character.
+				 */
 				private void TakeIt() {
 					currentSpelling.Append(source.Current);
 					source.MoveNext();
