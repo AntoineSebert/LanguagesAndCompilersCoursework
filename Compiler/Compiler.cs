@@ -29,6 +29,7 @@ namespace Compiler {
 				 * @param args	command-line one and only argument, the source code file
 				 */
 				public static void Main(string[] args) {
+					Console.ResetColor();
 					if(args.Length == 0) {
 						Error(typeof(Compiler).Name, 4, null);
 						System.Environment.Exit(1);
@@ -37,13 +38,15 @@ namespace Compiler {
 						Error(typeof(Compiler).Name, 5, null);
 						System.Environment.Exit(1);
 					}
+
 					string sourceFileName = args[0];
+
 					if(sourceFileName != null) {
 						var compiler = new Compiler(sourceFileName);
 						foreach(var token in compiler.scanner)
 							Info(typeof(Compiler).Name, token.ToString());
-						//compiler.source.Reset(); // uncomment to reset source code
-						compiler.parser.ParseProgram();
+						compiler.source.Reset(); // uncomment to reset source code
+						//compiler.parser.ParseProgram();
 					}
 				}
 			// output
@@ -53,6 +56,8 @@ namespace Compiler {
 
 					for(uint i = 0; i < indentlevel; ++i)
 						error_message += '\t';
+
+					error_message += "[ERROR]";
 
 					switch(origin) {
 						case "Compiler":
@@ -64,7 +69,7 @@ namespace Compiler {
 									break;
 								case 1:
 									if(msg.Length == 0) {
-										Error(typeof(Compiler).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -72,7 +77,7 @@ namespace Compiler {
 									break;
 								case 2:
 									if(msg.Length < 2) {
-										Error(typeof(Compiler).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -80,7 +85,7 @@ namespace Compiler {
 									break;
 								case 3:
 									if(msg.Length == 0) {
-										Error(typeof(Compiler).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -96,7 +101,7 @@ namespace Compiler {
 									break;
 								case 6:
 									if(msg.Length == 0) {
-										Error(typeof(Compiler).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -104,7 +109,7 @@ namespace Compiler {
 									break;
 								case 7:
 									if(msg.Length < 2) {
-										Error(typeof(Compiler).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -120,15 +125,23 @@ namespace Compiler {
 							switch(code) {
 								case 0:
 									if(msg.Length < 3) {
-										Error(typeof(Scanner).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										return;
+									}
+									error_message += $"[{code}] : ";
+									error_message += $"unknown token at line {msg[0]}, column {msg[1]}, got : {msg[2]}";
+									break;
+								case 1:
+									if(msg.Length < 3) {
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
 									error_message += $"ill-formed character literal at line {msg[0]}, column {msg[1]} , got : {msg[2]}";
 									break;
-								case 1:
+								case 2:
 									if(msg.Length < 3) {
-										Error(typeof(Scanner).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -143,11 +156,20 @@ namespace Compiler {
 							error_message = $"[{origin}]";
 							switch(code) {
 								case 0:
-									if(msg.Length == 0) {
-										Error(typeof(Scanner).Name, 3, new string[]{ code.ToString() }, ++indentlevel);
+									if(msg.Length < 3) {
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
 										return;
 									}
 									error_message += $"[{code}] : ";
+									error_message += $"unknown token at line {msg[0]}, column {msg[1]}, got : {msg[3]}";
+									break;
+								case 1:
+									if(msg.Length < 3) {
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										return;
+									}
+									error_message += $"[{code}] : ";
+									error_message += $"invalid operator at line {msg[0]}, column {msg[1]}, got : {msg[2]}";
 									break;
 								default:
 									Error(origin, 2, new string[]{ origin, code.ToString() }, ++indentlevel);
@@ -167,6 +189,8 @@ namespace Compiler {
 
 					for(uint i = 0; i < indentlevel; ++i)
 						message += '\t';
+
+					message += "[INFO]";
 
 					switch(origin) {
 						case "Compiler":

@@ -24,22 +24,21 @@ namespace Compiler {
 						try {
 							if(new FileInfo(sourceFileName).Length == 0) {
 								Compiler.Error(typeof(Compiler).Name, 6, new string[]{ Name }, 1);
-								System.Environment.Exit(1);
+								Environment.Exit(1);
 							}
 							source = new StreamReader(new FileStream(sourceFileName, FileMode.Open));
 							Reset();
 						}
 						catch(Exception e) {
 							Compiler.Error(typeof(Compiler).Name, 7, new string[]{ Name, e.Message }, 1);
-							System.Environment.Exit(1);
+							Environment.Exit(1);
 						}
 					}
 				// other
 					public bool MoveNext() {
-						Console.WriteLine(index + "==" + buffer.Length);
 						if(buffer != null) {
 							index++;
-							if(index < buffer.Length)
+							if(buffer.Length <= index)
 								ReadLine();
 						}
 						return buffer != null;

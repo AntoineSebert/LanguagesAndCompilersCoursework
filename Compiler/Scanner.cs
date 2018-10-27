@@ -40,9 +40,12 @@ namespace Compiler {
 
 							if(kind == TokenKind.EndOfText)
 								atEndOfFile = true;
-
+							else if(kind == TokenKind.Error)
+								Environment.Exit(1);
+							/*
 							if(Debug)
 								Compiler.Info(typeof(Scanner).Name, token.ToString(), 1);
+							*/
 
 							yield return token;
 						}
@@ -76,7 +79,7 @@ namespace Compiler {
 								TakeIt();
 							else {
 								TakeIt();
-								Compiler.Error(typeof(Scanner).Name, 1, new string[]{
+								Compiler.Error(typeof(Scanner).Name, 2, new string[]{
 									source._Location.LineNumber.ToString(),
 									source._Location.RowNumber.ToString(),
 									currentSpelling.ToString()
@@ -138,7 +141,7 @@ namespace Compiler {
 									}
 								}
 								TakeIt();
-								Compiler.Error(typeof(Scanner).Name, 0, new string[]{
+								Compiler.Error(typeof(Scanner).Name, 1, new string[]{
 									source._Location.LineNumber.ToString(),
 									source._Location.RowNumber.ToString(),
 									currentSpelling.ToString()
@@ -148,6 +151,11 @@ namespace Compiler {
 						default:
 							// not ASCII character ? => file encoding
 							TakeIt();
+							Compiler.Error(typeof(Scanner).Name, 0, new string[]{
+								source._Location.LineNumber.ToString(),
+								source._Location.RowNumber.ToString(),
+								currentSpelling.ToString()
+							}, 1);
 							return TokenKind.Error;
 					}
 				}

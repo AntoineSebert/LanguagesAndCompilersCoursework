@@ -24,9 +24,9 @@ namespace Compiler {
 					 */
 				// program parsing
 					public void ParseProgram() {
-						Console.WriteLine("parsing Program");
+						Compiler.Info(typeof(Parser).Name, "parsing Program", 1);
 						tokens.MoveNext();
-						var startLocation = tokens.Current.Position.Start;
+						//var startLocation = tokens.Current.Position.Start;
 						ParseCommand();
 					}
 			// protected
@@ -85,7 +85,7 @@ namespace Compiler {
 				// command parsing
 					/// Parses the command
 					protected void ParseCommand() {
-						Console.WriteLine("parsing command");
+						Compiler.Info(typeof(Parser).Name, "parsing command", 1);
 						ParseSingleCommand();
 						while(tokens.Current.Kind == TokenKind.Semicolon) {
 							AcceptIt();
@@ -93,7 +93,7 @@ namespace Compiler {
 						}
 					}
 					protected void ParseExpression() {
-						Console.WriteLine("parsing expression");
+						Compiler.Info(typeof(Parser).Name, "parsing expression", 1);
 						ParsePrimaryExpression();
 						while(tokens.Current.Kind == TokenKind.Operator) {
 							AcceptIt();
@@ -101,7 +101,7 @@ namespace Compiler {
 						}
 					}
 					protected void ParsePrimaryExpression() {
-						Console.WriteLine("parsing primary expression");
+						Compiler.Info(typeof(Parser).Name, "parsing primary expression", 1);
 						switch(tokens.Current.Kind) {
 							case TokenKind.IntLiteral:
 								AcceptIt();
@@ -125,7 +125,7 @@ namespace Compiler {
 						}
 					}
 					protected void ParseDeclaration() {
-						Console.WriteLine("parsing declaration");
+						Compiler.Info(typeof(Parser).Name, "parsing declaration", 1);
 						ParsingSingleDeclaration();
 						while(tokens.Current.Kind == TokenKind.Semicolon) {
 							AcceptIt();
@@ -133,7 +133,7 @@ namespace Compiler {
 						}
 					}
 					protected void ParsingSingleDeclaration() {
-						Console.WriteLine("parsing single declaration");
+						Compiler.Info(typeof(Parser).Name, "parsing single declaration", 1);
 						switch(tokens.Current.Kind) {
 							case TokenKind.Const:
 								AcceptIt();
@@ -156,7 +156,7 @@ namespace Compiler {
 					}
 					// Parses the single command
 					protected void ParseSingleCommand() {
-						Console.WriteLine("parsing single command");
+						Compiler.Info(typeof(Parser).Name, "parsing single command", 1);
 						switch(tokens.Current.Kind) {
 							case TokenKind.Identifier: {
 								AcceptIt();
