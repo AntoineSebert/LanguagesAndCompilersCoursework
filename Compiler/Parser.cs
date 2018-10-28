@@ -24,6 +24,8 @@ namespace Compiler {
 			 * @see	Token
 			 */
 			private IEnumerator<Token> tokens = null;
+
+			private List<Token> collection = null;
 		/* MEMBERS */
 			// public
 				// constructor
@@ -38,12 +40,15 @@ namespace Compiler {
 				// program parsing
 					/**
 					 * Parses a program from the beginning to the end.
+					 * @return	a collection representing the source code as tokens.
 					 */
-					public void ParseProgram() {
+					public List<Token> ParseProgram() {
 						Compiler.Info(typeof(Parser).Name, "parsing Program");
+						collection = new List<Token>();
 						// var previousLocation = Location.Empty;
-						//var startLocation = tokens.Current.Position.Start; // ?
+						// var startLocation = tokens.Current.Position.Start; // ?
 						ParseCommand();
+						return collection;
 					}
 			// protected
 				// tokens swallowing
@@ -52,9 +57,9 @@ namespace Compiler {
 					 * @param expectedKinds	an array of expected token kinds.
 					 */
 					protected void Accept(TokenKind expectedKind) {
-						if(tokens.Current.Kind == expectedKind) {
-							var previousLocation = tokens.Current.Position.Start; // ?
-						}
+						Location previousLocation = null;
+						if(tokens.Current.Kind == expectedKind)
+							previousLocation = tokens.Current.Position.Start;
 						else
 							Compiler.Error(typeof(Parser).Name, 2, new string[]{
 								tokens.Current.Position.Start.LineNumber.ToString(),
@@ -62,12 +67,14 @@ namespace Compiler {
 								tokens.Current.Kind.ToString(),
 								expectedKind.ToString()
 							});
-						tokens.MoveNext();
+						AcceptIt();
 					}
 					/**
 					 * Fetches the next token from the source file.
 					 */
 					protected void AcceptIt() {
+						if(tokens.Current != null)
+							collection.Add(tokens.Current);
 						//var previousLocation = tokens.Current.Position.End; // ?
 						tokens.MoveNext();
 					}
@@ -79,10 +86,14 @@ namespace Compiler {
 						Compiler.Info(typeof(Parser).Name, "parsing command");
 						AcceptIt();
 						ParseSingleCommand();
+						Console.WriteLine();
 						while(tokens.Current.Kind == TokenKind.Semicolon) {
 							AcceptIt();
 							ParseSingleCommand();
+							Console.WriteLine();
 						}
+
+						Compiler.Info(typeof(Parser).Name, "compilation succeeded");
 					}
 					/**
 					 * Parses a single command.
@@ -90,24 +101,26 @@ namespace Compiler {
 					protected void ParseSingleCommand() {
 						Compiler.Info(typeof(Parser).Name, "parsing single command");
 						switch(tokens.Current.Kind) {
-							case TokenKind.Identifier: {
+							case TokenKind.Identifier:
 								ParseIdentifier();
 								if(tokens.Current.Kind == TokenKind.Becomes) {
 									AcceptIt();
 									ParseExpression();
 								}
-								else if (tokens.Current.Kind == TokenKind.LeftParenthese) {
+								else {
 									AcceptIt();
 									ParseParameters();
 									Accept(TokenKind.RightParenthese);
 								}
 								break;
-							}
 							case TokenKind.Begin:
-								AcceptIt();
-
-								ParseCommand();
-
+								do {
+									AcceptIt();
+									if(tokens.Current.Kind == TokenKind.End)
+										break;
+									ParseSingleCommand();
+									Console.WriteLine();
+								} while(tokens.Current.Kind == TokenKind.Semicolon);
 								Accept(TokenKind.End);
 								break;
 							case TokenKind.If:
@@ -148,7 +161,6 @@ namespace Compiler {
 								});
 								break;
 						}
-						Console.WriteLine();
 					}
 				// terminals parsing
 					/**

@@ -1,16 +1,42 @@
-# Element 1 - Scanner & Parser (40% of Coursework Grade)
+# Implementation report
 
-The first submission will constitute the two primary components of the front end of your compiler.
+[Anthony Sébert](mailto:antoine.sb@orange.fr)[^1] , 28 october 2018
 
-## Scanner implementation – 15%
+## Documentation
+
+The documentation has been generated with [Doxygen](file:///D:/Program%20Files/doxygen/html/index.html) from the in-code documentation.
+It has been generated in several formats, as listed : HTML, LaTeX, man-pages, rtf and xml;
+The "main page" of the HTML version is located at [docs/html/annotated.html](docs/html/index.html) (the real main page is empty, for I had nothing interesting to put there).
+
+## Scanner implementation
 
 Your Scanner (Lexical Analyser) should be developed to read in a source file written in the given source language. The characters in the source file should be compiled into a sequence of recognised language tokens.
 
-During this process your scanner should fulfil the following basic compiler requirements
+During this process your scanner should fulfill the following basic compiler requirements
 
-- [x] Identify and remove whitespace.
+- [x] [Identify and remove whitespace](#Fragment 1)
 
-- [x] Identify and remove language comments.
+- [x] [Identify and remove language comments](#Fragment 1)
+
+- [x] [Identify and produce errors for unknown characters in the language](#Fragment 2)
+
+- [x] [Identify and produce errors for unterminated character literals](#Fragment 3)
+
+## Parser implementation
+
+including how you have transferred data between the components.
+
+- [x] [Your Parser (Syntax Analyser) should work on the sequence of tokens created by the scanner. These tokens should be grouped into sentences, creating a set of instructions. The instruction set will represent the purpose of the program defined in the source code](file:///D:/Users/i/Desktop/LanguagesAndCompilersCoursework/docs/html/df/dc2/class_compiler_1_1_parser.html)
+
+- [x] [Your Parser should be able to identify Syntax Errors in the source program and produce errors for instructions that do not conform to the language definition](#Fragment 4)
+
+- [x] On completion of the Parser stage your compiler should maintain an Internal Representation of the instruction set and write out an instruction set, in the correct order, to the console.
+
+## Appendix
+
+### Scanner
+
+#### Fragment 1
 
 ```csharp
 /**
@@ -32,7 +58,7 @@ protected void IgnoreUseless() {
 }
 ```
 
-- [x] Identify and produce errors for unknown characters in the language.
+#### Fragment 2
 
 ```csharp
 /**
@@ -58,7 +84,7 @@ private TokenKind ScanToken() {
 }
 ```
 
-- [x] Identify and produce errors for unterminated character literals.
+#### Fragment 3
 
 ```csharp
 /**
@@ -100,16 +126,33 @@ private TokenKind ScanToken() {
 }
 ```
 
-## Parser implementation – 20%
+### Parser
 
-Your Parser (Syntax Analyser) should work on the sequence of tokens created by the scanner. These tokens should be grouped into sentences, creating a set of instructions. The instruction set will represent the purpose of the program defined in the source code.
+#### Fragment 4
 
-Your Parser should be able to identify Syntax Errors in the source program and produce errors for instructions that do not conform to the language definition.
+```csharp
+/**
+ * Checks that the given token matches the current stream of tokens, if not prints an error.
+ * @param expectedKinds	an array of expected token kinds.
+ */
+protected void Accept(TokenKind expectedKind) {
+	Location previousLocation = null;
+	if(tokens.Current.Kind == expectedKind)
+		previousLocation = tokens.Current.Position.Start;
+	else
+		Compiler.Error(typeof(Parser).Name, 2, new string[]{
+			tokens.Current.Position.Start.LineNumber.ToString(),
+			tokens.Current.Position.Start.RowNumber.ToString(),
+			tokens.Current.Kind.ToString(),
+			expectedKind.ToString()
+		});
+	tokens.MoveNext();
+}
+```
 
-On completion of the Parser stage your compiler should maintain an Internal Representation of the instruction set and write out an instruction set, in the correct order, to the console.
+#### Fragment 5
 
-## Implementation Report – 5%
+#### Fragment 6
 
-In addition to the two components above you should also submit an implementation report describing how you have implemented the compiler. Your report should a description of how you have covered the requirements of the Scanner and Parser detailed above, including how you have transferred data between the components. Your implementation report for this stage should be no more than 2000 words plus appendices.
 
-As an appendix to your report you should include any source programs written in the given language that you used to test your Scanner and Parser.
+[^1]: Computer Science student at [The Robert Gordon university](https://www.rgu.ac.uk/) (Garthdee House, Garthdee Road, Aberdeen, AB10 7QB, Scotland, United Kingdom)

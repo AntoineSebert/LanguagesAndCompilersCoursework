@@ -22,12 +22,15 @@ else
 while v_1 < 10 do
 	v_1 := v_1 + 1;
 
-let var v_2 : uint in vector
+let var v_2 : uint in vector(var letter123_);
 
 begin
-	v_2 = v_2 /= v_1
+	v_2 := v_2 /= v_1;
 	if c_1 < v_2 then
-		0;
+		if nested *= working then
+			v_3 := v_2;
+		else
+			skip;
 	else
-		v_2 += 1;
+		v_2 := 1;
 end

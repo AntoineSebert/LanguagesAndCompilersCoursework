@@ -53,7 +53,7 @@ namespace Compiler {
 				 * @see	TokenKind
 				 */
 				static readonly ImmutableDictionary<string, TokenKind> ReservedWords =
-					Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While)
+					Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.Skip)
 					.Cast<TokenKind>().ToImmutableDictionary(kind => kind.ToString().ToLower(), kind => kind);
 		/* MEMBERS */
 			// public 

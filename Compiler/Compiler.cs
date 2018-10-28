@@ -3,6 +3,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace Compiler {
 	/**
@@ -27,6 +28,11 @@ namespace Compiler {
 			 * @see	SourceFile
 			 */
 			readonly SourceFile source = null;
+			/**
+			 * A collection representing the source code as tokens.
+			 * @see	SourceFile
+			 */
+			private List<Token> collection = null;
 		/* MEMBERS */
 			// constructor
 				/**
@@ -40,7 +46,7 @@ namespace Compiler {
 				}
 			// entry point
 				/**
-				 * Builds a {@code Compiler} instance.
+				 * Builds a {@code Compiler} instance. Launches the scanning and the compilation. Prints the tokens representing the source file if the previous operations succeeded.
 				 * @param	args	command-line one and only argument, the source code file.
 				 */
 				public static void Main(string[] args) {
@@ -56,12 +62,17 @@ namespace Compiler {
 
 					if(args[0] != null) {
 						var compiler = new Compiler(args[0]);
-						compiler.parser.ParseProgram();
+						compiler.collection = compiler.parser.ParseProgram();
+
+						if(0 < compiler.collection.Count) {
+							foreach(var element in compiler.collection)
+								Info(typeof(Compiler).Name, element.Kind.ToString());
+						}
 					}
 				}
 			// output
 				/**
-				 * Displays an error.
+				 * Displays an error. If an error occurs, the compilation is automatically stopped and all the data discarded.
 				 * @param	origin	class name of the object sender.
 				 * @param	code	error code.
 				 * @param	msg		arguments for the error message. Can be empty.
@@ -226,6 +237,10 @@ namespace Compiler {
 					}
 					Console.WriteLine(message);
 					Console.ResetColor();
+				}
+			// compilation error
+				public static void Abort() {
+					
 				}
 	}
 }
