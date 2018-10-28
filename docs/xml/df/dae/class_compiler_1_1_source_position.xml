@@ -15,7 +15,7 @@
 <para>Represents the start position of the element. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourcePosition.cs" line="15" column="1" bodyfile="Compiler/SourcePosition.cs" bodystart="15" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" line="15" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -31,7 +31,7 @@
 <para>Represents the end position of the element. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourcePosition.cs" line="19" column="1" bodyfile="Compiler/SourcePosition.cs" bodystart="19" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" line="19" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -71,7 +71,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourcePosition.cs" line="26" column="1" bodyfile="Compiler/SourcePosition.cs" bodystart="26" bodyend="29"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" line="26" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" bodystart="26" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="df/dae/class_compiler_1_1_source_position_1a95b14602e2629b906f29ef194d4f88f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>override string</type>
@@ -86,7 +86,7 @@
 </programlisting> . </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourcePosition.cs" line="33" column="1" bodyfile="Compiler/SourcePosition.cs" bodystart="33" bodyend="33"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" line="33" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" bodystart="33" bodyend="33"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -95,19 +95,20 @@
 <para>Represents the start and end positions of an element in the file. <simplesect kind="see"><para><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref> </para></simplesect>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="15">
+      <node id="26">
         <label>Compiler.SourcePosition</label>
         <link refid="df/dae/class_compiler_1_1_source_position"/>
-        <childnode refid="16" relation="usage">
+        <childnode refid="27" relation="usage">
+          <edgelabel>End</edgelabel>
           <edgelabel>Start</edgelabel>
         </childnode>
       </node>
-      <node id="16">
+      <node id="27">
         <label>Compiler.Location</label>
         <link refid="df/d5a/class_compiler_1_1_location"/>
       </node>
     </collaborationgraph>
-    <location file="Compiler/SourcePosition.cs" line="10" column="1" bodyfile="Compiler/SourcePosition.cs" bodystart="10" bodyend="34"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" line="10" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourcePosition.cs" bodystart="10" bodyend="34"/>
     <listofallmembers>
       <member refid="df/dae/class_compiler_1_1_source_position_1af3d1f2d17f914b89789fff6207265829" prot="private" virt="non-virtual"><scope>Compiler::SourcePosition</scope><name>End</name></member>
       <member refid="df/dae/class_compiler_1_1_source_position_1ac8eeb6d20c8a788dfe27345b435bb035" prot="public" virt="non-virtual"><scope>Compiler::SourcePosition</scope><name>SourcePosition</name></member>

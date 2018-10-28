@@ -45,6 +45,13 @@ uint
 \hline
 \end{DoxyParams}
 
+\begin{DoxyCode}
+26                                                                \{
+27                 \mbox{\hyperlink{class_compiler_1_1_location_a71feb3bfd70af6096dc48451765ba284}{LineNumber}} = \_LineNumber;
+28                 \mbox{\hyperlink{class_compiler_1_1_location_a766213e18168dcb22d657bee4f047ed9}{RowNumber}} = \_RowNumber;
+29             \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_compiler_1_1_location_a44ca3fe0ddbc48974f1f85fc6df0ba90}\label{class_compiler_1_1_location_a44ca3fe0ddbc48974f1f85fc6df0ba90}} 
@@ -62,6 +69,10 @@ Overrides the cast of a
 \textcolor{keywordtype}{string} 
 \end{DoxyCode}
  . 
+\begin{DoxyCode}
+33 \{ \textcolor{keywordflow}{return} $\textcolor{stringliteral}{"\{LineNumber\}:\{RowNumber\}"}; \}
+\end{DoxyCode}
+
 
 \subsection{Property Documentation}
 \mbox{\Hypertarget{class_compiler_1_1_location_a71feb3bfd70af6096dc48451765ba284}\label{class_compiler_1_1_location_a71feb3bfd70af6096dc48451765ba284}} 
@@ -70,14 +81,22 @@ Overrides the cast of a
 \subsubsection{\texorpdfstring{Line\+Number}{LineNumber}}
 {\footnotesize\ttfamily uint Compiler.\+Location.\+Line\+Number = 0\hspace{0.3cm}{\ttfamily [get]}}
 
-Holds the line number. \mbox{\Hypertarget{class_compiler_1_1_location_a766213e18168dcb22d657bee4f047ed9}\label{class_compiler_1_1_location_a766213e18168dcb22d657bee4f047ed9}} 
+Holds the line number. 
+\begin{DoxyCode}
+15 \{ \textcolor{keyword}{get}; \} = 0;
+\end{DoxyCode}
+\mbox{\Hypertarget{class_compiler_1_1_location_a766213e18168dcb22d657bee4f047ed9}\label{class_compiler_1_1_location_a766213e18168dcb22d657bee4f047ed9}} 
 \index{Compiler\+::\+Location@{Compiler\+::\+Location}!Row\+Number@{Row\+Number}}
 \index{Row\+Number@{Row\+Number}!Compiler\+::\+Location@{Compiler\+::\+Location}}
 \subsubsection{\texorpdfstring{Row\+Number}{RowNumber}}
 {\footnotesize\ttfamily uint Compiler.\+Location.\+Row\+Number = 0\hspace{0.3cm}{\ttfamily [get]}}
 
 Holds the row number. 
+\begin{DoxyCode}
+19 \{ \textcolor{keyword}{get}; \} = 0;
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Compiler/Location.\+cs\end{DoxyCompactItemize}
+D\+:/\+Users/i/\+Desktop/\+Languages\+And\+Compilers\+Coursework/\+Compiler/\mbox{\hyperlink{_location_8cs}{Location.\+cs}}\end{DoxyCompactItemize}

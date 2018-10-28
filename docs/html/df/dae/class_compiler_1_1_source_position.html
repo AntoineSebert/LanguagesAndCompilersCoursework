@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../df/dba/class_compiler_1_1_source_position-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Compiler.SourcePosition Class Reference</div>  </div>
@@ -78,8 +79,8 @@ $(function() {
 <div class="dynheader">
 Collaboration diagram for Compiler.SourcePosition:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d9a/class_compiler_1_1_source_position__coll__graph.png" border="0" usemap="#_compiler_8_source_position_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 0 -->
+<div class="center"><!-- SVG 0 -->
+</div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -93,6 +94,11 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad7c78fd184a393fc62cb5ee8678db0c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d5a/class_compiler_1_1_location.html">Location</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dae/class_compiler_1_1_source_position.html#ad7c78fd184a393fc62cb5ee8678db0c8">Start</a> = null</td></tr>
 <tr class="separator:ad7c78fd184a393fc62cb5ee8678db0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af3d1f2d17f914b89789fff6207265829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d5a/class_compiler_1_1_location.html">Location</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dae/class_compiler_1_1_source_position.html#af3d1f2d17f914b89789fff6207265829">End</a> = null</td></tr>
+<tr class="separator:af3d1f2d17f914b89789fff6207265829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the start and end positions of an element in the file. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d5a/class_compiler_1_1_location.html">Location</a> </dd></dl>
@@ -129,7 +135,9 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                  {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <a class="code" href="../../df/dae/class_compiler_1_1_source_position.html#ad7c78fd184a393fc62cb5ee8678db0c8">Start</a> = _Start;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <a class="code" href="../../df/dae/class_compiler_1_1_source_position.html#af3d1f2d17f914b89789fff6207265829">End</a> = _End;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            }</div><div class="ttc" id="class_compiler_1_1_source_position_html_af3d1f2d17f914b89789fff6207265829"><div class="ttname"><a href="../../df/dae/class_compiler_1_1_source_position.html#af3d1f2d17f914b89789fff6207265829">Compiler.SourcePosition.End</a></div><div class="ttdeci">Location End</div><div class="ttdef"><b>Definition:</b> SourcePosition.cs:19</div></div>
+<div class="ttc" id="class_compiler_1_1_source_position_html_ad7c78fd184a393fc62cb5ee8678db0c8"><div class="ttname"><a href="../../df/dae/class_compiler_1_1_source_position.html#ad7c78fd184a393fc62cb5ee8678db0c8">Compiler.SourcePosition.Start</a></div><div class="ttdeci">Location Start</div><div class="ttdef"><b>Definition:</b> SourcePosition.cs:15</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -148,10 +156,33 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Overrides the cast of a</p><div class="fragment"><div class="line"><a class="code" href="../../df/dae/class_compiler_1_1_source_position.html#ac8eeb6d20c8a788dfe27345b435bb035">SourcePosition</a> </div></div><!-- fragment --><p> object to a</p><div class="fragment"><div class="line"><span class="keywordtype">string</span> </div></div><!-- fragment --><p> . </p>
-
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{ <span class="keywordflow">return</span> $<span class="stringliteral">&quot;{Start} -- {End}&quot;</span>; }</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af3d1f2d17f914b89789fff6207265829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d1f2d17f914b89789fff6207265829">&#9670;&nbsp;</a></span>End</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d5a/class_compiler_1_1_location.html">Location</a> Compiler.SourcePosition.End = null</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Represents the end position of the element. </p>
+
+</div>
+</div>
 <a id="ad7c78fd184a393fc62cb5ee8678db0c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7c78fd184a393fc62cb5ee8678db0c8">&#9670;&nbsp;</a></span>Start</h2>
 
@@ -168,7 +199,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Compiler/SourcePosition.cs</li>
+<li>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/<a class="el" href="../../db/db5/_source_position_8cs.html">SourcePosition.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

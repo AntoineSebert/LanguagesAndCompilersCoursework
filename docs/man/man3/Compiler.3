@@ -35,7 +35,7 @@ Compiler
 
 .in +1c
 .ti -1c
-.RI "enum \fBTokenKind\fP { \fBIntLiteral\fP, \fBIdentifier\fP, \fBOperator\fP, \fBCharacterLiteral\fP, \fBBegin\fP, \fBConst\fP, \fBDo\fP, \fBElse\fP, \fBEnd\fP, \fBIf\fP, \fBIn\fP, \fBLet\fP, \fBThen\fP, \fBVar\fP, \fBWhile\fP, \fBSkip\fP, \fBColon\fP, \fBSemicolon\fP, \fBBecomes\fP, \fBIs\fP, \fBLeftParenthese\fP, \fBRightParenthese\fP, \fBEndOfText\fP, \fBError\fP }"
+.RI "enum \fBTokenKind\fP { \fBTokenKind\&.IntLiteral\fP, \fBTokenKind\&.Identifier\fP, \fBTokenKind\&.Operator\fP, \fBTokenKind\&.CharacterLiteral\fP, \fBTokenKind\&.Begin\fP, \fBTokenKind\&.Const\fP, \fBTokenKind\&.Do\fP, \fBTokenKind\&.Else\fP, \fBTokenKind\&.End\fP, \fBTokenKind\&.If\fP, \fBTokenKind\&.In\fP, \fBTokenKind\&.Let\fP, \fBTokenKind\&.Then\fP, \fBTokenKind\&.Var\fP, \fBTokenKind\&.While\fP, \fBTokenKind\&.Skip\fP, \fBTokenKind\&.Colon\fP, \fBTokenKind\&.Semicolon\fP, \fBTokenKind\&.Becomes\fP, \fBTokenKind\&.Is\fP, \fBTokenKind\&.LeftParenthese\fP, \fBTokenKind\&.RightParenthese\fP, \fBTokenKind\&.Comma\fP, \fBTokenKind\&.QuestionMark\fP, \fBTokenKind\&.EndOfText\fP, \fBTokenKind\&.Error\fP }"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -57,10 +57,78 @@ Encompasses all the kinds of token defined in the grammar, except the atomics 'L
 .PP
 \fBSee also:\fP
 .RS 4
-Token 
+\fBToken\fP 
 .RE
 .PP
 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIntLiteral \fP\fP
+.TP
+\fB\fIIdentifier \fP\fP
+.TP
+\fB\fIOperator \fP\fP
+.TP
+\fB\fICharacterLiteral \fP\fP
+.TP
+\fB\fIBegin \fP\fP
+.TP
+\fB\fIConst \fP\fP
+.TP
+\fB\fIDo \fP\fP
+.TP
+\fB\fIElse \fP\fP
+.TP
+\fB\fIEnd \fP\fP
+.TP
+\fB\fIIf \fP\fP
+.TP
+\fB\fIIn \fP\fP
+.TP
+\fB\fILet \fP\fP
+.TP
+\fB\fIThen \fP\fP
+.TP
+\fB\fIVar \fP\fP
+.TP
+\fB\fIWhile \fP\fP
+.TP
+\fB\fISkip \fP\fP
+.TP
+\fB\fIColon \fP\fP
+.TP
+\fB\fISemicolon \fP\fP
+.TP
+\fB\fIBecomes \fP\fP
+.TP
+\fB\fIIs \fP\fP
+.TP
+\fB\fILeftParenthese \fP\fP
+.TP
+\fB\fIRightParenthese \fP\fP
+.TP
+\fB\fIComma \fP\fP
+.TP
+\fB\fIQuestionMark \fP\fP
+.TP
+\fB\fIEndOfText \fP\fP
+.TP
+\fB\fIError \fP\fP
+.PP
+.nf
+10                           {
+11         // non-terminals
+12         IntLiteral, Identifier, Operator, CharacterLiteral,
+13         // reserved words - terminals
+14         Begin, Const, Do, Else, End, If, In, Let, Then, Var, While, Skip,
+15         // punctuation - terminals
+16         Colon /* : */, Semicolon, Becomes /* := */, Is /* ~ */, LeftParenthese, RightParenthese, Comma, QuestionMark,
+17         // special tokens
+18         EndOfText, Error
+19     }
+.fi
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Compiler from the source code\&.

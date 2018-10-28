@@ -15,7 +15,7 @@
 <para>Current character being read. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="19" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="19" bodyend="19"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="19" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="19" bodyend="19"/>
       </memberdef>
       <memberdef kind="property" id="de/d2a/class_compiler_1_1_source_file_1a2d009621871245dfb64d3866ece03633" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>char</type>
@@ -29,7 +29,7 @@
 </programlisting> . </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="24" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="24" bodyend="24"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="24" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="24" bodyend="24"/>
       </memberdef>
       <memberdef kind="property" id="de/d2a/class_compiler_1_1_source_file_1a0e304ca0e3d5b0af3dd18d09520f215e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>string</type>
@@ -43,7 +43,7 @@
 <para>Name of the souce code file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="28" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="28" bodyend="28"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="28" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="28" bodyend="28"/>
       </memberdef>
       <memberdef kind="property" id="de/d2a/class_compiler_1_1_source_file_1a9f6feacf9e20b5b1d535c712d9b4370e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref></type>
@@ -56,7 +56,7 @@
 <para><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref> of the current character in the file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="32" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="32" bodyend="32"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="32" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="32" bodyend="32"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -72,7 +72,7 @@
 <para>Index of the current character in the buffer. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="37" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="37" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="37" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="de/d2a/class_compiler_1_1_source_file_1a9fea4fc4a3640f2f88db7d2e8be3db70" prot="private" static="no" mutable="no">
         <type>uint</type>
@@ -86,7 +86,7 @@
 <para>Current line number. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="41" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="41" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="41" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="de/d2a/class_compiler_1_1_source_file_1a6ac27509abd78029bf3881636983ab48" prot="private" static="no" mutable="no">
         <type>string</type>
@@ -100,7 +100,7 @@
 <para>Contains the characters of the current line. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="45" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="45" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="45" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="de/d2a/class_compiler_1_1_source_file_1a46db9fe024d4cf1e282e6afafea8c4b2" prot="private" static="no" mutable="no">
         <type>StreamReader</type>
@@ -114,7 +114,7 @@
 <para>Reads the content of the source code file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="49" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="49" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="49" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="49" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -142,7 +142,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="57" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="57" bodyend="71"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="57" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="57" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="de/d2a/class_compiler_1_1_source_file_1ad80d0f3a9ead18dce6baad58971838bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -158,7 +158,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="77" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="77" bodyend="84"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="77" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="77" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="de/d2a/class_compiler_1_1_source_file_1aa64348e54dbb048b3ec58ce3d355e014" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -187,7 +187,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="90" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="90" bodyend="101"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="90" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="90" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="de/d2a/class_compiler_1_1_source_file_1af5331d15e3c1a629af9cbd273c36c02c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -200,7 +200,7 @@
 <para>Destroys the current object. <xrefsect id="da/d58/deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="106" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="106" bodyend="109"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="106" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="106" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="de/d2a/class_compiler_1_1_source_file_1a236483cd300f9793eed183d32959c7bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -216,7 +216,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="114" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="114" bodyend="117"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="114" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="114" bodyend="117"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -247,7 +247,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="123" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="123" bodyend="128"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="123" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="123" bodyend="128"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -263,7 +263,7 @@
 </programlisting> , appends a new line to it. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/SourceFile.cs" line="133" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="133" bodyend="140"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="133" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="133" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -271,28 +271,28 @@
     <detaileddescription>
 <para>Holds the source file content as a collection of characters. Reads the file line by line. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="10">
+      <node id="21">
         <label>Compiler.SourceFile</label>
         <link refid="de/d2a/class_compiler_1_1_source_file"/>
-        <childnode refid="11" relation="public-inheritance">
+        <childnode refid="22" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="11">
+      <node id="22">
         <label>IEnumerator&lt; char &gt;</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="12">
+      <node id="23">
         <label>Compiler.SourceFile</label>
         <link refid="de/d2a/class_compiler_1_1_source_file"/>
-        <childnode refid="13" relation="public-inheritance">
+        <childnode refid="24" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="13">
+      <node id="24">
         <label>IEnumerator&lt; char &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="Compiler/SourceFile.cs" line="14" column="1" bodyfile="Compiler/SourceFile.cs" bodystart="14" bodyend="141"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" line="14" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/SourceFile.cs" bodystart="14" bodyend="141"/>
     <listofallmembers>
       <member refid="de/d2a/class_compiler_1_1_source_file_1a9f6feacf9e20b5b1d535c712d9b4370e" prot="public" virt="non-virtual"><scope>Compiler::SourceFile</scope><name>_Location</name></member>
       <member refid="de/d2a/class_compiler_1_1_source_file_1a6ac27509abd78029bf3881636983ab48" prot="private" virt="non-virtual"><scope>Compiler::SourceFile</scope><name>buffer</name></member>

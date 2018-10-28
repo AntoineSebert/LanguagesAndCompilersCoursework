@@ -71,7 +71,7 @@ namespace Compiler {
 				// interface
 					/**
 					 * Responsible for the main process of creating a collection of tokens from the source file.
-					 * @return	a collection of tokens of type {@code IEnumerator<Token>}.
+					 * @return	the tokens one at time.
 					 * @see		Token
 					 * @see		SourceFile
 					 */

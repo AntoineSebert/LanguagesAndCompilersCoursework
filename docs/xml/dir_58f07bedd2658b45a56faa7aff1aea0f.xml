@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dir_58f07bedd2658b45a56faa7aff1aea0f" kind="dir">
-    <compoundname>Compiler/obj</compoundname>
-    <innerdir refid="dir_c3649d4a430efd1033d5d90098fdfe6b">Compiler/obj/Debug</innerdir>
+    <compoundname>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj</compoundname>
+    <innerdir refid="dir_c3649d4a430efd1033d5d90098fdfe6b">D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/Debug</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="Compiler/obj/"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/"/>
   </compounddef>
 </doxygen>

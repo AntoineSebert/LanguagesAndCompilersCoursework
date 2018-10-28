@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['scanner',['Scanner',['../da/d27/class_compiler_1_1_scanner.html',1,'Compiler.Scanner'],['../da/d27/class_compiler_1_1_scanner.html#a1b80cbd150fb8fdb87f6b31c9d2ddc48',1,'Compiler.Scanner.Scanner()']]],
-  ['skiprestofline',['SkipRestOfLine',['../de/d2a/class_compiler_1_1_source_file.html#a236483cd300f9793eed183d32959c7bd',1,'Compiler::SourceFile']]],
-  ['sourcefile',['SourceFile',['../de/d2a/class_compiler_1_1_source_file.html',1,'Compiler.SourceFile'],['../de/d2a/class_compiler_1_1_source_file.html#aba8bb7d1c0418d2b0c6033308209265a',1,'Compiler.SourceFile.SourceFile()']]],
-  ['sourceposition',['SourcePosition',['../df/dae/class_compiler_1_1_source_position.html',1,'Compiler.SourcePosition'],['../df/dae/class_compiler_1_1_source_position.html#ac8eeb6d20c8a788dfe27345b435bb035',1,'Compiler.SourcePosition.SourcePosition()']]],
-  ['start',['Start',['../df/dae/class_compiler_1_1_source_position.html#ad7c78fd184a393fc62cb5ee8678db0c8',1,'Compiler::SourcePosition']]]
+  ['operator',['Operator',['../d6/df4/namespace_compiler.html#a57929962f25004759596fc3f13cf563cae1b3ec89ead7f83a9245ed5c9cacfdbf',1,'Compiler']]],
+  ['operators',['operators',['../da/d27/class_compiler_1_1_scanner.html#a06b412dc474f3c625169dea913ee95da',1,'Compiler::Scanner']]]
 ];

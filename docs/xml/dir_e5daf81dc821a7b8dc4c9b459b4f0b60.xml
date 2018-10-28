@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dir_e5daf81dc821a7b8dc4c9b459b4f0b60" kind="dir">
-    <compoundname>Compiler</compoundname>
-    <innerdir refid="dir_58f07bedd2658b45a56faa7aff1aea0f">Compiler/obj</innerdir>
+    <compoundname>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler</compoundname>
+    <innerdir refid="dir_58f07bedd2658b45a56faa7aff1aea0f">D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj</innerdir>
     <innerfile refid="d6/d5f/_compiler_8cs">Compiler.cs</innerfile>
     <innerfile refid="d9/d8f/_location_8cs">Location.cs</innerfile>
     <innerfile refid="dc/d93/_parser_8cs">Parser.cs</innerfile>
@@ -15,6 +15,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="Compiler/"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/"/>
   </compounddef>
 </doxygen>

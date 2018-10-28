@@ -38,6 +38,9 @@ Inherits IEnumerator< char >\&.
 
 .in +1c
 .ti -1c
+.RI "object IEnumerator\&. \fBCurrent\fP\fC [get]\fP"
+.br
+.ti -1c
 .RI "char \fBCurrent\fP\fC [get]\fP"
 .br
 .ti -1c
@@ -45,6 +48,29 @@ Inherits IEnumerator< char >\&.
 .br
 .ti -1c
 .RI "\fBLocation\fP \fB_Location\fP\fC [get]\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBReadLine\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint \fBindex\fP = 0"
+.br
+.ti -1c
+.RI "uint \fBlineNumber\fP = 0"
+.br
+.ti -1c
+.RI "string \fBbuffer\fP = ''"
+.br
+.ti -1c
+.RI "StreamReader \fBsource\fP = null"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -68,6 +94,24 @@ SourceFile
 .RE
 .PP
 
+.PP
+.nf
+57                                                              {
+58                         Name = sourceFileName;
+59                         try {
+60                             if(new FileInfo(sourceFileName)\&.Length == 0) {
+61                                 Compiler\&.Error(typeof(Compiler)\&.Name, 6, new string[]{ Name });
+62                                 Environment\&.Exit(1);
+63                             }
+64                             source = new StreamReader(new FileStream(sourceFileName, FileMode\&.Open));
+65                             Reset();
+66                         }
+67                         catch(Exception e) {
+68                             Compiler\&.Error(typeof(Compiler)\&.Name, 7, new string[]{ Name, e\&.Message });
+69                             Environment\&.Exit(1);
+70                         }
+71                     }
+.fi
 .SH "Member Function Documentation"
 .PP 
 .SS "void Compiler\&.SourceFile\&.Dispose ()"
@@ -79,6 +123,13 @@ Destroys the current object\&.
 .RE
 .PP
 
+.PP
+.nf
+106                                           {
+107                         Dispose(true);
+108                         GC\&.SuppressFinalize(this); // breaks single responsability principle\&. Ugly\&.
+109                     }
+.fi
 .SS "virtual void Compiler\&.SourceFile\&.Dispose (bool disposing)\fC [protected]\fP, \fC [virtual]\fP"
 Destroys the
 .PP
@@ -116,6 +167,15 @@ StreamReader
 .RE
 .PP
 
+.PP
+.nf
+123                                                                {
+124                     if(disposing && source != null) {
+125                         source\&.Dispose();
+126                         source = null;
+127                     }
+128                 }
+.fi
 .SS "bool Compiler\&.SourceFile\&.MoveNext ()"
 Moves the index to the next character\&. If the index has reached the end of the line, a new line is read\&. 
 .PP
@@ -139,6 +199,37 @@ false
 .RE
 .PP
 
+.PP
+.nf
+77                                            {
+78                         if(buffer != null) {
+79                             index++;
+80                             if(buffer\&.Length <= index)
+81                                 ReadLine();
+82                         }
+83                         return buffer != null;
+84                     }
+.fi
+.SS "void Compiler\&.SourceFile\&.ReadLine ()\fC [private]\fP"
+Copy the next line in the stream into the buffer, resets the index\&. If the buffer is not
+.PP
+.nf
+null 
+
+.fi
+.PP
+ , appends a new line to it\&. 
+.PP
+.nf
+133                                         {
+134                     buffer = source\&.ReadLine();
+135                     if(buffer != null)
+136                         buffer += '\n';
+137 
+138                     index = 0;
+139                     lineNumber++;
+140                 }
+.fi
 .SS "void Compiler\&.SourceFile\&.Reset ()"
 Resets the reading of the source code file\&. 
 .PP
@@ -157,6 +248,21 @@ null
 .RE
 .PP
 
+.PP
+.nf
+90                                         {
+91                         if(source == null)
+92                             throw new InvalidOperationException();
+93                         if(!source\&.BaseStream\&.CanSeek)
+94                             throw new NotSupportedException();
+95 
+96                         source\&.BaseStream\&.Seek(0L, SeekOrigin\&.Begin);
+97                         source\&.DiscardBufferedData();
+98                         index = lineNumber = 0;
+99 
+100                         ReadLine();
+101                     }
+.fi
 .SS "bool Compiler\&.SourceFile\&.SkipRestOfLine ()"
 Destroys the current object\&. 
 .PP
@@ -180,10 +286,37 @@ false
 .RE
 .PP
 
+.PP
+.nf
+114                                                  {
+115                         index = (uint)buffer\&.Length;
+116                         return MoveNext();
+117                     }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "string Compiler\&.SourceFile\&.buffer = ''\fC [private]\fP"
+Contains the characters of the current line\&. 
+.SS "uint Compiler\&.SourceFile\&.index = 0\fC [private]\fP"
+Index of the current character in the buffer\&. 
+.SS "uint Compiler\&.SourceFile\&.lineNumber = 0\fC [private]\fP"
+Current line number\&. 
+.SS "StreamReader Compiler\&.SourceFile\&.source = null\fC [private]\fP"
+Reads the content of the source code file\&. 
 .SH "Property Documentation"
 .PP 
 .SS "\fBLocation\fP Compiler\&.SourceFile\&._Location\fC [get]\fP"
 \fBLocation\fP of the current character in the file\&. 
+.PP
+.nf
+32 { get { return new Location(lineNumber, index); } }
+.fi
+.SS "object IEnumerator\&. Compiler\&.SourceFile\&.Current\fC [get]\fP, \fC [private]\fP"
+Current character being read\&. 
+.PP
+.nf
+19 { get { return Current; } }
+.fi
 .SS "char Compiler\&.SourceFile\&.Current\fC [get]\fP"
 Last character of the buffer, if the buffer is not
 .PP
@@ -193,8 +326,17 @@ null
 .fi
 .PP
  \&. 
+.PP
+.nf
+24 { get { return buffer == null ? default : buffer[(int)index]; } }
+.fi
 .SS "string Compiler\&.SourceFile\&.Name = ''\fC [get]\fP"
 Name of the souce code file\&. 
+.PP
+.nf
+28 { get; } = "";
+.fi
+
 
 .SH "Author"
 .PP 

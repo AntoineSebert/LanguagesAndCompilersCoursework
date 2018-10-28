@@ -1,0 +1,373 @@
+\hypertarget{class_compiler_1_1_compiler}{}\section{Compiler.\+Compiler Class Reference}
+\label{class_compiler_1_1_compiler}\index{Compiler.\+Compiler@{Compiler.\+Compiler}}
+
+
+Collaboration diagram for Compiler.\+Compiler\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}{Compiler}} (string file\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}{Main}} (string\mbox{[}$\,$\mbox{]} args)
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}} (string origin, uint code, string\mbox{[}$\,$\mbox{]} msg)
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_a1c4bba751de5a1ac6db0006cb6203ed4}{Info}} (string origin, string msg)
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_a483c40dbc9510bc702302e073ef789b8}{Abort}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly \mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} \mbox{\hyperlink{class_compiler_1_1_compiler_a8ec56dd708f82bf4b16a074f7263e8f1}{scanner}} = null
+\item 
+readonly \mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} \mbox{\hyperlink{class_compiler_1_1_compiler_a73660c59052687e1b4b92b7549dcd171}{parser}} = null
+\item 
+readonly \mbox{\hyperlink{class_compiler_1_1_source_file}{Source\+File}} \mbox{\hyperlink{class_compiler_1_1_compiler_a6096cba7dada5002eb07a626dc76cb89}{source}} = null
+\item 
+List$<$ \mbox{\hyperlink{class_compiler_1_1_token}{Token}} $>$ \mbox{\hyperlink{class_compiler_1_1_compiler_a8279f3629691412ae917e1760437d670}{collection}} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holds a scanner, a parser, and the source file is responsible for the whole process. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} 
+
+\mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}\label{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Compiler@{Compiler}}
+\index{Compiler@{Compiler}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Compiler()}{Compiler()}}
+{\footnotesize\ttfamily Compiler.\+Compiler.\+Compiler (\begin{DoxyParamCaption}\item[{string}]{file\+Name }\end{DoxyParamCaption})}
+
+Builds a \mbox{\hyperlink{class_compiler_1_1_compiler}{Compiler}} instance, containing a
+\begin{DoxyCode}
+SourceFile 
+\end{DoxyCode}
+ , a
+\begin{DoxyCode}
+Scanner 
+\end{DoxyCode}
+ and a
+\begin{DoxyCode}
+Parser 
+\end{DoxyCode}
+ . 
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the file to compile \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+42                                                  \{
+43                     \mbox{\hyperlink{class_compiler_1_1_compiler_a6096cba7dada5002eb07a626dc76cb89}{source}} = \textcolor{keyword}{new} SourceFile(fileName);
+44                     \mbox{\hyperlink{class_compiler_1_1_compiler_a8ec56dd708f82bf4b16a074f7263e8f1}{scanner}} = \textcolor{keyword}{new} Scanner(\mbox{\hyperlink{class_compiler_1_1_compiler_a6096cba7dada5002eb07a626dc76cb89}{source}});
+45                     \mbox{\hyperlink{class_compiler_1_1_compiler_a73660c59052687e1b4b92b7549dcd171}{parser}} = \textcolor{keyword}{new} Parser(\mbox{\hyperlink{class_compiler_1_1_compiler_a8ec56dd708f82bf4b16a074f7263e8f1}{scanner}});
+46                 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a483c40dbc9510bc702302e073ef789b8}\label{class_compiler_1_1_compiler_a483c40dbc9510bc702302e073ef789b8}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Abort@{Abort}}
+\index{Abort@{Abort}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Abort()}{Abort()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Abort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}
+243                                            \{
+244                     
+245                 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}\label{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Error@{Error}}
+\index{Error@{Error}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Error()}{Error()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Error (\begin{DoxyParamCaption}\item[{string}]{origin,  }\item[{uint}]{code,  }\item[{string \mbox{[}$\,$\mbox{]}}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Displays an error. If an error occurs, the compilation is automatically stopped and all the data discarded. 
+\begin{DoxyParams}{Parameters}
+{\em origin} & class name of the object sender. \\
+\hline
+{\em code} & error code. \\
+\hline
+{\em msg} & arguments for the error message. Can be empty. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+81                                                                                  \{
+82                     Console.ForegroundColor = ConsoleColor.Red;
+83                     \textcolor{keywordtype}{string} error\_message = \textcolor{stringliteral}{"[ERROR]"};
+84 
+85                     \textcolor{keywordflow}{switch}(origin) \{
+86                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Compiler"}:
+87                             error\_message += $\textcolor{stringliteral}{"[\{origin\}]"};
+88                             \textcolor{keywordflow}{switch}(code) \{
+89                                 \textcolor{keywordflow}{case} 0:
+90                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+91                                     error\_message += \textcolor{stringliteral}{"sample error"};
+92                                     \textcolor{keywordflow}{break};
+93                                 \textcolor{keywordflow}{case} 1:
+94                                     \textcolor{keywordflow}{if}(msg.Length == 0) \{
+95                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+96                                         \textcolor{keywordflow}{return};
+97                                     \}
+98                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+99                                     error\_message += $\textcolor{stringliteral}{"unknown error origin, got : \{msg[0]\}"};
+100                                     \textcolor{keywordflow}{break};
+101                                 \textcolor{keywordflow}{case} 2:
+102                                     \textcolor{keywordflow}{if}(msg.Length < 2) \{
+103                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+104                                         \textcolor{keywordflow}{return};
+105                                     \}
+106                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+107                                     error\_message += $\textcolor{stringliteral}{"unknown error code from \{msg[0]\} , got : \{msg[1]\}"};
+108                                     \textcolor{keywordflow}{break};
+109                                 \textcolor{keywordflow}{case} 3:
+110                                     \textcolor{keywordflow}{if}(msg.Length == 0) \{
+111                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+112                                         \textcolor{keywordflow}{return};
+113                                     \}
+114                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+115                                     error\_message += $\textcolor{stringliteral}{"the error from \{origin\} with the error code \{msg[0]\}
+       does not carry enough parameters"};
+116                                     \textcolor{keywordflow}{break};
+117                                 \textcolor{keywordflow}{case} 4:
+118                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+119                                     error\_message += $\textcolor{stringliteral}{"no source file specified"};
+120                                     \textcolor{keywordflow}{break};
+121                                 \textcolor{keywordflow}{case} 5:
+122                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+123                                     error\_message += $\textcolor{stringliteral}{"too much arguments provided"};
+124                                     \textcolor{keywordflow}{break};
+125                                 \textcolor{keywordflow}{case} 6:
+126                                     \textcolor{keywordflow}{if}(msg.Length == 0) \{
+127                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+128                                         \textcolor{keywordflow}{return};
+129                                     \}
+130                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+131                                     error\_message += $\textcolor{stringliteral}{"the source file \{msg[0]\} is empty"};
+132                                     \textcolor{keywordflow}{break};
+133                                 \textcolor{keywordflow}{case} 7:
+134                                     \textcolor{keywordflow}{if}(msg.Length < 2) \{
+135                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+136                                         \textcolor{keywordflow}{return};
+137                                     \}
+138                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+139                                     error\_message += $\textcolor{stringliteral}{"the source file \{msg[0]\} cannot be read : \{msg[1]\}"};
+140                                     \textcolor{keywordflow}{break};
+141                                 \textcolor{keywordflow}{default}:
+142                                     \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 2, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ origin, code.ToString() \});
+143                                     \textcolor{keywordflow}{break};
+144                             \}
+145                             \textcolor{keywordflow}{break};
+146                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Scanner"}:
+147                             error\_message += $\textcolor{stringliteral}{"[\{origin\}]"};
+148                             \textcolor{keywordflow}{switch}(code) \{
+149                                 \textcolor{keywordflow}{case} 0:
+150                                     \textcolor{keywordflow}{if}(msg.Length < 3) \{
+151                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+152                                         \textcolor{keywordflow}{return};
+153                                     \}
+154                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+155                                     error\_message += $\textcolor{stringliteral}{"unknown token at line \{msg[0]\}, column \{msg[1]\}, got
+       : \{msg[2]\}"};
+156                                     \textcolor{keywordflow}{break};
+157                                 \textcolor{keywordflow}{case} 1:
+158                                     \textcolor{keywordflow}{if}(msg.Length < 3) \{
+159                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+160                                         \textcolor{keywordflow}{return};
+161                                     \}
+162                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+163                                     error\_message += $\textcolor{stringliteral}{"ill-formed character literal at line \{msg[0]\},
+       column \{msg[1]\} , got : \{msg[2]\}"};
+164                                     \textcolor{keywordflow}{break};
+165                                 \textcolor{keywordflow}{case} 2:
+166                                     \textcolor{keywordflow}{if}(msg.Length < 3) \{
+167                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+168                                         \textcolor{keywordflow}{return};
+169                                     \}
+170                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+171                                     error\_message += $\textcolor{stringliteral}{"invalid operator at line  \{msg[0]\}, column \{msg[1]\}
+       , got : \{msg[2]\}"};
+172                                     \textcolor{keywordflow}{break};
+173                                 \textcolor{keywordflow}{default}:
+174                                     \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 2, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ origin, code.ToString() \});
+175                                     \textcolor{keywordflow}{return};
+176                             \}
+177                             \textcolor{keywordflow}{break};
+178                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Parser"}:
+179                             error\_message += $\textcolor{stringliteral}{"[\{origin\}]"};
+180                             \textcolor{keywordflow}{switch}(code) \{
+181                                 \textcolor{keywordflow}{case} 0:
+182                                     \textcolor{keywordflow}{if}(msg.Length < 3) \{
+183                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+184                                         \textcolor{keywordflow}{return};
+185                                     \}
+186                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+187                                     error\_message += $\textcolor{stringliteral}{"unknown token at line \{msg[0]\}, column \{msg[1]\}, got
+       : \{msg[3]\}"};
+188                                     \textcolor{keywordflow}{break};
+189                                 \textcolor{keywordflow}{case} 1:
+190                                     \textcolor{keywordflow}{if}(msg.Length < 3) \{
+191                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+192                                         \textcolor{keywordflow}{return};
+193                                     \}
+194                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+195                                     error\_message += $\textcolor{stringliteral}{"invalid operator at line \{msg[0]\}, column \{msg[1]\},
+       got : \{msg[2]\}"};
+196                                     \textcolor{keywordflow}{break};
+197                                 \textcolor{keywordflow}{case} 2:
+198                                     \textcolor{keywordflow}{if}(msg.Length < 4) \{
+199                                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 3, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ code.ToString() \});
+200                                         \textcolor{keywordflow}{return};
+201                                     \}
+202                                     error\_message += $\textcolor{stringliteral}{"[\{code\}] : "};
+203                                     error\_message += $\textcolor{stringliteral}{"unexpected token found at line \{msg[0]\}, column
+       \{msg[1]\}, got \{msg[2]\}, expected "};
+204                                     \textcolor{keywordflow}{for}(uint i = 3; i < msg.Length; ++i)
+205                                         error\_message += msg[i] + \textcolor{charliteral}{' '};
+206                                     \textcolor{keywordflow}{break};
+207                                 \textcolor{keywordflow}{default}:
+208                                     \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(origin, 2, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ origin, code.ToString() \});
+209                                     \textcolor{keywordflow}{return};
+210                             \}
+211                             \textcolor{keywordflow}{break};
+212                         \textcolor{keywordflow}{default}:
+213                             \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(typeof(\mbox{\hyperlink{namespace_compiler}{Compiler}}).Name, 1, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ origin \});
+214                             \textcolor{keywordflow}{return};
+215                     \}
+216                     Console.WriteLine(error\_message);
+217                     Console.ResetColor();
+218                 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a1c4bba751de5a1ac6db0006cb6203ed4}\label{class_compiler_1_1_compiler_a1c4bba751de5a1ac6db0006cb6203ed4}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Info@{Info}}
+\index{Info@{Info}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Info()}{Info()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Info (\begin{DoxyParamCaption}\item[{string}]{origin,  }\item[{string}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Displays an error. 
+\begin{DoxyParams}{Parameters}
+{\em origin} & class name of the object sender. \\
+\hline
+{\em msg} & body of the info message. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+224                                                                    \{
+225                     Console.ForegroundColor = ConsoleColor.Cyan;
+226                     \textcolor{keywordtype}{string} message = \textcolor{stringliteral}{"[INFO]"};
+227 
+228                     \textcolor{keywordflow}{switch}(origin) \{
+229                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Compiler"}:
+230                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Scanner"}:
+231                         \textcolor{keywordflow}{case} \textcolor{stringliteral}{"Parser"}:
+232                             message += $\textcolor{stringliteral}{"[\{origin\}] : "};
+233                             message += msg;
+234                             \textcolor{keywordflow}{break};
+235                         \textcolor{keywordflow}{default}:
+236                             \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(typeof(\mbox{\hyperlink{namespace_compiler}{Compiler}}).Name, 1, \textcolor{keyword}{new} \textcolor{keywordtype}{string}[]\{ origin \});
+237                             \textcolor{keywordflow}{return};
+238                     \}
+239                     Console.WriteLine(message);
+240                     Console.ResetColor();
+241                 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}\label{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Main@{Main}}
+\index{Main@{Main}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Main (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Builds a
+\begin{DoxyCode}
+\mbox{\hyperlink{namespace_compiler}{Compiler}} 
+\end{DoxyCode}
+ instance. Launches the scanning and the compilation. Prints the tokens representing the source file if the previous operations succeeded. 
+\begin{DoxyParams}{Parameters}
+{\em args} & command-\/line one and only argument, the source code file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_compiler_a8279f3629691412ae917e1760437d670}{collection}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyCode}
+53                                                        \{
+54                     Console.ResetColor();
+55                     \textcolor{keywordflow}{if}(args.Length == 0) \{
+56                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(typeof(\mbox{\hyperlink{namespace_compiler}{Compiler}}).Name, 4, null);
+57                         Environment.Exit(1);
+58                     \}
+59                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(1 < args.Length) \{
+60                         \mbox{\hyperlink{class_compiler_1_1_compiler_af3467c4a37bb5379d3da14188042193c}{Error}}(typeof(\mbox{\hyperlink{namespace_compiler}{Compiler}}).Name, 5, null);
+61                         Environment.Exit(1);
+62                     \}
+63 
+64                     \textcolor{keywordflow}{if}(args[0] != null) \{
+65                         var compiler = \textcolor{keyword}{new} \mbox{\hyperlink{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}{Compiler}}(args[0]);
+66                         compiler.collection = compiler.parser.ParseProgram();
+67 
+68                         \textcolor{keywordflow}{if}(0 < compiler.collection.Count) \{
+69                             \textcolor{keywordflow}{foreach}(var element \textcolor{keywordflow}{in} compiler.collection)
+70                                 \mbox{\hyperlink{class_compiler_1_1_compiler_a1c4bba751de5a1ac6db0006cb6203ed4}{Info}}(typeof(\mbox{\hyperlink{namespace_compiler}{Compiler}}).Name, element.Kind.ToString());
+71                         \}
+72                     \}
+73                 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a8279f3629691412ae917e1760437d670}\label{class_compiler_1_1_compiler_a8279f3629691412ae917e1760437d670}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!collection@{collection}}
+\index{collection@{collection}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{collection}{collection}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_compiler_1_1_token}{Token}}$>$ Compiler.\+Compiler.\+collection = null\hspace{0.3cm}{\ttfamily [private]}}
+
+A collection representing the source code as tokens. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_source_file}{Source\+File}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a73660c59052687e1b4b92b7549dcd171}\label{class_compiler_1_1_compiler_a73660c59052687e1b4b92b7549dcd171}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!parser@{parser}}
+\index{parser@{parser}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{parser}{parser}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} Compiler.\+Compiler.\+parser = null\hspace{0.3cm}{\ttfamily [private]}}
+
+Holds a \mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} object, initialised in \#constructor(string) \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a8ec56dd708f82bf4b16a074f7263e8f1}\label{class_compiler_1_1_compiler_a8ec56dd708f82bf4b16a074f7263e8f1}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!scanner@{scanner}}
+\index{scanner@{scanner}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{scanner}{scanner}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} Compiler.\+Compiler.\+scanner = null\hspace{0.3cm}{\ttfamily [private]}}
+
+Holds a \mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} object, initialised in \#constructor(string) \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a6096cba7dada5002eb07a626dc76cb89}\label{class_compiler_1_1_compiler_a6096cba7dada5002eb07a626dc76cb89}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!source@{source}}
+\index{source@{source}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{source}{source}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_compiler_1_1_source_file}{Source\+File}} Compiler.\+Compiler.\+source = null\hspace{0.3cm}{\ttfamily [private]}}
+
+Holds the source code file, initialised in \#constructor(string) \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_source_file}{Source\+File}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Compiler/\mbox{\hyperlink{_compiler_8cs}{Compiler.\+cs}}\end{DoxyCompactItemize}

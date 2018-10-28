@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linenumber',['LineNumber',['../df/d5a/class_compiler_1_1_location.html#a71feb3bfd70af6096dc48451765ba284',1,'Compiler::Location']]]
+  ['kind',['Kind',['../d9/d7b/class_compiler_1_1_token.html#a181f032615da51df5a5a0223532cfe9f',1,'Compiler::Token']]]
 ];

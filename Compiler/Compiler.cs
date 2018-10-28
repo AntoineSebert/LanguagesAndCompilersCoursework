@@ -47,7 +47,8 @@ namespace Compiler {
 			// entry point
 				/**
 				 * Builds a {@code Compiler} instance. Launches the scanning and the compilation. Prints the tokens representing the source file if the previous operations succeeded.
-				 * @param	args	command-line one and only argument, the source code file.
+				 * @param	args		command-line one and only argument, the source code file.
+				 * @see		collection
 				 */
 				public static void Main(string[] args) {
 					Console.ResetColor();

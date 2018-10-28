@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="dir_67c794cbe793662cbe774ab6b86a515e" kind="dir">
-    <compoundname>Compiler/obj/Debug/netcoreapp2.2</compoundname>
+    <compoundname>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/Debug/netcoreapp2.2</compoundname>
     <innerfile refid="d5/d3d/_compiler_8_assembly_info_8cs">Compiler.AssemblyInfo.cs</innerfile>
     <innerfile refid="df/d63/_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs">TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</innerfile>
     <innerfile refid="db/d59/_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs">TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</innerfile>
@@ -10,6 +10,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="Compiler/obj/Debug/netcoreapp2.2/"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/Debug/netcoreapp2.2/"/>
   </compounddef>
 </doxygen>

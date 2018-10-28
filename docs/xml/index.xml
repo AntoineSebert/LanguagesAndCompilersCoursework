@@ -4,10 +4,12 @@
     <member refid="d0/d86/class_compiler_1_1_compiler_1a8ec56dd708f82bf4b16a074f7263e8f1" kind="variable"><name>scanner</name></member>
     <member refid="d0/d86/class_compiler_1_1_compiler_1a73660c59052687e1b4b92b7549dcd171" kind="variable"><name>parser</name></member>
     <member refid="d0/d86/class_compiler_1_1_compiler_1a6096cba7dada5002eb07a626dc76cb89" kind="variable"><name>source</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a8279f3629691412ae917e1760437d670" kind="variable"><name>collection</name></member>
     <member refid="d0/d86/class_compiler_1_1_compiler_1ab9ae50ccd497464301c3bd9acf5d1d89" kind="function"><name>Compiler</name></member>
     <member refid="d0/d86/class_compiler_1_1_compiler_1aaa8629c1d8b60f4ad0e9771931b23471" kind="function"><name>Main</name></member>
-    <member refid="d0/d86/class_compiler_1_1_compiler_1ae76148be697c8ad3d4655dfc24fd7f1c" kind="function"><name>Error</name></member>
-    <member refid="d0/d86/class_compiler_1_1_compiler_1a370b82209f5493e17a7f60c548fe2f80" kind="function"><name>Info</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1af3467c4a37bb5379d3da14188042193c" kind="function"><name>Error</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a1c4bba751de5a1ac6db0006cb6203ed4" kind="function"><name>Info</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a483c40dbc9510bc702302e073ef789b8" kind="function"><name>Abort</name></member>
   </compound>
   <compound refid="df/d5a/class_compiler_1_1_location" kind="class"><name>Compiler::Location</name>
     <member refid="df/d5a/class_compiler_1_1_location_1a71feb3bfd70af6096dc48451765ba284" kind="property"><name>LineNumber</name></member>
@@ -18,20 +20,23 @@
   <compound refid="df/dc2/class_compiler_1_1_parser" kind="class"><name>Compiler::Parser</name>
     <member refid="df/dc2/class_compiler_1_1_parser_1a022d273a476d1ce6198f601275fa9a15" kind="variable"><name>scanner</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1a4db075175c853a197c7b8db7d787a0a5" kind="variable"><name>tokens</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1ac30c9381b172d482cc5bb1356c5a901b" kind="variable"><name>collection</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1a450e11452db3f91ff866fc1e36ebc79d" kind="function"><name>Parser</name></member>
-    <member refid="df/dc2/class_compiler_1_1_parser_1a426c99f29306aea343a0c0a7f8f3fbff" kind="function"><name>ParseProgram</name></member>
-    <member refid="df/dc2/class_compiler_1_1_parser_1a092fb9fb971023a089eb7505d2223610" kind="function"><name>Accept</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a79846432a61621214101d01681b994ac" kind="function"><name>ParseProgram</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1aaedaac51ec193dd68541fd9d39fddde8" kind="function"><name>Accept</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1ae19e507e1e2460cbad35b03d24402b4f" kind="function"><name>AcceptIt</name></member>
-    <member refid="df/dc2/class_compiler_1_1_parser_1a868e2e8aca5f72d2e7d2d91f21719b5e" kind="function"><name>ParseVname</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a7ab30d3d783ccf064784df2df654ea76" kind="function"><name>ParseCommand</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1af315f582be84f8e1b37add91efa3afc0" kind="function"><name>ParseSingleCommand</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1af099ac84308e83bf30b3dfd6dc51bd32" kind="function"><name>ParseIdentifier</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1ae03983db321bc672df2b8400f03eb67e" kind="function"><name>ParseOperator</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1a052fa556c8a6b8a8d677a1faaa3342db" kind="function"><name>ParseIntLiteral</name></member>
-    <member refid="df/dc2/class_compiler_1_1_parser_1a7ab30d3d783ccf064784df2df654ea76" kind="function"><name>ParseCommand</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1a8c6c2073d17ac572fb9117892cbf5aa1" kind="function"><name>ParseExpression</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a2c35615302bb055e4e720b94e5020a59" kind="function"><name>ParseSecondaryExpression</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1a9ce17cf1f3fa7062daf05481f3230330" kind="function"><name>ParsePrimaryExpression</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1ab9718b82a785e63b848e51c39bbe8ee7" kind="function"><name>ParseDeclaration</name></member>
     <member refid="df/dc2/class_compiler_1_1_parser_1ad0b467a2202c311d465a11165f602216" kind="function"><name>ParsingSingleDeclaration</name></member>
-    <member refid="df/dc2/class_compiler_1_1_parser_1af315f582be84f8e1b37add91efa3afc0" kind="function"><name>ParseSingleCommand</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a80fd5f767a44bd3110cfbd4ee47a15dd" kind="function"><name>ParseParameters</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a8d8a8adab2a324a07947c147df0d250f" kind="function"><name>ParseSingleParameter</name></member>
   </compound>
   <compound refid="da/d27/class_compiler_1_1_scanner" kind="class"><name>Compiler::Scanner</name>
     <member refid="da/d27/class_compiler_1_1_scanner_1aebce05a12eba0f6267dfa8dd2fa07b1f" kind="property"><name>Debug</name></member>
@@ -107,6 +112,8 @@
     <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca27d4cf7da57f6748f79254f7be42cca3" kind="enumvalue"><name>Is</name></member>
     <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca701eaa54ef8a76cc71f7b24062305936" kind="enumvalue"><name>LeftParenthese</name></member>
     <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca6464d9cc692b57d82b8b812625ae0c0c" kind="enumvalue"><name>RightParenthese</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca58be47db9455679e6a44df2eff9c9fa6" kind="enumvalue"><name>Comma</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9d1c32ceff0c1951ef12e4bcfc1dab5c" kind="enumvalue"><name>QuestionMark</name></member>
     <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca124c6858994bbff75c850dfeac551d87" kind="enumvalue"><name>EndOfText</name></member>
     <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
   </compound>
@@ -152,12 +159,12 @@
   </compound>
   <compound refid="da/d58/deprecated" kind="page"><name>deprecated</name>
   </compound>
-  <compound refid="dir_e5daf81dc821a7b8dc4c9b459b4f0b60" kind="dir"><name>Compiler</name>
+  <compound refid="dir_e5daf81dc821a7b8dc4c9b459b4f0b60" kind="dir"><name>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler</name>
   </compound>
-  <compound refid="dir_c3649d4a430efd1033d5d90098fdfe6b" kind="dir"><name>Compiler/obj/Debug</name>
+  <compound refid="dir_c3649d4a430efd1033d5d90098fdfe6b" kind="dir"><name>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/Debug</name>
   </compound>
-  <compound refid="dir_67c794cbe793662cbe774ab6b86a515e" kind="dir"><name>Compiler/obj/Debug/netcoreapp2.2</name>
+  <compound refid="dir_67c794cbe793662cbe774ab6b86a515e" kind="dir"><name>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj/Debug/netcoreapp2.2</name>
   </compound>
-  <compound refid="dir_58f07bedd2658b45a56faa7aff1aea0f" kind="dir"><name>Compiler/obj</name>
+  <compound refid="dir_58f07bedd2658b45a56faa7aff1aea0f" kind="dir"><name>D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/obj</name>
   </compound>
 </doxygenindex>

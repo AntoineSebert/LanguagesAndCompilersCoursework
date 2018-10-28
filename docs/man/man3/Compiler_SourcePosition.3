@@ -23,6 +23,13 @@ Compiler.SourcePosition
 .RI "\fBLocation\fP \fBStart\fP = null"
 .br
 .in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBLocation\fP \fBEnd\fP = null"
+.br
+.in -1c
 .SH "Detailed Description"
 .PP 
 Represents the start and end positions of an element in the file\&. 
@@ -60,6 +67,13 @@ Location
 .RE
 .PP
 
+.PP
+.nf
+26                                                                   {
+27                 Start = _Start;
+28                 End = _End;
+29             }
+.fi
 .SH "Member Function Documentation"
 .PP 
 .SS "override string Compiler\&.SourcePosition\&.ToString ()"
@@ -78,8 +92,14 @@ string
 .fi
 .PP
  \&. 
+.PP
+.nf
+33 { return $"{Start} -- {End}"; }
+.fi
 .SH "Member Data Documentation"
 .PP 
+.SS "\fBLocation\fP Compiler\&.SourcePosition\&.End = null\fC [private]\fP"
+Represents the end position of the element\&. 
 .SS "\fBLocation\fP Compiler\&.SourcePosition\&.Start = null"
 Represents the start position of the element\&. 
 

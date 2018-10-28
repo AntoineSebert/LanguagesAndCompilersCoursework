@@ -16,10 +16,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="21" column="1" bodyfile="Compiler/Parser.cs" bodystart="21" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="21" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dc2/class_compiler_1_1_parser_1a4db075175c853a197c7b8db7d787a0a5" prot="private" static="no" mutable="no">
-        <type>IEnumerator&lt; Token &gt;</type>
+        <type>IEnumerator&lt; <ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> &gt;</type>
         <definition>IEnumerator&lt;Token&gt; Compiler.Parser.tokens</definition>
         <argsstring></argsstring>
         <name>tokens</name>
@@ -27,11 +27,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Holds a collection of valid tokens. <simplesect kind="see"><para>Token </para></simplesect>
+<para>Holds a collection of valid tokens. <simplesect kind="see"><para><ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="26" column="1" bodyfile="Compiler/Parser.cs" bodystart="26" bodyend="-1"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="26" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/dc2/class_compiler_1_1_parser_1ac30c9381b172d482cc5bb1356c5a901b" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> &gt;</type>
+        <definition>List&lt;Token&gt; Compiler.Parser.collection</definition>
+        <argsstring></argsstring>
+        <name>collection</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="28" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="28" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -59,31 +73,32 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="34" column="1" bodyfile="Compiler/Parser.cs" bodystart="34" bodyend="39"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="36" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="36" bodyend="39"/>
       </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a426c99f29306aea343a0c0a7f8f3fbff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseProgram</definition>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a79846432a61621214101d01681b994ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> &gt;</type>
+        <definition>List&lt;Token&gt; Compiler.Parser.ParseProgram</definition>
         <argsstring>()</argsstring>
         <name>ParseProgram</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Parses a program from the beginning to the end. </para>        </detaileddescription>
+<para>Parses a program from the beginning to the end. <simplesect kind="return"><para>a collection representing the source code as tokens. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="44" column="1" bodyfile="Compiler/Parser.cs" bodystart="44" bodyend="49"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="45" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="45" bodyend="52"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a092fb9fb971023a089eb7505d2223610" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1aaedaac51ec193dd68541fd9d39fddde8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void Compiler.Parser.Accept</definition>
-        <argsstring>(params TokenKind[] expectedKinds)</argsstring>
+        <argsstring>(TokenKind expectedKind)</argsstring>
         <name>Accept</name>
         <param>
-          <type>params <ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> []</type>
-          <declname>expectedKinds</declname>
+          <type><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref></type>
+          <declname>expectedKind</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -99,7 +114,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="56" column="1" bodyfile="Compiler/Parser.cs" bodystart="56" bodyend="65"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="59" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="59" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ae19e507e1e2460cbad35b03d24402b4f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -112,59 +127,7 @@
 <para>Fetches the next token from the source file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="69" column="1" bodyfile="Compiler/Parser.cs" bodystart="69" bodyend="72"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a868e2e8aca5f72d2e7d2d91f21719b5e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseVname</definition>
-        <argsstring>()</argsstring>
-        <name>ParseVname</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses a variable name. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="77" column="1" bodyfile="Compiler/Parser.cs" bodystart="77" bodyend="80"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1af099ac84308e83bf30b3dfd6dc51bd32" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseIdentifier</definition>
-        <argsstring>()</argsstring>
-        <name>ParseIdentifier</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses an identifier, and constructs a leaf AST to represent it. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="85" column="1" bodyfile="Compiler/Parser.cs" bodystart="85" bodyend="88"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ae03983db321bc672df2b8400f03eb67e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseOperator</definition>
-        <argsstring>()</argsstring>
-        <name>ParseOperator</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses an operator. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="92" column="1" bodyfile="Compiler/Parser.cs" bodystart="92" bodyend="119"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a052fa556c8a6b8a8d677a1faaa3342db" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseIntLiteral</definition>
-        <argsstring>()</argsstring>
-        <name>ParseIntLiteral</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses an integer literal. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="123" column="1" bodyfile="Compiler/Parser.cs" bodystart="123" bodyend="125"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="75" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="75" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a7ab30d3d783ccf064784df2df654ea76" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -177,59 +140,7 @@
 <para>Parses a command. Multiple tokens swallowed at once. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="130" column="1" bodyfile="Compiler/Parser.cs" bodystart="130" bodyend="137"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a8c6c2073d17ac572fb9117892cbf5aa1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseExpression</definition>
-        <argsstring>()</argsstring>
-        <name>ParseExpression</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses an expression. Multiple tokens swallowed at once. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="141" column="1" bodyfile="Compiler/Parser.cs" bodystart="141" bodyend="148"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a9ce17cf1f3fa7062daf05481f3230330" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParsePrimaryExpression</definition>
-        <argsstring>()</argsstring>
-        <name>ParsePrimaryExpression</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses a primary expression. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="152" column="1" bodyfile="Compiler/Parser.cs" bodystart="152" bodyend="184"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ab9718b82a785e63b848e51c39bbe8ee7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParseDeclaration</definition>
-        <argsstring>()</argsstring>
-        <name>ParseDeclaration</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses a declaration. Multiple tokens swallowed at once. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="188" column="1" bodyfile="Compiler/Parser.cs" bodystart="188" bodyend="195"/>
-      </memberdef>
-      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ad0b467a2202c311d465a11165f602216" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void Compiler.Parser.ParsingSingleDeclaration</definition>
-        <argsstring>()</argsstring>
-        <name>ParsingSingleDeclaration</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Parses a single declaration. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Compiler/Parser.cs" line="199" column="1" bodyfile="Compiler/Parser.cs" bodystart="199" bodyend="227"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="85" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="85" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1af315f582be84f8e1b37add91efa3afc0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -242,31 +153,194 @@
 <para>Parses a single command. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/Parser.cs" line="231" column="1" bodyfile="Compiler/Parser.cs" bodystart="231" bodyend="282"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="101" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="101" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1af099ac84308e83bf30b3dfd6dc51bd32" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseIdentifier</definition>
+        <argsstring>()</argsstring>
+        <name>ParseIdentifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses an identifier, and constructs a leaf AST to represent it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="169" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ae03983db321bc672df2b8400f03eb67e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseOperator</definition>
+        <argsstring>()</argsstring>
+        <name>ParseOperator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses an operator. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="176" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="176" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a052fa556c8a6b8a8d677a1faaa3342db" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseIntLiteral</definition>
+        <argsstring>()</argsstring>
+        <name>ParseIntLiteral</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses an integer literal. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="207" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="207" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a8c6c2073d17ac572fb9117892cbf5aa1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseExpression</definition>
+        <argsstring>()</argsstring>
+        <name>ParseExpression</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses an expression. Multiple tokens swallowed at once. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="215" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="215" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a2c35615302bb055e4e720b94e5020a59" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseSecondaryExpression</definition>
+        <argsstring>()</argsstring>
+        <name>ParseSecondaryExpression</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses a secondary expression. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="228" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="228" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a9ce17cf1f3fa7062daf05481f3230330" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParsePrimaryExpression</definition>
+        <argsstring>()</argsstring>
+        <name>ParsePrimaryExpression</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses a primary expression. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="239" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="239" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ab9718b82a785e63b848e51c39bbe8ee7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseDeclaration</definition>
+        <argsstring>()</argsstring>
+        <name>ParseDeclaration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses a declaration. Multiple tokens swallowed at once. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="283" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="283" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1ad0b467a2202c311d465a11165f602216" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParsingSingleDeclaration</definition>
+        <argsstring>()</argsstring>
+        <name>ParsingSingleDeclaration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses a single declaration. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="290" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="290" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a80fd5f767a44bd3110cfbd4ee47a15dd" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseParameters</definition>
+        <argsstring>()</argsstring>
+        <name>ParseParameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses parameters. Swallow multiple tokens at once. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="327" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="327" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dc2/class_compiler_1_1_parser_1a8d8a8adab2a324a07947c147df0d250f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Parser.ParseSingleParameter</definition>
+        <argsstring>()</argsstring>
+        <name>ParseSingleParameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses a single parameter. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="338" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="338" bodyend="346"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Checks that the collection of tokens generated by the scanner follow the rules of the grammar. <simplesect kind="see"><para>Token </para></simplesect>
+<para>Checks that the collection of tokens generated by the scanner follow the rules of the grammar. <simplesect kind="see"><para><ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> </para></simplesect>
 <simplesect kind="see"><para><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> </para></simplesect>
 <simplesect kind="see"><para><ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref> </para></simplesect>
 </para>    </detaileddescription>
-    <location file="Compiler/Parser.cs" line="15" column="1" bodyfile="Compiler/Parser.cs" bodystart="15" bodyend="283"/>
+    <collaborationgraph>
+      <node id="13">
+        <label>Compiler.SourceFile</label>
+        <link refid="de/d2a/class_compiler_1_1_source_file"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>IEnumerator&lt; char &gt;</label>
+      </node>
+      <node id="12">
+        <label>IEnumerable&lt; Token &gt;</label>
+      </node>
+      <node id="10">
+        <label>Compiler.Parser</label>
+        <link refid="df/dc2/class_compiler_1_1_parser"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>scanner</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Compiler.Scanner</label>
+        <link refid="da/d27/class_compiler_1_1_scanner"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" line="15" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Parser.cs" bodystart="15" bodyend="347"/>
     <listofallmembers>
-      <member refid="df/dc2/class_compiler_1_1_parser_1a092fb9fb971023a089eb7505d2223610" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>Accept</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1aaedaac51ec193dd68541fd9d39fddde8" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>Accept</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1ae19e507e1e2460cbad35b03d24402b4f" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>AcceptIt</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1ac30c9381b172d482cc5bb1356c5a901b" prot="private" virt="non-virtual"><scope>Compiler::Parser</scope><name>collection</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a7ab30d3d783ccf064784df2df654ea76" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseCommand</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1ab9718b82a785e63b848e51c39bbe8ee7" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseDeclaration</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a8c6c2073d17ac572fb9117892cbf5aa1" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseExpression</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1af099ac84308e83bf30b3dfd6dc51bd32" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseIdentifier</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a052fa556c8a6b8a8d677a1faaa3342db" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseIntLiteral</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1ae03983db321bc672df2b8400f03eb67e" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseOperator</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1a80fd5f767a44bd3110cfbd4ee47a15dd" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseParameters</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a9ce17cf1f3fa7062daf05481f3230330" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParsePrimaryExpression</name></member>
-      <member refid="df/dc2/class_compiler_1_1_parser_1a426c99f29306aea343a0c0a7f8f3fbff" prot="public" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseProgram</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1a79846432a61621214101d01681b994ac" prot="public" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseProgram</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a450e11452db3f91ff866fc1e36ebc79d" prot="public" virt="non-virtual"><scope>Compiler::Parser</scope><name>Parser</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1a2c35615302bb055e4e720b94e5020a59" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseSecondaryExpression</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1af315f582be84f8e1b37add91efa3afc0" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseSingleCommand</name></member>
-      <member refid="df/dc2/class_compiler_1_1_parser_1a868e2e8aca5f72d2e7d2d91f21719b5e" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseVname</name></member>
+      <member refid="df/dc2/class_compiler_1_1_parser_1a8d8a8adab2a324a07947c147df0d250f" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParseSingleParameter</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1ad0b467a2202c311d465a11165f602216" prot="protected" virt="non-virtual"><scope>Compiler::Parser</scope><name>ParsingSingleDeclaration</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a022d273a476d1ce6198f601275fa9a15" prot="private" virt="non-virtual"><scope>Compiler::Parser</scope><name>scanner</name></member>
       <member refid="df/dc2/class_compiler_1_1_parser_1a4db075175c853a197c7b8db7d787a0a5" prot="private" virt="non-virtual"><scope>Compiler::Parser</scope><name>tokens</name></member>

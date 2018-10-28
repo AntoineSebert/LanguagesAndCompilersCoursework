@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['compiler',['Compiler',['../d0/d86/class_compiler_1_1_compiler.html',1,'Compiler.Compiler'],['../d6/df4/namespace_compiler.html',1,'Compiler'],['../d0/d86/class_compiler_1_1_compiler.html#ab9ae50ccd497464301c3bd9acf5d1d89',1,'Compiler.Compiler.Compiler()']]],
-  ['current',['Current',['../de/d2a/class_compiler_1_1_source_file.html#a2d009621871245dfb64d3866ece03633',1,'Compiler::SourceFile']]]
+  ['becomes',['Becomes',['../d6/df4/namespace_compiler.html#a57929962f25004759596fc3f13cf563ca0cdedaf0b4649b384f8a938d084d0dd0',1,'Compiler']]],
+  ['begin',['Begin',['../d6/df4/namespace_compiler.html#a57929962f25004759596fc3f13cf563ca1a06729125544cab7cee73195fc044f0',1,'Compiler']]],
+  ['buffer',['buffer',['../de/d2a/class_compiler_1_1_source_file.html#a6ac27509abd78029bf3881636983ab48',1,'Compiler::SourceFile']]]
 ];

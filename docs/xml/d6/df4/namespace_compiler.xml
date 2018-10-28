@@ -167,6 +167,20 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca58be47db9455679e6a44df2eff9c9fa6" prot="public">
+          <name>Comma</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9d1c32ceff0c1951ef12e4bcfc1dab5c" prot="public">
+          <name>QuestionMark</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca124c6858994bbff75c850dfeac551d87" prot="public">
           <name>EndOfText</name>
           <briefdescription>
@@ -184,11 +198,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Encompasses all the kinds of token defined in the grammar, except the atomics &apos;Letter&apos;, &apos;Digit&apos; and &apos;Graphic&apos;. <simplesect kind="see"><para>Token </para></simplesect>
+<para>Encompasses all the kinds of token defined in the grammar, except the atomics &apos;Letter&apos;, &apos;Digit&apos; and &apos;Graphic&apos;. <simplesect kind="see"><para><ref refid="d9/d7b/class_compiler_1_1_token" kindref="compound">Token</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Compiler/TokenKind.cs" line="10" column="1" bodyfile="Compiler/TokenKind.cs" bodystart="10" bodyend="19"/>
+        <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/TokenKind.cs" line="10" column="1" bodyfile="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/TokenKind.cs" bodystart="10" bodyend="19"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -197,6 +211,6 @@
 <para><simplesect kind="author"><para>Antoine/Anthony SÃ©bert</para></simplesect>
 <simplesect kind="author"><para>Antoine/Anthony Sébert </para></simplesect>
 </para>    </detaileddescription>
-    <location file="Compiler/Compiler.cs" line="7" column="1"/>
+    <location file="D:/Users/i/Desktop/LanguagesAndCompilersCoursework/Compiler/Compiler.cs" line="8" column="1"/>
   </compounddef>
 </doxygen>
