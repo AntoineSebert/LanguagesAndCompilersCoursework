@@ -72,7 +72,7 @@ namespace Compiler {
 
 					switch(origin) {
 						case "Compiler":
-							error_message = $"[{origin}]";
+							error_message += $"[{origin}]";
 							switch(code) {
 								case 0:
 									error_message += $"[{code}] : ";
@@ -132,7 +132,7 @@ namespace Compiler {
 							}
 							break;
 						case "Scanner":
-							error_message = $"[{origin}]";
+							error_message += $"[{origin}]";
 							switch(code) {
 								case 0:
 									if(msg.Length < 3) {
@@ -164,7 +164,7 @@ namespace Compiler {
 							}
 							break;
 						case "Parser":
-							error_message = $"[{origin}]";
+							error_message += $"[{origin}]";
 							switch(code) {
 								case 0:
 									if(msg.Length < 3) {
@@ -217,7 +217,7 @@ namespace Compiler {
 						case "Compiler":
 						case "Scanner":
 						case "Parser":
-							message = $"[{origin}]";
+							message += $"[{origin}] : ";
 							message += msg;
 							break;
 						default:

@@ -38,7 +38,7 @@ namespace Compiler {
 				/**
 				 * Contains the special characters.
 				 */
-					specials = { '.', '!', '?', '_', ' ' }; // is the space character really needed ? looks like it will be trimmed everytime
+					specials = { '.', '!', '?', '_', ' ' }; // is the space character really needed ? looks like it will be trimmed everytime. the '?' should be a token as well.
 				/**
 				 * Holds a reference to the source file.
 				 * @see	SourceFile
@@ -191,6 +191,9 @@ namespace Compiler {
 						case ',':
 							TakeIt();
 							return TokenKind.Comma;
+						case '?':
+							TakeIt();
+							return TokenKind.QuestionMark;
 						case '(':
 							TakeIt();
 							return TokenKind.LeftParenthese;

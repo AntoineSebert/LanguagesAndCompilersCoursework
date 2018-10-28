@@ -96,17 +96,18 @@ namespace Compiler {
 									AcceptIt();
 									ParseExpression();
 								}
-								else {
-									Accept(TokenKind.LeftParenthese);
-									ParseExpression();
-									
+								else if (tokens.Current.Kind == TokenKind.LeftParenthese) {
+									AcceptIt();
+									ParseParameters();
 									Accept(TokenKind.RightParenthese);
 								}
 								break;
 							}
 							case TokenKind.Begin:
 								AcceptIt();
+
 								ParseCommand();
+
 								Accept(TokenKind.End);
 								break;
 							case TokenKind.If:
@@ -114,6 +115,7 @@ namespace Compiler {
 								ParseExpression();
 								Accept(TokenKind.Then);
 								ParseSingleCommand();
+								Accept(TokenKind.Semicolon);
 								Accept(TokenKind.Else);
 								ParseSingleCommand();
 								break;
@@ -201,7 +203,7 @@ namespace Compiler {
 					protected void ParseExpression() {
 						Compiler.Info(typeof(Parser).Name, "parsing expression");
 						ParseSecondaryExpression();
-						if(tokens.Current.Spelling == "?") {
+						if(tokens.Current.Kind == TokenKind.QuestionMark) {
 							AcceptIt();
 							ParseExpression();
 							Accept(TokenKind.Colon);
@@ -255,9 +257,9 @@ namespace Compiler {
 									tokens.Current.Kind.ToString(),
 									TokenKind.IntLiteral.ToString(),
 									TokenKind.Identifier.ToString(),
+									TokenKind.CharacterLiteral.ToString(),
 									TokenKind.Operator.ToString(),
-									TokenKind.LeftParenthese.ToString(),
-									tokens.Current.Kind.ToString()
+									TokenKind.LeftParenthese.ToString()
 								});
 								break;
 						}
@@ -322,6 +324,7 @@ namespace Compiler {
 					 * Parses a single parameter.
 					 */
 					protected void ParseSingleParameter() {
+						Compiler.Info(typeof(Parser).Name, "parsing single parameter");
 						if(tokens.Current.Kind == TokenKind.Var) {
 							AcceptIt();
 							ParseIdentifier();

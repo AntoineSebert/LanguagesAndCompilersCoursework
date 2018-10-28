@@ -13,7 +13,7 @@ namespace Compiler {
 		// reserved words - terminals
 		Begin, Const, Do, Else, End, If, In, Let, Then, Var, While, Skip,
 		// punctuation - terminals
-		Colon /* : */, Semicolon, Becomes /* := */, Is /* ~ */, LeftParenthese, RightParenthese, Comma,
+		Colon /* : */, Semicolon, Becomes /* := */, Is /* ~ */, LeftParenthese, RightParenthese, Comma, QuestionMark,
 		// special tokens
 		EndOfText, Error
 	}
