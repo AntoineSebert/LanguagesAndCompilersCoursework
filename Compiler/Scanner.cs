@@ -32,6 +32,10 @@ namespace Compiler {
 				 */
 				static readonly char[] operators = { '+', '-', '*', '/', '=', '<', '>' },
 				/**
+				 * Contains the characters or sequences to be ignored by the compiler.
+				 */
+					ignored = { '!', ' ', '\t', '\n' },
+				/**
 				 * Contains the special characters.
 				 */
 					specials = { '.', '!', '?', '_', ' ' }; // is the space character really needed ? looks like it will be trimmed everytime
@@ -107,6 +111,13 @@ namespace Compiler {
 				 */
 				protected bool IsOperator(char c) { return Array.IndexOf(operators, c) != -1; }
 				/**
+				 * Test if a character or a sequence is to be ignored by the compiler.
+				 * @param	c	the character to test.
+				 * @return	{@code true} if the character matches an ignored character, {@code false} otherwise.
+				 * @see		ignored
+				 */
+				protected bool IsIgnored(char c) { return Array.IndexOf(ignored, c) != -1; }
+				/**
 				 * Test if a character is a special character.
 				 * @param	c	the character to test.
 				 * @return	{@code true} if the character matches a special character, {@code false} otherwise.
@@ -123,15 +134,15 @@ namespace Compiler {
 				 * Skips whitespaces and comments in the source file.
 				 */
 				protected void IgnoreUseless() {
-					while(source.Current == '!' || source.Current == ' ' || source.Current == '\t' || source.Current == '\n') {
+					while(IsIgnored(source.Current)) {
 						switch(source.Current) {
-							case '!':
-								source.SkipRestOfLine();
-								break;
 							case ' ':
 							case '\t':
 							case '\n':
 								source.MoveNext();
+								break;
+							default:
+								source.SkipRestOfLine();
 								break;
 						}
 					}
@@ -162,7 +173,6 @@ namespace Compiler {
 					}
 					// integer literal
 					if(char.IsDigit(source.Current)) {
-						TakeIt();
 						do { TakeIt(); } while(char.IsDigit(source.Current));
 						return TokenKind.IntLiteral;
 					}
@@ -221,7 +231,6 @@ namespace Compiler {
 								return TokenKind.Error;
 							}
 						default:
-							// not ASCII character ? => file encoding
 							TakeIt();
 							Compiler.Error(typeof(Scanner).Name, 0, new string[]{
 								source._Location.LineNumber.ToString(),

@@ -37,10 +37,10 @@ namespace Compiler {
 						//previousLocation = Location.Empty;
 						tokens = scanner.GetEnumerator();
 					}
+				// program parsing
 					/**
 					 * Parses a program from the beginning to the end.
 					 */
-				// program parsing
 					public void ParseProgram() {
 						Compiler.Info(typeof(Parser).Name, "parsing Program", 1);
 						tokens.MoveNext();
@@ -54,13 +54,13 @@ namespace Compiler {
 					 * @param expectedKinds	an array of expected token kinds.
 					 */
 					protected void Accept(params TokenKind[] expectedKinds) {
-						for(uint i = 0; i < expectedKinds.Length; i++) {
-							if(tokens.Current.Kind == expectedKinds[i]) {
+						foreach(var expected_kind in expectedKinds) {
+							if(tokens.Current.Kind == expected_kind) {
 								//previousLocation = tokens.Current.Position.Start;
 								tokens.MoveNext();
 							}
 							else
-								Console.WriteLine($"error : {expectedKinds[i]} expected, {tokens.Current.Kind} found");
+								Console.WriteLine($"error : {expected_kind} expected, {tokens.Current.Kind} found");
 						}
 					}
 					/**
@@ -70,18 +70,25 @@ namespace Compiler {
 						//previousLocation = tokens.Current.Position.End;
 						tokens.MoveNext();
 					}
-				// value-or-variable nae parsing
+				// value-or-variable parsing
+					/**
+					 * Parses a variable name.
+					 */
 					protected void ParseVname() {
 						Compiler.Info(typeof(Parser).Name, "parsing variable name", 1);
 						ParseIdentifier();
 					}
 				// terminals parsing
-					// Parses an identifier, and constructs a leaf AST to represent it.
+					/**
+					 * Parses an identifier, and constructs a leaf AST to represent it.
+					 */
 					protected void ParseIdentifier() {
 						Compiler.Info(typeof(Parser).Name, "parsing identifier", 1);
 						Accept(TokenKind.Identifier);
 					}
-					/*
+					/**
+					 * Parses an operator.
+					 */
 					protected void ParseOperator() {
 						Compiler.Info(typeof(Parser).Name, "parsing operator", 1);
 						switch(tokens.Current.Spelling) {
@@ -91,19 +98,35 @@ namespace Compiler {
 							case "*":
 							case "<":
 							case ">":
+							case "=":
+							case "==":
+							case "+=":
+							case "-=":
+							case "/=":
+							case "*=":
+							case "<=":
+							case ">=":
 								AcceptIt();
 								break;
 							default:
-								Console.WriteLine($"error : '{tokens.Current.Spelling}' found");
+								Compiler.Error(typeof(Parser).Name, 1, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Spelling
+								}, 1);
 								break;
 						}
 					}
-					*/
+					/**
+					 * Parses an integer literal.
+					 */
 					protected void ParseIntLiteral() {
 						Compiler.Info(typeof(Parser).Name, "parsing integer literal", 1);
 					}
 				// command parsing
-					/// Parses the command
+					/**
+					 * Parses a command. Multiple tokens swallowed at once.
+					 */
 					protected void ParseCommand() {
 						Compiler.Info(typeof(Parser).Name, "parsing command", 1);
 						ParseSingleCommand();
@@ -112,6 +135,9 @@ namespace Compiler {
 							ParseSingleCommand();
 						}
 					}
+					/**
+					 * Parses an expression. Multiple tokens swallowed at once.
+					 */
 					protected void ParseExpression() {
 						Compiler.Info(typeof(Parser).Name, "parsing expression", 1);
 						ParsePrimaryExpression();
@@ -120,6 +146,9 @@ namespace Compiler {
 							ParsePrimaryExpression();
 						}
 					}
+					/**
+					 * Parses a primary expression.
+					 */
 					protected void ParsePrimaryExpression() {
 						Compiler.Info(typeof(Parser).Name, "parsing primary expression", 1);
 						switch(tokens.Current.Kind) {
@@ -140,10 +169,22 @@ namespace Compiler {
 								Accept(TokenKind.RightParenthese);
 								break;
 							default:
-								Console.WriteLine("error : " + tokens.Current.Kind + " found");
+								Compiler.Error(typeof(Parser).Name, 2, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Kind.ToString(),
+									TokenKind.IntLiteral.ToString(),
+									TokenKind.Identifier.ToString(),
+									TokenKind.Operator.ToString(),
+									TokenKind.LeftParenthese.ToString(),
+									tokens.Current.Kind.ToString()
+								}, 1);
 								break;
 						}
 					}
+					/**
+					 * Parses a declaration. Multiple tokens swallowed at once.
+					 */
 					protected void ParseDeclaration() {
 						Compiler.Info(typeof(Parser).Name, "parsing declaration", 1);
 						ParsingSingleDeclaration();
@@ -152,6 +193,9 @@ namespace Compiler {
 							ParsingSingleDeclaration();
 						}
 					}
+					/**
+					 * Parses a single declaration.
+					 */
 					protected void ParsingSingleDeclaration() {
 						Compiler.Info(typeof(Parser).Name, "parsing single declaration", 1);
 						switch(tokens.Current.Kind) {
@@ -170,11 +214,20 @@ namespace Compiler {
 								ParseIdentifier();
 								break;
 							default:
-								Console.WriteLine("error : " + tokens.Current.Kind + " found");
+								Compiler.Error(typeof(Parser).Name, 2, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Kind.ToString(),
+									TokenKind.Const.ToString(),
+									TokenKind.Var.ToString(),
+									tokens.Current.Kind.ToString()
+								}, 1);
 								break;
 						}
 					}
-					// Parses the single command
+					/**
+					 * Parses a single command.
+					 */
 					protected void ParseSingleCommand() {
 						Compiler.Info(typeof(Parser).Name, "parsing single command", 1);
 						switch(tokens.Current.Kind) {
@@ -214,7 +267,16 @@ namespace Compiler {
 								ParseSingleCommand();
 								break;
 							default:
-								Console.WriteLine("error : " + tokens.Current.Kind + " found");
+								Compiler.Error(typeof(Parser).Name, 2, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Kind.ToString(),
+									TokenKind.Identifier.ToString(),
+									TokenKind.Begin.ToString(),
+									TokenKind.If.ToString(),
+									TokenKind.While.ToString(),
+									TokenKind.Let.ToString()
+								}, 1);
 								break;
 						}
 				}

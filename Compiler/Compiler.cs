@@ -193,6 +193,16 @@ namespace Compiler {
 									error_message += $"[{code}] : ";
 									error_message += $"invalid operator at line {msg[0]}, column {msg[1]}, got : {msg[2]}";
 									break;
+								case 2:
+									if(msg.Length < 4) {
+										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										return;
+									}
+									error_message += $"[{code}] : ";
+									error_message += $"unexpected token found at line {msg[0]}, column {msg[1]}, got  {msg[3]}, expected ";
+									for(uint i = 4; i < msg.Length; ++i)
+										error_message += msg[i] + ' ';
+									break;
 								default:
 									Error(origin, 2, new string[]{ origin, code.ToString() }, ++indentlevel);
 									return;

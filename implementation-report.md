@@ -7,10 +7,98 @@ The first submission will constitute the two primary components of the front end
 Your Scanner (Lexical Analyser) should be developed to read in a source file written in the given source language. The characters in the source file should be compiled into a sequence of recognised language tokens.
 
 During this process your scanner should fulfil the following basic compiler requirements
-* Identify and remove whitespace.
-* Identify and remove language comments
-* Identify and produce errors for unknown characters in the language
-* Identify and produce errors for unterminated character literals
+
+- [x] Identify and remove whitespace.
+
+- [x] Identify and remove language comments.
+
+```csharp
+/**
+ * Skips whitespaces and comments in the source file.
+ */
+protected void IgnoreUseless() {
+	while(IsIgnored(source.Current)) {
+		switch(source.Current) {
+			case ' ':
+			case '\t':
+			case '\n':
+				source.MoveNext();
+				break;
+			default:
+				source.SkipRestOfLine();
+				break;
+		}
+	}
+}
+```
+
+- [x] Identify and produce errors for unknown characters in the language.
+
+```csharp
+/**
+ * Determine the token kind to build from the characters processed. Reads the file stream to build the token.
+ * @return	a token kind.
+ * @see		TokenKind
+ */
+private TokenKind ScanToken() {
+	/* valid characters */
+	// ...
+	switch(source.Current) {
+		/* valid characters */
+		// ...
+		default:
+			TakeIt();
+			Compiler.Error(typeof(Scanner).Name, 0, new string[]{
+				source._Location.LineNumber.ToString(),
+				source._Location.RowNumber.ToString(),
+				currentSpelling.ToString()
+			}, 1);
+			return TokenKind.Error;
+	}
+}
+```
+
+- [x] Identify and produce errors for unterminated character literals.
+
+```csharp
+/**
+ * Determine the token kind to build from the characters processed. Reads the file stream to build the token.
+ * @return	a token kind.
+ * @see		TokenKind
+ */
+private TokenKind ScanToken() {
+	/* valid characters */
+	// ...
+	switch(source.Current) {
+		/* other valid characters */
+		// ...
+		case '\'':
+			TakeIt();
+			if(source.Current == '\'') {
+				TakeIt();
+				return TokenKind.CharacterLiteral;
+			}
+			else {
+				if(IsGraphic(source.Current)) {
+					TakeIt();
+					if(source.Current == '\'') {
+						TakeIt();
+						return TokenKind.CharacterLiteral;
+					}
+				}
+				TakeIt();
+				Compiler.Error(typeof(Scanner).Name, 1, new string[]{
+					source._Location.LineNumber.ToString(),
+					source._Location.RowNumber.ToString(),
+					currentSpelling.ToString()
+				}, 1);
+				return TokenKind.Error;
+			}
+		/* unknown characters */
+		// ...
+	}
+}
+```
 
 ## Parser implementation – 20%
 
