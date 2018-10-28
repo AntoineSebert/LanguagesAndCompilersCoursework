@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="db/db5/_source_position_8cs" kind="file" language="C#">
+    <compoundname>SourcePosition.cs</compoundname>
+    <innerclass refid="df/dae/class_compiler_1_1_source_position" prot="public">Compiler::SourcePosition</innerclass>
+    <innernamespace refid="d6/df4/namespace_compiler">Compiler</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="5"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d6/df4/namespace_compiler" kindref="compound">Compiler</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="df/dae/class_compiler_1_1_source_position" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="df/dae/class_compiler_1_1_source_position" kindref="compound">SourcePosition</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ATTRIBUTES<sp/>*/</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref><sp/><ref refid="df/dae/class_compiler_1_1_source_position_1ad7c78fd184a393fc62cb5ee8678db0c8" kindref="member">Start</ref><sp/>=<sp/>null,<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>End<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MEMBERS<sp/>*/</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/dae/class_compiler_1_1_source_position_1ac8eeb6d20c8a788dfe27345b435bb035" kindref="member">SourcePosition</ref>(<ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref><sp/>_Start,<sp/><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref><sp/>_End)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/dae/class_compiler_1_1_source_position_1ad7c78fd184a393fc62cb5ee8678db0c8" kindref="member">Start</ref><sp/>=<sp/>_Start;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>End<sp/>=<sp/>_End;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="df/dae/class_compiler_1_1_source_position_1a95b14602e2629b906f29ef194d4f88f6" kindref="member">ToString</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$</highlight><highlight class="stringliteral">&quot;{Start}<sp/>--<sp/>{End}&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Compiler/SourcePosition.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="da/d27/class_compiler_1_1_scanner" kind="class" language="C#" prot="public">
+    <compoundname>Compiler::Scanner</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IEnumerable&lt; Token &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="da/d27/class_compiler_1_1_scanner_1aebce05a12eba0f6267dfa8dd2fa07b1f" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.Debug</definition>
+        <argsstring></argsstring>
+        <name>Debug</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds a boolean set to true if the <ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref> runs in debug mode. In that case the process is more verbose. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="24" column="1" bodyfile="Compiler/Scanner.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1aa96dbbef2d22ecf0a62c0a8c26d960a8" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.atEndOfFile</definition>
+        <argsstring></argsstring>
+        <name>atEndOfFile</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds a boolean set to true if the end of the source file has been reached. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="29" column="1" bodyfile="Compiler/Scanner.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1a06b412dc474f3c625169dea913ee95da" prot="private" static="yes" mutable="no">
+        <type>readonly char []</type>
+        <definition>readonly char [] Compiler.Scanner.operators</definition>
+        <argsstring></argsstring>
+        <name>operators</name>
+        <initializer>= { &apos;+&apos;, &apos;-&apos;, &apos;*&apos;, &apos;/&apos;, &apos;=&apos;, &apos;&lt;&apos;, &apos;&gt;&apos; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the atomic operators. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="33" column="1" bodyfile="Compiler/Scanner.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1afe7355d6751272f7fd901cdd885a1bd1" prot="private" static="yes" mutable="no">
+        <type>readonly char []</type>
+        <definition>readonly char [] Compiler.Scanner.ignored</definition>
+        <argsstring></argsstring>
+        <name>ignored</name>
+        <initializer>= { &apos;!&apos;, &apos; &apos;, &apos;\t&apos;, &apos;\n&apos; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the characters or sequences to be ignored by the compiler. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="37" column="1" bodyfile="Compiler/Scanner.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1ab3e4b27f11afa6d99ec2f09e8ab0b8bd" prot="private" static="yes" mutable="no">
+        <type>readonly char []</type>
+        <definition>readonly char [] Compiler.Scanner.specials</definition>
+        <argsstring></argsstring>
+        <name>specials</name>
+        <initializer>= { &apos;.&apos;, &apos;!&apos;, &apos;?&apos;, &apos;_&apos;, &apos; &apos; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the special characters. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="41" column="1" bodyfile="Compiler/Scanner.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1a6fa17eef62c3cf43853464ccfbd61966" prot="private" static="yes" mutable="no">
+        <type><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref></type>
+        <definition>SourceFile Compiler.Scanner.source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds a reference to the source file. <simplesect kind="see"><para><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="46" column="1" bodyfile="Compiler/Scanner.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1a3bea5b7c795b6ecfff02cf15f197e277" prot="private" static="yes" mutable="no">
+        <type>StringBuilder</type>
+        <definition>StringBuilder Compiler.Scanner.currentSpelling</definition>
+        <argsstring></argsstring>
+        <name>currentSpelling</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the characters being processed in order to determine which token to create. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="50" column="1" bodyfile="Compiler/Scanner.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/d27/class_compiler_1_1_scanner_1af08999456293c083a301561a5f96ca8b" prot="private" static="yes" mutable="no">
+        <type>readonly ImmutableDictionary&lt; string, <ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> &gt;</type>
+        <definition>readonly ImmutableDictionary&lt;string, TokenKind&gt; Compiler.Scanner.ReservedWords</definition>
+        <argsstring></argsstring>
+        <name>ReservedWords</name>
+        <initializer>=
+					Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While)
+					.Cast&lt;<ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref>&gt;().ToImmutableDictionary(kind =&gt; kind.ToString().ToLower(), kind =&gt; kind)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the reserved keywords as strings, generated on the fly when the instance is created. <simplesect kind="see"><para><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="55" column="1" bodyfile="Compiler/Scanner.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1a1b80cbd150fb8fdb87f6b31c9d2ddc48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Compiler.Scanner.Scanner</definition>
+        <argsstring>(SourceFile _source)</argsstring>
+        <name>Scanner</name>
+        <param>
+          <type><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref></type>
+          <declname>_source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds a<programlisting><codeline><highlight class="normal">Scanner<sp/></highlight></codeline>
+</programlisting> instance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference to the source file to scan. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="66" column="1" bodyfile="Compiler/Scanner.cs" bodystart="66" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1aea1e54cd0fb8a4b19f9403be60720ff9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator&lt; Token &gt;</type>
+        <definition>IEnumerator&lt;Token&gt; Compiler.Scanner.GetEnumerator</definition>
+        <argsstring>()</argsstring>
+        <name>GetEnumerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Responsible for the main process of creating a collection of tokens from the source file. <simplesect kind="return"><para>a collection of tokens of type<programlisting><codeline><highlight class="normal">IEnumerator&lt;Token&gt;<sp/></highlight></codeline>
+</programlisting> . </para></simplesect>
+<simplesect kind="see"><para>Token </para></simplesect>
+<simplesect kind="see"><para><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="78" column="1" bodyfile="Compiler/Scanner.cs" bodystart="78" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1a9a5c3cbfcd7608679a85403d93e0faef" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator IEnumerable.</type>
+        <definition>IEnumerator IEnumerable. Compiler.Scanner.GetEnumerator</definition>
+        <argsstring>()</argsstring>
+        <name>GetEnumerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the collection of tokens built from the source file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="104" column="1" bodyfile="Compiler/Scanner.cs" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1a373e66b40365f842b514f388c0becb61" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref></type>
+        <definition>TokenKind Compiler.Scanner.ScanToken</definition>
+        <argsstring>()</argsstring>
+        <name>ScanToken</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the token kind to build from the characters processed. Reads the file stream to build the token. <simplesect kind="return"><para>a token kind. </para></simplesect>
+<simplesect kind="see"><para><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="156" column="1" bodyfile="Compiler/Scanner.cs" bodystart="156" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1af112ca8e7a48e769ab142b1fbb4d8802" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Scanner.TakeIt</definition>
+        <argsstring>()</argsstring>
+        <name>TakeIt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append the current character to the buffer and move to the next character. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="246" column="1" bodyfile="Compiler/Scanner.cs" bodystart="246" bodyend="249"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1afbd70f210f32a803266e042bfe13e58b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.IsOperator</definition>
+        <argsstring>(char c)</argsstring>
+        <name>IsOperator</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a character is an operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character to test. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><programlisting><codeline><highlight class="normal">true<sp/></highlight></codeline>
+</programlisting> if the character matches an operator,<programlisting><codeline><highlight class="normal">false<sp/></highlight></codeline>
+</programlisting> otherwise. </para></simplesect>
+<simplesect kind="see"><para>operators </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="112" column="1" bodyfile="Compiler/Scanner.cs" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1adb2fc8cf5a107c41d73e00eb93a98ca2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.IsIgnored</definition>
+        <argsstring>(char c)</argsstring>
+        <name>IsIgnored</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a character or a sequence is to be ignored by the compiler. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character to test. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><programlisting><codeline><highlight class="normal">true<sp/></highlight></codeline>
+</programlisting> if the character matches an ignored character,<programlisting><codeline><highlight class="normal">false<sp/></highlight></codeline>
+</programlisting> otherwise. </para></simplesect>
+<simplesect kind="see"><para>ignored </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="119" column="1" bodyfile="Compiler/Scanner.cs" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1a60cdf39c3f0fb8d97ca4b635ca2eb0c2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.IsSpecial</definition>
+        <argsstring>(char c)</argsstring>
+        <name>IsSpecial</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a character is a special character. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character to test. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><programlisting><codeline><highlight class="normal">true<sp/></highlight></codeline>
+</programlisting> if the character matches a special character,<programlisting><codeline><highlight class="normal">false<sp/></highlight></codeline>
+</programlisting> otherwise. </para></simplesect>
+<simplesect kind="see"><para>specials </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="126" column="1" bodyfile="Compiler/Scanner.cs" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1a6b4be2a8e2aa19e24ecb1abc692dcebc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Compiler.Scanner.IsGraphic</definition>
+        <argsstring>(char c)</argsstring>
+        <name>IsGraphic</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a character is a graphic character. It includes digits, letters, operators and special characters. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character to test. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><programlisting><codeline><highlight class="normal">true<sp/></highlight></codeline>
+</programlisting> if the character is a graphic character,<programlisting><codeline><highlight class="normal">false<sp/></highlight></codeline>
+</programlisting> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="132" column="1" bodyfile="Compiler/Scanner.cs" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="da/d27/class_compiler_1_1_scanner_1abd981910f7c2f50c9ed8e778d93fffdd" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Compiler.Scanner.IgnoreUseless</definition>
+        <argsstring>()</argsstring>
+        <name>IgnoreUseless</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skips whitespaces and comments in the source file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Scanner.cs" line="136" column="1" bodyfile="Compiler/Scanner.cs" bodystart="136" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Split the source file into tokens, checks the validity of the stream on the fly. Does not perform syntax checks. <simplesect kind="see"><para>Token </para></simplesect>
+<simplesect kind="see"><para><ref refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kindref="member">TokenKind</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>IEnumerable&lt; Token &gt;</label>
+      </node>
+      <node id="6">
+        <label>Compiler.Scanner</label>
+        <link refid="da/d27/class_compiler_1_1_scanner"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>IEnumerable&lt; Token &gt;</label>
+      </node>
+      <node id="8">
+        <label>Compiler.Scanner</label>
+        <link refid="da/d27/class_compiler_1_1_scanner"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Compiler/Scanner.cs" line="18" column="1" bodyfile="Compiler/Scanner.cs" bodystart="18" bodyend="250"/>
+    <listofallmembers>
+      <member refid="da/d27/class_compiler_1_1_scanner_1aa96dbbef2d22ecf0a62c0a8c26d960a8" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>atEndOfFile</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a3bea5b7c795b6ecfff02cf15f197e277" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>currentSpelling</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1aebce05a12eba0f6267dfa8dd2fa07b1f" prot="public" virt="non-virtual"><scope>Compiler::Scanner</scope><name>Debug</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1aea1e54cd0fb8a4b19f9403be60720ff9" prot="public" virt="non-virtual"><scope>Compiler::Scanner</scope><name>GetEnumerator</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a9a5c3cbfcd7608679a85403d93e0faef" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>GetEnumerator</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1afe7355d6751272f7fd901cdd885a1bd1" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>ignored</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1abd981910f7c2f50c9ed8e778d93fffdd" prot="protected" virt="non-virtual"><scope>Compiler::Scanner</scope><name>IgnoreUseless</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a6b4be2a8e2aa19e24ecb1abc692dcebc" prot="protected" virt="non-virtual"><scope>Compiler::Scanner</scope><name>IsGraphic</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1adb2fc8cf5a107c41d73e00eb93a98ca2" prot="protected" virt="non-virtual"><scope>Compiler::Scanner</scope><name>IsIgnored</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1afbd70f210f32a803266e042bfe13e58b" prot="protected" virt="non-virtual"><scope>Compiler::Scanner</scope><name>IsOperator</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a60cdf39c3f0fb8d97ca4b635ca2eb0c2" prot="protected" virt="non-virtual"><scope>Compiler::Scanner</scope><name>IsSpecial</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a06b412dc474f3c625169dea913ee95da" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>operators</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1af08999456293c083a301561a5f96ca8b" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>ReservedWords</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a1b80cbd150fb8fdb87f6b31c9d2ddc48" prot="public" virt="non-virtual"><scope>Compiler::Scanner</scope><name>Scanner</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a373e66b40365f842b514f388c0becb61" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>ScanToken</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1a6fa17eef62c3cf43853464ccfbd61966" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>source</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1ab3e4b27f11afa6d99ec2f09e8ab0b8bd" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>specials</name></member>
+      <member refid="da/d27/class_compiler_1_1_scanner_1af112ca8e7a48e769ab142b1fbb4d8802" prot="private" virt="non-virtual"><scope>Compiler::Scanner</scope><name>TakeIt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

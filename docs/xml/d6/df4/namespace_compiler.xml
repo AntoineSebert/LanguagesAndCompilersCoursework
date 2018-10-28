@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d6/df4/namespace_compiler" kind="namespace" language="C#">
+    <compoundname>Compiler</compoundname>
+    <innerclass refid="d0/d86/class_compiler_1_1_compiler" prot="public">Compiler::Compiler</innerclass>
+    <innerclass refid="df/d5a/class_compiler_1_1_location" prot="public">Compiler::Location</innerclass>
+    <innerclass refid="df/dc2/class_compiler_1_1_parser" prot="public">Compiler::Parser</innerclass>
+    <innerclass refid="da/d27/class_compiler_1_1_scanner" prot="public">Compiler::Scanner</innerclass>
+    <innerclass refid="de/d2a/class_compiler_1_1_source_file" prot="public">Compiler::SourceFile</innerclass>
+    <innerclass refid="df/dae/class_compiler_1_1_source_position" prot="public">Compiler::SourcePosition</innerclass>
+    <innerclass refid="d9/d7b/class_compiler_1_1_token" prot="package">Compiler::Token</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TokenKind</name>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cacda97c2a497d47d83988f15420afc42e" prot="public">
+          <name>IntLiteral</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca29ee5d1ebcc033234938a5234f1f2075" prot="public">
+          <name>Identifier</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cae1b3ec89ead7f83a9245ed5c9cacfdbf" prot="public">
+          <name>Operator</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9b5a49731936589128da5a5c1f8c07bd" prot="public">
+          <name>CharacterLiteral</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca1a06729125544cab7cee73195fc044f0" prot="public">
+          <name>Begin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca79ceee9f8e3c1f0cc74223e05d2448bf" prot="public">
+          <name>Const</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca0567953871b1bf589b797d9b178d5a94" prot="public">
+          <name>Do</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca6a0053231db40a4539b8f783a719a54a" prot="public">
+          <name>Else</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca87557f11575c0ad78e4e28abedc13b6e" prot="public">
+          <name>End</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca786887572f6ef1c20f2d8177cb2f1639" prot="public">
+          <name>If</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563caefeb369cccbd560588a756610865664c" prot="public">
+          <name>In</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cacae6404c4aecf46684930fe2a86676a6" prot="public">
+          <name>Let</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cad48a5cda4bc91670bf431856c381ab40" prot="public">
+          <name>Then</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca5a92344ee95acf10c31901b36418be77" prot="public">
+          <name>Var</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca3cddbb8f43a4e074e2c2ce3e8622f43e" prot="public">
+          <name>While</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca72ef2b9b6965d078e3c7f95487a82d1c" prot="public">
+          <name>Skip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca3ccf74d463f8895cef06727cb9709d83" prot="public">
+          <name>Colon</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9806fa37a3ecd39bf637c203aa011ed0" prot="public">
+          <name>Semicolon</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca0cdedaf0b4649b384f8a938d084d0dd0" prot="public">
+          <name>Becomes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca27d4cf7da57f6748f79254f7be42cca3" prot="public">
+          <name>Is</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca701eaa54ef8a76cc71f7b24062305936" prot="public">
+          <name>LeftParenthese</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca6464d9cc692b57d82b8b812625ae0c0c" prot="public">
+          <name>RightParenthese</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca124c6858994bbff75c850dfeac551d87" prot="public">
+          <name>EndOfText</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encompasses all the kinds of token defined in the grammar, except the atomics &apos;Letter&apos;, &apos;Digit&apos; and &apos;Graphic&apos;. <simplesect kind="see"><para>Token </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/TokenKind.cs" line="10" column="1" bodyfile="Compiler/TokenKind.cs" bodystart="10" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Antoine/Anthony SÃ©bert</para></simplesect>
+<simplesect kind="author"><para>Antoine/Anthony Sébert </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Compiler/Compiler.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

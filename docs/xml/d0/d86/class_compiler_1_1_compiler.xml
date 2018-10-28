@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d0/d86/class_compiler_1_1_compiler" kind="class" language="C#" prot="public">
+    <compoundname>Compiler::Compiler</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d0/d86/class_compiler_1_1_compiler_1a8ec56dd708f82bf4b16a074f7263e8f1" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref></type>
+        <definition>readonly Scanner Compiler.Compiler.scanner</definition>
+        <argsstring></argsstring>
+        <name>scanner</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds a <ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref> object, initialised in #constructor(string) <simplesect kind="see"><para><ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="19" column="1" bodyfile="Compiler/Compiler.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d86/class_compiler_1_1_compiler_1a73660c59052687e1b4b92b7549dcd171" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="df/dc2/class_compiler_1_1_parser" kindref="compound">Parser</ref></type>
+        <definition>readonly Parser Compiler.Compiler.parser</definition>
+        <argsstring></argsstring>
+        <name>parser</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds a <ref refid="df/dc2/class_compiler_1_1_parser" kindref="compound">Parser</ref> object, initialised in #constructor(string) <simplesect kind="see"><para><ref refid="df/dc2/class_compiler_1_1_parser" kindref="compound">Parser</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="24" column="1" bodyfile="Compiler/Compiler.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d86/class_compiler_1_1_compiler_1a6096cba7dada5002eb07a626dc76cb89" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref></type>
+        <definition>readonly SourceFile Compiler.Compiler.source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Holds the source code file, initialised in #constructor(string) <simplesect kind="see"><para><ref refid="de/d2a/class_compiler_1_1_source_file" kindref="compound">SourceFile</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="29" column="1" bodyfile="Compiler/Compiler.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d86/class_compiler_1_1_compiler_1ab9ae50ccd497464301c3bd9acf5d1d89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Compiler.Compiler.Compiler</definition>
+        <argsstring>(string fileName)</argsstring>
+        <name>Compiler</name>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds a <ref refid="d0/d86/class_compiler_1_1_compiler" kindref="compound">Compiler</ref> instance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name of the file to compile </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="36" column="1" bodyfile="Compiler/Compiler.cs" bodystart="36" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d0/d86/class_compiler_1_1_compiler_1aaa8629c1d8b60f4ad0e9771931b23471" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Compiler.Compiler.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string []</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Builds a<programlisting><codeline><highlight class="normal">Compiler<sp/></highlight></codeline>
+</programlisting> instance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command-line one and only argument, the source code file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="46" column="1" bodyfile="Compiler/Compiler.cs" bodystart="46" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d86/class_compiler_1_1_compiler_1ae76148be697c8ad3d4655dfc24fd7f1c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Compiler.Compiler.Error</definition>
+        <argsstring>(string origin, uint code, string[] msg, uint indentlevel=0)</argsstring>
+        <name>Error</name>
+        <param>
+          <type>string</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>uint</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>string []</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>uint</type>
+          <declname>indentlevel</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Displays an error. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>origin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class name of the object sender. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>error code. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>arguments for the error message. Can be empty. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indentlevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indentation level. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="75" column="1" bodyfile="Compiler/Compiler.cs" bodystart="75" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d86/class_compiler_1_1_compiler_1a370b82209f5493e17a7f60c548fe2f80" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Compiler.Compiler.Info</definition>
+        <argsstring>(string origin, string msg, uint indentlevel=0)</argsstring>
+        <name>Info</name>
+        <param>
+          <type>string</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>uint</type>
+          <declname>indentlevel</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Displays an error. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>origin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class name of the object sender. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>body of the info message. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indentlevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>indentation level. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Compiler/Compiler.cs" line="224" column="1" bodyfile="Compiler/Compiler.cs" bodystart="224" bodyend="246"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds a scanner, a parser, and the source file is responsible for the whole process. <simplesect kind="see"><para><ref refid="da/d27/class_compiler_1_1_scanner" kindref="compound">Scanner</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="df/dc2/class_compiler_1_1_parser" kindref="compound">Parser</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Compiler/Compiler.cs" line="13" column="1" bodyfile="Compiler/Compiler.cs" bodystart="13" bodyend="247"/>
+    <listofallmembers>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1ab9ae50ccd497464301c3bd9acf5d1d89" prot="public" virt="non-virtual"><scope>Compiler::Compiler</scope><name>Compiler</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1ae76148be697c8ad3d4655dfc24fd7f1c" prot="public" virt="non-virtual"><scope>Compiler::Compiler</scope><name>Error</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1a370b82209f5493e17a7f60c548fe2f80" prot="public" virt="non-virtual"><scope>Compiler::Compiler</scope><name>Info</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1aaa8629c1d8b60f4ad0e9771931b23471" prot="public" virt="non-virtual"><scope>Compiler::Compiler</scope><name>Main</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1a73660c59052687e1b4b92b7549dcd171" prot="private" virt="non-virtual"><scope>Compiler::Compiler</scope><name>parser</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1a8ec56dd708f82bf4b16a074f7263e8f1" prot="private" virt="non-virtual"><scope>Compiler::Compiler</scope><name>scanner</name></member>
+      <member refid="d0/d86/class_compiler_1_1_compiler_1a6096cba7dada5002eb07a626dc76cb89" prot="private" virt="non-virtual"><scope>Compiler::Compiler</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

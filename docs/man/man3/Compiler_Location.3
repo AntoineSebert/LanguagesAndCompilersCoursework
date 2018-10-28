@@ -1,0 +1,93 @@
+.TH "Compiler.Location" 3 "Sun Oct 28 2018" "Version 1.0.0" "Compiler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Compiler.Location
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLocation\fP (uint _LineNumber, uint _RowNumber)"
+.br
+.ti -1c
+.RI "override string \fBToString\fP ()"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "uint \fBLineNumber\fP = 0\fC [get]\fP"
+.br
+.ti -1c
+.RI "uint \fBRowNumber\fP = 0\fC [get]\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a position in the file\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSourceFile\fP 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Compiler\&.Location\&.Location (uint _LineNumber, uint _RowNumber)"
+Builds a
+.PP
+.nf
+Location 
+
+.fi
+.PP
+ object from two
+.PP
+.nf
+uint 
+
+.fi
+.PP
+ \&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI_LineNumber\fP the line number 
+.br
+\fI_RowNumber\fP the row number 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "override string Compiler\&.Location\&.ToString ()"
+Overrides the cast of a
+.PP
+.nf
+Location 
+
+.fi
+.PP
+ object to a
+.PP
+.nf
+string 
+
+.fi
+.PP
+ \&. 
+.SH "Property Documentation"
+.PP 
+.SS "uint Compiler\&.Location\&.LineNumber = 0\fC [get]\fP"
+Holds the line number\&. 
+.SS "uint Compiler\&.Location\&.RowNumber = 0\fC [get]\fP"
+Holds the row number\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Compiler from the source code\&.

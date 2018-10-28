@@ -1,0 +1,101 @@
+.TH "Compiler.Compiler" 3 "Sun Oct 28 2018" "Version 1.0.0" "Compiler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Compiler.Compiler
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCompiler\fP (string fileName)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBMain\fP (string[] args)"
+.br
+.ti -1c
+.RI "static void \fBError\fP (string origin, uint code, string[] msg, uint indentlevel=0)"
+.br
+.ti -1c
+.RI "static void \fBInfo\fP (string origin, string msg, uint indentlevel=0)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Holds a scanner, a parser, and the source file is responsible for the whole process\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBScanner\fP 
+.PP
+\fBParser\fP 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Compiler\&.Compiler\&.Compiler (string fileName)"
+Builds a \fBCompiler\fP instance\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP name of the file to compile 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static void Compiler\&.Compiler\&.Error (string origin, uint code, string [] msg, uint indentlevel = \fC0\fP)\fC [static]\fP"
+Displays an error\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP class name of the object sender\&. 
+.br
+\fIcode\fP error code\&. 
+.br
+\fImsg\fP arguments for the error message\&. Can be empty\&. 
+.br
+\fIindentlevel\fP indentation level\&. 
+.RE
+.PP
+
+.SS "static void Compiler\&.Compiler\&.Info (string origin, string msg, uint indentlevel = \fC0\fP)\fC [static]\fP"
+Displays an error\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP class name of the object sender\&. 
+.br
+\fImsg\fP body of the info message\&. 
+.br
+\fIindentlevel\fP indentation level\&. 
+.RE
+.PP
+
+.SS "static void Compiler\&.Compiler\&.Main (string [] args)\fC [static]\fP"
+Builds a
+.PP
+.nf
+Compiler 
+
+.fi
+.PP
+ instance\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIargs\fP command-line one and only argument, the source code file\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Compiler from the source code\&.

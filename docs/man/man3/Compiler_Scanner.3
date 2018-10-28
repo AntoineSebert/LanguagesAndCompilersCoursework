@@ -1,0 +1,235 @@
+.TH "Compiler.Scanner" 3 "Sun Oct 28 2018" "Version 1.0.0" "Compiler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Compiler.Scanner
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits IEnumerable< Token >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBScanner\fP (\fBSourceFile\fP _source)"
+.br
+.ti -1c
+.RI "IEnumerator< Token > \fBGetEnumerator\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBIsOperator\fP (char c)"
+.br
+.ti -1c
+.RI "bool \fBIsIgnored\fP (char c)"
+.br
+.ti -1c
+.RI "bool \fBIsSpecial\fP (char c)"
+.br
+.ti -1c
+.RI "bool \fBIsGraphic\fP (char c)"
+.br
+.ti -1c
+.RI "void \fBIgnoreUseless\fP ()"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBDebug\fP = true\fC [get, set]\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Split the source file into tokens, checks the validity of the stream on the fly\&. Does not perform syntax checks\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+Token 
+.PP
+\fBTokenKind\fP 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Compiler\&.Scanner\&.Scanner (\fBSourceFile\fP _source)"
+Builds a
+.PP
+.nf
+Scanner 
+
+.fi
+.PP
+ instance\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI_source\fP reference to the source file to scan\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBSourceFile\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "IEnumerator<Token> Compiler\&.Scanner\&.GetEnumerator ()"
+Responsible for the main process of creating a collection of tokens from the source file\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a collection of tokens of type
+.PP
+.nf
+IEnumerator<Token> 
+
+.fi
+.PP
+ \&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+Token 
+.PP
+\fBSourceFile\fP 
+.RE
+.PP
+
+.SS "void Compiler\&.Scanner\&.IgnoreUseless ()\fC [protected]\fP"
+Skips whitespaces and comments in the source file\&. 
+.SS "bool Compiler\&.Scanner\&.IsGraphic (char c)\fC [protected]\fP"
+Test if a character is a graphic character\&. It includes digits, letters, operators and special characters\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the character to test\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.PP
+.nf
+true 
+.fi
+.PP
+ if the character is a graphic character,
+.PP
+.nf
+false 
+
+.fi
+.PP
+ otherwise\&. 
+.RE
+.PP
+
+.SS "bool Compiler\&.Scanner\&.IsIgnored (char c)\fC [protected]\fP"
+Test if a character or a sequence is to be ignored by the compiler\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the character to test\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.PP
+.nf
+true 
+.fi
+.PP
+ if the character matches an ignored character,
+.PP
+.nf
+false 
+
+.fi
+.PP
+ otherwise\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+ignored 
+.RE
+.PP
+
+.SS "bool Compiler\&.Scanner\&.IsOperator (char c)\fC [protected]\fP"
+Test if a character is an operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the character to test\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.PP
+.nf
+true 
+.fi
+.PP
+ if the character matches an operator,
+.PP
+.nf
+false 
+
+.fi
+.PP
+ otherwise\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+operators 
+.RE
+.PP
+
+.SS "bool Compiler\&.Scanner\&.IsSpecial (char c)\fC [protected]\fP"
+Test if a character is a special character\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the character to test\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.PP
+.nf
+true 
+.fi
+.PP
+ if the character matches a special character,
+.PP
+.nf
+false 
+
+.fi
+.PP
+ otherwise\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+specials 
+.RE
+.PP
+
+.SH "Property Documentation"
+.PP 
+.SS "bool Compiler\&.Scanner\&.Debug = true\fC [static]\fP, \fC [get]\fP, \fC [set]\fP"
+Holds a boolean set to true if the \fBScanner\fP runs in debug mode\&. In that case the process is more verbose\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Compiler from the source code\&.

@@ -1,0 +1,93 @@
+\hypertarget{class_compiler_1_1_compiler}{}\section{Compiler.\+Compiler Class Reference}
+\label{class_compiler_1_1_compiler}\index{Compiler.\+Compiler@{Compiler.\+Compiler}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}{Compiler}} (string file\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}{Main}} (string\mbox{[}$\,$\mbox{]} args)
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_ae76148be697c8ad3d4655dfc24fd7f1c}{Error}} (string origin, uint code, string\mbox{[}$\,$\mbox{]} msg, uint indentlevel=0)
+\item 
+static void \mbox{\hyperlink{class_compiler_1_1_compiler_a370b82209f5493e17a7f60c548fe2f80}{Info}} (string origin, string msg, uint indentlevel=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holds a scanner, a parser, and the source file is responsible for the whole process. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_compiler_1_1_scanner}{Scanner}} 
+
+\mbox{\hyperlink{class_compiler_1_1_parser}{Parser}} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}\label{class_compiler_1_1_compiler_ab9ae50ccd497464301c3bd9acf5d1d89}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Compiler@{Compiler}}
+\index{Compiler@{Compiler}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Compiler()}{Compiler()}}
+{\footnotesize\ttfamily Compiler.\+Compiler.\+Compiler (\begin{DoxyParamCaption}\item[{string}]{file\+Name }\end{DoxyParamCaption})}
+
+Builds a \mbox{\hyperlink{class_compiler_1_1_compiler}{Compiler}} instance. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the file to compile \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_ae76148be697c8ad3d4655dfc24fd7f1c}\label{class_compiler_1_1_compiler_ae76148be697c8ad3d4655dfc24fd7f1c}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Error@{Error}}
+\index{Error@{Error}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Error()}{Error()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Error (\begin{DoxyParamCaption}\item[{string}]{origin,  }\item[{uint}]{code,  }\item[{string \mbox{[}$\,$\mbox{]}}]{msg,  }\item[{uint}]{indentlevel = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Displays an error. 
+\begin{DoxyParams}{Parameters}
+{\em origin} & class name of the object sender. \\
+\hline
+{\em code} & error code. \\
+\hline
+{\em msg} & arguments for the error message. Can be empty. \\
+\hline
+{\em indentlevel} & indentation level. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_a370b82209f5493e17a7f60c548fe2f80}\label{class_compiler_1_1_compiler_a370b82209f5493e17a7f60c548fe2f80}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Info@{Info}}
+\index{Info@{Info}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Info()}{Info()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Info (\begin{DoxyParamCaption}\item[{string}]{origin,  }\item[{string}]{msg,  }\item[{uint}]{indentlevel = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Displays an error. 
+\begin{DoxyParams}{Parameters}
+{\em origin} & class name of the object sender. \\
+\hline
+{\em msg} & body of the info message. \\
+\hline
+{\em indentlevel} & indentation level. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}\label{class_compiler_1_1_compiler_aaa8629c1d8b60f4ad0e9771931b23471}} 
+\index{Compiler\+::\+Compiler@{Compiler\+::\+Compiler}!Main@{Main}}
+\index{Main@{Main}!Compiler\+::\+Compiler@{Compiler\+::\+Compiler}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Compiler.\+Compiler.\+Main (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Builds a
+\begin{DoxyCode}
+\mbox{\hyperlink{namespace_compiler}{Compiler}} 
+\end{DoxyCode}
+ instance. 
+\begin{DoxyParams}{Parameters}
+{\em args} & command-\/line one and only argument, the source code file. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Compiler/Compiler.\+cs\end{DoxyCompactItemize}

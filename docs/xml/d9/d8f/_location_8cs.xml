@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="d9/d8f/_location_8cs" kind="file" language="C#">
+    <compoundname>Location.cs</compoundname>
+    <innerclass refid="df/d5a/class_compiler_1_1_location" prot="public">Compiler::Location</innerclass>
+    <innernamespace refid="d6/df4/namespace_compiler">Compiler</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="5"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d6/df4/namespace_compiler" kindref="compound">Compiler</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="df/d5a/class_compiler_1_1_location" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="df/d5a/class_compiler_1_1_location" kindref="compound">Location</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ATTRIBUTES<sp/>*/</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>uint<sp/><ref refid="df/d5a/class_compiler_1_1_location_1a71feb3bfd70af6096dc48451765ba284" kindref="member">LineNumber</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>}<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>uint<sp/><ref refid="df/d5a/class_compiler_1_1_location_1a766213e18168dcb22d657bee4f047ed9" kindref="member">RowNumber</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>}<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>METHODS<sp/>*/</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/d5a/class_compiler_1_1_location_1a389e64f3314c314948b740af8de9dcea" kindref="member">Location</ref>(uint<sp/>_LineNumber,<sp/>uint<sp/>_RowNumber)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d5a/class_compiler_1_1_location_1a71feb3bfd70af6096dc48451765ba284" kindref="member">LineNumber</ref><sp/>=<sp/>_LineNumber;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d5a/class_compiler_1_1_location_1a766213e18168dcb22d657bee4f047ed9" kindref="member">RowNumber</ref><sp/>=<sp/>_RowNumber;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="df/d5a/class_compiler_1_1_location_1a44ca3fe0ddbc48974f1f85fc6df0ba90" kindref="member">ToString</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$</highlight><highlight class="stringliteral">&quot;{LineNumber}:{RowNumber}&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Compiler/Location.cs"/>
+  </compounddef>
+</doxygen>

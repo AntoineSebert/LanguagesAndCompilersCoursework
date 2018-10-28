@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_e5daf81dc821a7b8dc4c9b459b4f0b60" kind="dir">
+    <compoundname>Compiler</compoundname>
+    <innerdir refid="dir_58f07bedd2658b45a56faa7aff1aea0f">Compiler/obj</innerdir>
+    <innerfile refid="d6/d5f/_compiler_8cs">Compiler.cs</innerfile>
+    <innerfile refid="d9/d8f/_location_8cs">Location.cs</innerfile>
+    <innerfile refid="dc/d93/_parser_8cs">Parser.cs</innerfile>
+    <innerfile refid="de/df8/_scanner_8cs">Scanner.cs</innerfile>
+    <innerfile refid="dd/d1c/_source_file_8cs">SourceFile.cs</innerfile>
+    <innerfile refid="db/db5/_source_position_8cs">SourcePosition.cs</innerfile>
+    <innerfile refid="d2/dfd/_token_8cs">Token.cs</innerfile>
+    <innerfile refid="d2/dd0/_token_kind_8cs">TokenKind.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Compiler/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="d0/d86/class_compiler_1_1_compiler" kind="class"><name>Compiler::Compiler</name>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a8ec56dd708f82bf4b16a074f7263e8f1" kind="variable"><name>scanner</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a73660c59052687e1b4b92b7549dcd171" kind="variable"><name>parser</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a6096cba7dada5002eb07a626dc76cb89" kind="variable"><name>source</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1ab9ae50ccd497464301c3bd9acf5d1d89" kind="function"><name>Compiler</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1aaa8629c1d8b60f4ad0e9771931b23471" kind="function"><name>Main</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1ae76148be697c8ad3d4655dfc24fd7f1c" kind="function"><name>Error</name></member>
+    <member refid="d0/d86/class_compiler_1_1_compiler_1a370b82209f5493e17a7f60c548fe2f80" kind="function"><name>Info</name></member>
+  </compound>
+  <compound refid="df/d5a/class_compiler_1_1_location" kind="class"><name>Compiler::Location</name>
+    <member refid="df/d5a/class_compiler_1_1_location_1a71feb3bfd70af6096dc48451765ba284" kind="property"><name>LineNumber</name></member>
+    <member refid="df/d5a/class_compiler_1_1_location_1a766213e18168dcb22d657bee4f047ed9" kind="property"><name>RowNumber</name></member>
+    <member refid="df/d5a/class_compiler_1_1_location_1a389e64f3314c314948b740af8de9dcea" kind="function"><name>Location</name></member>
+    <member refid="df/d5a/class_compiler_1_1_location_1a44ca3fe0ddbc48974f1f85fc6df0ba90" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="df/dc2/class_compiler_1_1_parser" kind="class"><name>Compiler::Parser</name>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a022d273a476d1ce6198f601275fa9a15" kind="variable"><name>scanner</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a4db075175c853a197c7b8db7d787a0a5" kind="variable"><name>tokens</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a450e11452db3f91ff866fc1e36ebc79d" kind="function"><name>Parser</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a426c99f29306aea343a0c0a7f8f3fbff" kind="function"><name>ParseProgram</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a092fb9fb971023a089eb7505d2223610" kind="function"><name>Accept</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1ae19e507e1e2460cbad35b03d24402b4f" kind="function"><name>AcceptIt</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a868e2e8aca5f72d2e7d2d91f21719b5e" kind="function"><name>ParseVname</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1af099ac84308e83bf30b3dfd6dc51bd32" kind="function"><name>ParseIdentifier</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1ae03983db321bc672df2b8400f03eb67e" kind="function"><name>ParseOperator</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a052fa556c8a6b8a8d677a1faaa3342db" kind="function"><name>ParseIntLiteral</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a7ab30d3d783ccf064784df2df654ea76" kind="function"><name>ParseCommand</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a8c6c2073d17ac572fb9117892cbf5aa1" kind="function"><name>ParseExpression</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1a9ce17cf1f3fa7062daf05481f3230330" kind="function"><name>ParsePrimaryExpression</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1ab9718b82a785e63b848e51c39bbe8ee7" kind="function"><name>ParseDeclaration</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1ad0b467a2202c311d465a11165f602216" kind="function"><name>ParsingSingleDeclaration</name></member>
+    <member refid="df/dc2/class_compiler_1_1_parser_1af315f582be84f8e1b37add91efa3afc0" kind="function"><name>ParseSingleCommand</name></member>
+  </compound>
+  <compound refid="da/d27/class_compiler_1_1_scanner" kind="class"><name>Compiler::Scanner</name>
+    <member refid="da/d27/class_compiler_1_1_scanner_1aebce05a12eba0f6267dfa8dd2fa07b1f" kind="property"><name>Debug</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1aa96dbbef2d22ecf0a62c0a8c26d960a8" kind="variable"><name>atEndOfFile</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a06b412dc474f3c625169dea913ee95da" kind="variable"><name>operators</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1afe7355d6751272f7fd901cdd885a1bd1" kind="variable"><name>ignored</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1ab3e4b27f11afa6d99ec2f09e8ab0b8bd" kind="variable"><name>specials</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a6fa17eef62c3cf43853464ccfbd61966" kind="variable"><name>source</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a3bea5b7c795b6ecfff02cf15f197e277" kind="variable"><name>currentSpelling</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1af08999456293c083a301561a5f96ca8b" kind="variable"><name>ReservedWords</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a1b80cbd150fb8fdb87f6b31c9d2ddc48" kind="function"><name>Scanner</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1aea1e54cd0fb8a4b19f9403be60720ff9" kind="function"><name>GetEnumerator</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a9a5c3cbfcd7608679a85403d93e0faef" kind="function"><name>GetEnumerator</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a373e66b40365f842b514f388c0becb61" kind="function"><name>ScanToken</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1af112ca8e7a48e769ab142b1fbb4d8802" kind="function"><name>TakeIt</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1afbd70f210f32a803266e042bfe13e58b" kind="function"><name>IsOperator</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1adb2fc8cf5a107c41d73e00eb93a98ca2" kind="function"><name>IsIgnored</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a60cdf39c3f0fb8d97ca4b635ca2eb0c2" kind="function"><name>IsSpecial</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1a6b4be2a8e2aa19e24ecb1abc692dcebc" kind="function"><name>IsGraphic</name></member>
+    <member refid="da/d27/class_compiler_1_1_scanner_1abd981910f7c2f50c9ed8e778d93fffdd" kind="function"><name>IgnoreUseless</name></member>
+  </compound>
+  <compound refid="de/d2a/class_compiler_1_1_source_file" kind="class"><name>Compiler::SourceFile</name>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a4a0d8f66b3c7de70edadb1761aaf65b5" kind="property"><name>Current</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a2d009621871245dfb64d3866ece03633" kind="property"><name>Current</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a0e304ca0e3d5b0af3dd18d09520f215e" kind="property"><name>Name</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a9f6feacf9e20b5b1d535c712d9b4370e" kind="property"><name>_Location</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a46a2996b918f0b2f795449879663cfe5" kind="variable"><name>index</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a9fea4fc4a3640f2f88db7d2e8be3db70" kind="variable"><name>lineNumber</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a6ac27509abd78029bf3881636983ab48" kind="variable"><name>buffer</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a46db9fe024d4cf1e282e6afafea8c4b2" kind="variable"><name>source</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1aba8bb7d1c0418d2b0c6033308209265a" kind="function"><name>SourceFile</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1ad80d0f3a9ead18dce6baad58971838bb" kind="function"><name>MoveNext</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1aa64348e54dbb048b3ec58ce3d355e014" kind="function"><name>Reset</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1af5331d15e3c1a629af9cbd273c36c02c" kind="function"><name>Dispose</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a236483cd300f9793eed183d32959c7bd" kind="function"><name>SkipRestOfLine</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a71c994b257804a95d0f05f7347b10879" kind="function"><name>Dispose</name></member>
+    <member refid="de/d2a/class_compiler_1_1_source_file_1a4e9f67bce62e15431b753705a79097ad" kind="function"><name>ReadLine</name></member>
+  </compound>
+  <compound refid="df/dae/class_compiler_1_1_source_position" kind="class"><name>Compiler::SourcePosition</name>
+    <member refid="df/dae/class_compiler_1_1_source_position_1ad7c78fd184a393fc62cb5ee8678db0c8" kind="variable"><name>Start</name></member>
+    <member refid="df/dae/class_compiler_1_1_source_position_1af3d1f2d17f914b89789fff6207265829" kind="variable"><name>End</name></member>
+    <member refid="df/dae/class_compiler_1_1_source_position_1ac8eeb6d20c8a788dfe27345b435bb035" kind="function"><name>SourcePosition</name></member>
+    <member refid="df/dae/class_compiler_1_1_source_position_1a95b14602e2629b906f29ef194d4f88f6" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="d9/d7b/class_compiler_1_1_token" kind="class"><name>Compiler::Token</name>
+    <member refid="d9/d7b/class_compiler_1_1_token_1af1d95b32f5d1b3f103a10c11ac2f2ac2" kind="property"><name>Spelling</name></member>
+    <member refid="d9/d7b/class_compiler_1_1_token_1a181f032615da51df5a5a0223532cfe9f" kind="property"><name>Kind</name></member>
+    <member refid="d9/d7b/class_compiler_1_1_token_1aefe43b7285f8982f636556b611cdbd5e" kind="property"><name>Position</name></member>
+    <member refid="d9/d7b/class_compiler_1_1_token_1aab9c8427bb691c0e674d0f1fdd5b1fbd" kind="function"><name>Token</name></member>
+    <member refid="d9/d7b/class_compiler_1_1_token_1aa5b0e895da0a0f75886eb603455ab0ea" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="d6/df4/namespace_compiler" kind="namespace"><name>Compiler</name>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563c" kind="enum"><name>TokenKind</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cacda97c2a497d47d83988f15420afc42e" kind="enumvalue"><name>IntLiteral</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca29ee5d1ebcc033234938a5234f1f2075" kind="enumvalue"><name>Identifier</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cae1b3ec89ead7f83a9245ed5c9cacfdbf" kind="enumvalue"><name>Operator</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9b5a49731936589128da5a5c1f8c07bd" kind="enumvalue"><name>CharacterLiteral</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca1a06729125544cab7cee73195fc044f0" kind="enumvalue"><name>Begin</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca79ceee9f8e3c1f0cc74223e05d2448bf" kind="enumvalue"><name>Const</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca0567953871b1bf589b797d9b178d5a94" kind="enumvalue"><name>Do</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca6a0053231db40a4539b8f783a719a54a" kind="enumvalue"><name>Else</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca87557f11575c0ad78e4e28abedc13b6e" kind="enumvalue"><name>End</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca786887572f6ef1c20f2d8177cb2f1639" kind="enumvalue"><name>If</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563caefeb369cccbd560588a756610865664c" kind="enumvalue"><name>In</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cacae6404c4aecf46684930fe2a86676a6" kind="enumvalue"><name>Let</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563cad48a5cda4bc91670bf431856c381ab40" kind="enumvalue"><name>Then</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca5a92344ee95acf10c31901b36418be77" kind="enumvalue"><name>Var</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca3cddbb8f43a4e074e2c2ce3e8622f43e" kind="enumvalue"><name>While</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca72ef2b9b6965d078e3c7f95487a82d1c" kind="enumvalue"><name>Skip</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca3ccf74d463f8895cef06727cb9709d83" kind="enumvalue"><name>Colon</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca9806fa37a3ecd39bf637c203aa011ed0" kind="enumvalue"><name>Semicolon</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca0cdedaf0b4649b384f8a938d084d0dd0" kind="enumvalue"><name>Becomes</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca27d4cf7da57f6748f79254f7be42cca3" kind="enumvalue"><name>Is</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca701eaa54ef8a76cc71f7b24062305936" kind="enumvalue"><name>LeftParenthese</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca6464d9cc692b57d82b8b812625ae0c0c" kind="enumvalue"><name>RightParenthese</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca124c6858994bbff75c850dfeac551d87" kind="enumvalue"><name>EndOfText</name></member>
+    <member refid="d6/df4/namespace_compiler_1a57929962f25004759596fc3f13cf563ca902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+  </compound>
+  <compound refid="d8/dd0/namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="d5/da7/namespace_system_1_1_collections" kind="namespace"><name>System::Collections</name>
+  </compound>
+  <compound refid="d9/d1b/namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="d7/d28/namespace_system_1_1_collections_1_1_immutable" kind="namespace"><name>System::Collections::Immutable</name>
+  </compound>
+  <compound refid="dc/d30/namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="d5/de4/namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="d0/d9d/namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="d8/d71/namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="d6/d5f/_compiler_8cs" kind="file"><name>Compiler.cs</name>
+  </compound>
+  <compound refid="d9/d8f/_location_8cs" kind="file"><name>Location.cs</name>
+  </compound>
+  <compound refid="d5/d3d/_compiler_8_assembly_info_8cs" kind="file"><name>Compiler.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="df/d63/_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="db/d59/_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="de/d44/_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="dc/d93/_parser_8cs" kind="file"><name>Parser.cs</name>
+  </compound>
+  <compound refid="de/df8/_scanner_8cs" kind="file"><name>Scanner.cs</name>
+  </compound>
+  <compound refid="dd/d1c/_source_file_8cs" kind="file"><name>SourceFile.cs</name>
+  </compound>
+  <compound refid="db/db5/_source_position_8cs" kind="file"><name>SourcePosition.cs</name>
+  </compound>
+  <compound refid="d2/dfd/_token_8cs" kind="file"><name>Token.cs</name>
+  </compound>
+  <compound refid="d2/dd0/_token_kind_8cs" kind="file"><name>TokenKind.cs</name>
+  </compound>
+  <compound refid="da/d58/deprecated" kind="page"><name>deprecated</name>
+  </compound>
+  <compound refid="dir_e5daf81dc821a7b8dc4c9b459b4f0b60" kind="dir"><name>Compiler</name>
+  </compound>
+  <compound refid="dir_c3649d4a430efd1033d5d90098fdfe6b" kind="dir"><name>Compiler/obj/Debug</name>
+  </compound>
+  <compound refid="dir_67c794cbe793662cbe774ab6b86a515e" kind="dir"><name>Compiler/obj/Debug/netcoreapp2.2</name>
+  </compound>
+  <compound refid="dir_58f07bedd2658b45a56faa7aff1aea0f" kind="dir"><name>Compiler/obj</name>
+  </compound>
+</doxygenindex>
