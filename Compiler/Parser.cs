@@ -33,8 +33,6 @@ namespace Compiler {
 					 */
 					public Parser(Scanner _scanner) {
 						scanner = _scanner;
-						//errorReporter = errorReporter;
-						//previousLocation = Location.Empty;
 						tokens = scanner.GetEnumerator();
 					}
 				// program parsing
@@ -42,93 +40,44 @@ namespace Compiler {
 					 * Parses a program from the beginning to the end.
 					 */
 					public void ParseProgram() {
-						Compiler.Info(typeof(Parser).Name, "parsing Program", 1);
-						tokens.MoveNext();
-						//var startLocation = tokens.Current.Position.Start;
+						Compiler.Info(typeof(Parser).Name, "parsing Program");
+						// var previousLocation = Location.Empty;
+						//var startLocation = tokens.Current.Position.Start; // ?
 						ParseCommand();
 					}
 			// protected
-				// parsing
+				// tokens swallowing
 					/**
 					 * Checks that the given token matches the current stream of tokens, if not prints an error.
 					 * @param expectedKinds	an array of expected token kinds.
 					 */
-					protected void Accept(params TokenKind[] expectedKinds) {
-						foreach(var expected_kind in expectedKinds) {
-							if(tokens.Current.Kind == expected_kind) {
-								//previousLocation = tokens.Current.Position.Start;
-								tokens.MoveNext();
-							}
-							else
-								Console.WriteLine($"error : {expected_kind} expected, {tokens.Current.Kind} found");
+					protected void Accept(TokenKind expectedKind) {
+						if(tokens.Current.Kind == expectedKind) {
+							var previousLocation = tokens.Current.Position.Start; // ?
 						}
+						else
+							Compiler.Error(typeof(Parser).Name, 2, new string[]{
+								tokens.Current.Position.Start.LineNumber.ToString(),
+								tokens.Current.Position.Start.RowNumber.ToString(),
+								tokens.Current.Kind.ToString(),
+								expectedKind.ToString()
+							});
+						tokens.MoveNext();
 					}
 					/**
 					 * Fetches the next token from the source file.
 					 */
 					protected void AcceptIt() {
-						//previousLocation = tokens.Current.Position.End;
+						//var previousLocation = tokens.Current.Position.End; // ?
 						tokens.MoveNext();
-					}
-				// value-or-variable parsing
-					/**
-					 * Parses a variable name.
-					 */
-					protected void ParseVname() {
-						Compiler.Info(typeof(Parser).Name, "parsing variable name", 1);
-						ParseIdentifier();
-					}
-				// terminals parsing
-					/**
-					 * Parses an identifier, and constructs a leaf AST to represent it.
-					 */
-					protected void ParseIdentifier() {
-						Compiler.Info(typeof(Parser).Name, "parsing identifier", 1);
-						Accept(TokenKind.Identifier);
-					}
-					/**
-					 * Parses an operator.
-					 */
-					protected void ParseOperator() {
-						Compiler.Info(typeof(Parser).Name, "parsing operator", 1);
-						switch(tokens.Current.Spelling) {
-							case "+":
-							case "-":
-							case "/":
-							case "*":
-							case "<":
-							case ">":
-							case "=":
-							case "==":
-							case "+=":
-							case "-=":
-							case "/=":
-							case "*=":
-							case "<=":
-							case ">=":
-								AcceptIt();
-								break;
-							default:
-								Compiler.Error(typeof(Parser).Name, 1, new string[]{
-									tokens.Current.Position.Start.LineNumber.ToString(),
-									tokens.Current.Position.Start.RowNumber.ToString(),
-									tokens.Current.Spelling
-								}, 1);
-								break;
-						}
-					}
-					/**
-					 * Parses an integer literal.
-					 */
-					protected void ParseIntLiteral() {
-						Compiler.Info(typeof(Parser).Name, "parsing integer literal", 1);
 					}
 				// command parsing
 					/**
 					 * Parses a command. Multiple tokens swallowed at once.
 					 */
 					protected void ParseCommand() {
-						Compiler.Info(typeof(Parser).Name, "parsing command", 1);
+						Compiler.Info(typeof(Parser).Name, "parsing command");
+						AcceptIt();
 						ParseSingleCommand();
 						while(tokens.Current.Kind == TokenKind.Semicolon) {
 							AcceptIt();
@@ -136,109 +85,23 @@ namespace Compiler {
 						}
 					}
 					/**
-					 * Parses an expression. Multiple tokens swallowed at once.
-					 */
-					protected void ParseExpression() {
-						Compiler.Info(typeof(Parser).Name, "parsing expression", 1);
-						ParsePrimaryExpression();
-						while(tokens.Current.Kind == TokenKind.Operator) {
-							AcceptIt();
-							ParsePrimaryExpression();
-						}
-					}
-					/**
-					 * Parses a primary expression.
-					 */
-					protected void ParsePrimaryExpression() {
-						Compiler.Info(typeof(Parser).Name, "parsing primary expression", 1);
-						switch(tokens.Current.Kind) {
-							case TokenKind.IntLiteral:
-								AcceptIt();
-								break;
-							case TokenKind.Identifier:
-								AcceptIt();
-								ParseVname();
-								break;
-							case TokenKind.Operator:
-								AcceptIt();
-								ParsePrimaryExpression();
-								break;
-							case TokenKind.LeftParenthese:
-								AcceptIt();
-								ParseExpression();
-								Accept(TokenKind.RightParenthese);
-								break;
-							default:
-								Compiler.Error(typeof(Parser).Name, 2, new string[]{
-									tokens.Current.Position.Start.LineNumber.ToString(),
-									tokens.Current.Position.Start.RowNumber.ToString(),
-									tokens.Current.Kind.ToString(),
-									TokenKind.IntLiteral.ToString(),
-									TokenKind.Identifier.ToString(),
-									TokenKind.Operator.ToString(),
-									TokenKind.LeftParenthese.ToString(),
-									tokens.Current.Kind.ToString()
-								}, 1);
-								break;
-						}
-					}
-					/**
-					 * Parses a declaration. Multiple tokens swallowed at once.
-					 */
-					protected void ParseDeclaration() {
-						Compiler.Info(typeof(Parser).Name, "parsing declaration", 1);
-						ParsingSingleDeclaration();
-						while(tokens.Current.Kind == TokenKind.Semicolon) {
-							AcceptIt();
-							ParsingSingleDeclaration();
-						}
-					}
-					/**
-					 * Parses a single declaration.
-					 */
-					protected void ParsingSingleDeclaration() {
-						Compiler.Info(typeof(Parser).Name, "parsing single declaration", 1);
-						switch(tokens.Current.Kind) {
-							case TokenKind.Const:
-								AcceptIt();
-								ParseIdentifier();
-								if(tokens.Current.Spelling == "~")
-									AcceptIt();
-								ParseExpression();
-								break;
-							case TokenKind.Var:
-								AcceptIt();
-								ParseIdentifier();
-								if(tokens.Current.Spelling == ":")
-									AcceptIt();
-								ParseIdentifier();
-								break;
-							default:
-								Compiler.Error(typeof(Parser).Name, 2, new string[]{
-									tokens.Current.Position.Start.LineNumber.ToString(),
-									tokens.Current.Position.Start.RowNumber.ToString(),
-									tokens.Current.Kind.ToString(),
-									TokenKind.Const.ToString(),
-									TokenKind.Var.ToString(),
-									tokens.Current.Kind.ToString()
-								}, 1);
-								break;
-						}
-					}
-					/**
 					 * Parses a single command.
 					 */
 					protected void ParseSingleCommand() {
-						Compiler.Info(typeof(Parser).Name, "parsing single command", 1);
+						Compiler.Info(typeof(Parser).Name, "parsing single command");
 						switch(tokens.Current.Kind) {
 							case TokenKind.Identifier: {
-								AcceptIt();
-								ParseVname();
-								Accept(TokenKind.Becomes);
-								ParseExpression();
-								Accept(TokenKind.LeftParenthese);
-								ParseExpression();
-								Accept(TokenKind.RightParenthese);
+								ParseIdentifier();
+								if(tokens.Current.Kind == TokenKind.Becomes) {
+									AcceptIt();
+									ParseExpression();
+								}
+								else {
+									Accept(TokenKind.LeftParenthese);
+									ParseExpression();
+									
+									Accept(TokenKind.RightParenthese);
+								}
 								break;
 							}
 							case TokenKind.Begin:
@@ -266,6 +129,9 @@ namespace Compiler {
 								Accept(TokenKind.In);
 								ParseSingleCommand();
 								break;
+							case TokenKind.Skip:
+								AcceptIt();
+								break;
 							default:
 								Compiler.Error(typeof(Parser).Name, 2, new string[]{
 									tokens.Current.Position.Start.LineNumber.ToString(),
@@ -275,10 +141,193 @@ namespace Compiler {
 									TokenKind.Begin.ToString(),
 									TokenKind.If.ToString(),
 									TokenKind.While.ToString(),
+									TokenKind.Skip.ToString(),
 									TokenKind.Let.ToString()
-								}, 1);
+								});
 								break;
 						}
-				}
+						Console.WriteLine();
+					}
+				// terminals parsing
+					/**
+					 * Parses an identifier, and constructs a leaf AST to represent it.
+					 */
+					protected void ParseIdentifier() {
+						Compiler.Info(typeof(Parser).Name, "parsing identifier");
+						Accept(TokenKind.Identifier);
+					}
+					/**
+					 * Parses an operator.
+					 */
+					protected void ParseOperator() {
+						Compiler.Info(typeof(Parser).Name, "parsing operator");
+						switch(tokens.Current.Spelling) {
+							case "+":
+							case "-":
+							case "/":
+							case "*":
+							case "<":
+							case ">":
+							case "=":
+							case "==":
+							case "+=":
+							case "-=":
+							case "/=":
+							case "*=":
+							case "<=":
+							case ">=":
+								AcceptIt();
+								break;
+							default:
+								Compiler.Error(typeof(Parser).Name, 1, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Spelling
+								});
+								break;
+						}
+					}
+					/**
+					 * Parses an integer literal.
+					 */
+					protected void ParseIntLiteral() {
+						Compiler.Info(typeof(Parser).Name, "parsing integer literal");
+						Accept(TokenKind.IntLiteral);
+					}
+				// expresssion parsing
+					/**
+					 * Parses an expression. Multiple tokens swallowed at once.
+					 */
+					protected void ParseExpression() {
+						Compiler.Info(typeof(Parser).Name, "parsing expression");
+						ParseSecondaryExpression();
+						if(tokens.Current.Spelling == "?") {
+							AcceptIt();
+							ParseExpression();
+							Accept(TokenKind.Colon);
+							ParseExpression();
+						}
+					}
+					/**
+					 * Parses a secondary expression.
+					 */
+					protected void ParseSecondaryExpression() {
+						Compiler.Info(typeof(Parser).Name, "parsing secondary expression");
+						ParsePrimaryExpression();
+						while(tokens.Current.Kind == TokenKind.Operator) {
+							AcceptIt();
+							ParsePrimaryExpression();
+						}
+					}
+					/**
+					 * Parses a primary expression.
+					 */
+					protected void ParsePrimaryExpression() {
+						Compiler.Info(typeof(Parser).Name, "parsing primary expression");
+						switch(tokens.Current.Kind) {
+							case TokenKind.IntLiteral:
+								ParseIntLiteral();
+								break;
+							case TokenKind.Identifier:
+								ParseIdentifier();
+								if(tokens.Current.Kind == TokenKind.LeftParenthese) {
+									AcceptIt();
+									ParseParameters();
+									Accept(TokenKind.RightParenthese);
+								}
+								break;
+							case TokenKind.Operator:
+								ParseOperator();
+								ParsePrimaryExpression();
+								break;
+							case TokenKind.CharacterLiteral:
+								AcceptIt(); // create ParseCharacterLiteral() if enough time (with length checks)
+								break;
+							case TokenKind.LeftParenthese:
+								AcceptIt();
+								ParseExpression();
+								Accept(TokenKind.RightParenthese);
+								break;
+							default:
+								Compiler.Error(typeof(Parser).Name, 2, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Kind.ToString(),
+									TokenKind.IntLiteral.ToString(),
+									TokenKind.Identifier.ToString(),
+									TokenKind.Operator.ToString(),
+									TokenKind.LeftParenthese.ToString(),
+									tokens.Current.Kind.ToString()
+								});
+								break;
+						}
+					}
+				// declaration parsing
+					/**
+					 * Parses a declaration. Multiple tokens swallowed at once.
+					 */
+					protected void ParseDeclaration() {
+						Compiler.Info(typeof(Parser).Name, "parsing declaration");
+						do { ParsingSingleDeclaration(); } while(tokens.Current.Kind == TokenKind.Semicolon);
+					}
+					/**
+					 * Parses a single declaration.
+					 */
+					protected void ParsingSingleDeclaration() {
+						Compiler.Info(typeof(Parser).Name, "parsing single declaration");
+						switch(tokens.Current.Kind) {
+							case TokenKind.Const:
+								AcceptIt();
+								ParseIdentifier();
+								Accept(TokenKind.Is);
+								ParseExpression();
+								break;
+							case TokenKind.Var:
+								AcceptIt();
+								ParseIdentifier();
+								Accept(TokenKind.Colon);
+								ParseIdentifier();
+								break;
+							case TokenKind.Let:
+								AcceptIt();
+								ParseDeclaration();
+								Accept(TokenKind.In);
+								ParseSingleCommand();
+								break;
+							default:
+								Compiler.Error(typeof(Parser).Name, 2, new string[]{
+									tokens.Current.Position.Start.LineNumber.ToString(),
+									tokens.Current.Position.Start.RowNumber.ToString(),
+									tokens.Current.Kind.ToString(),
+									TokenKind.Const.ToString(),
+									TokenKind.Var.ToString(),
+									TokenKind.Let.ToString()
+								});
+								break;
+						}
+					}
+				// parameters parsing
+					/**
+					 * Parses parameters. Swallow multiple tokens at once.
+					 */
+					 protected void ParseParameters() {
+						Compiler.Info(typeof(Parser).Name, "parsing parameters");
+						ParseSingleParameter();
+						while(tokens.Current.Kind == TokenKind.Comma) {
+							AcceptIt();
+							ParseSingleParameter();
+						}
+					}
+					/**
+					 * Parses a single parameter.
+					 */
+					protected void ParseSingleParameter() {
+						if(tokens.Current.Kind == TokenKind.Var) {
+							AcceptIt();
+							ParseIdentifier();
+						}
+						else
+							ParseExpression();
+					}
 	}
 }

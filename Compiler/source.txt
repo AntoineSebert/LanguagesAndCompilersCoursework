@@ -1,2 +1,33 @@
 test := 10001;
-lul := 2; ! test var const 'k';
+v_1 := 2; ! test var const 'k';
+let const c_1 ~ v_1 + 50 in program;
+
+skip;
+
+f(var identifier);
+
+f_2(1793);
+
+f_3(v_1 < test);
+
+f_4(6 >= test ? 'a' : false);
+
+f_5(var identifier_2, 0 == 0);
+
+if v_1 == 2 then
+	v_1 = 3;
+else
+	v_1 = 2;
+
+while v_1 < 10 do
+	v_1 = v_1 + 1;
+
+let var v_2 : uint in vector
+
+begin
+	v_2 = v_2 /= v_1
+	if c_1 < v_2 then
+		skip;
+	else
+		v_2 += 1;
+end

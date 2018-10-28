@@ -30,7 +30,7 @@ namespace Compiler {
 		/* MEMBERS */
 			// constructor
 				/**
-				 * Builds a Compiler instance.
+				 * Builds a Compiler instance, containing a {@code SourceFile}, a  {@code Scanner} and a  {@code Parser}.
 				 * @param	filename	name of the file to compile
 				 */
 				public Compiler(string fileName) {
@@ -54,32 +54,21 @@ namespace Compiler {
 						Environment.Exit(1);
 					}
 
-					string sourceFileName = args[0];
-
-					if(sourceFileName != null) {
-						var compiler = new Compiler(sourceFileName);
-						foreach(var token in compiler.scanner)
-							Info(typeof(Compiler).Name, token.ToString());
-						compiler.source.Reset(); // uncomment to reset source code
-						//compiler.parser.ParseProgram();
+					if(args[0] != null) {
+						var compiler = new Compiler(args[0]);
+						compiler.parser.ParseProgram();
 					}
 				}
 			// output
 				/**
 				 * Displays an error.
-				 * @param	origin		class name of the object sender.
-				 * @param	code		error code.
-				 * @param	msg			arguments for the error message. Can be empty.
-				 * @param	indentlevel	indentation level.
+				 * @param	origin	class name of the object sender.
+				 * @param	code	error code.
+				 * @param	msg		arguments for the error message. Can be empty.
 				 */
-				public static void Error(string origin, uint code, string[] msg, uint indentlevel = 0) {
+				public static void Error(string origin, uint code, string[] msg) {
 					Console.ForegroundColor = ConsoleColor.Red;
-					string error_message = "";
-
-					for(uint i = 0; i < indentlevel; ++i)
-						error_message += '\t';
-
-					error_message += "[ERROR]";
+					string error_message = "[ERROR]";
 
 					switch(origin) {
 						case "Compiler":
@@ -91,7 +80,7 @@ namespace Compiler {
 									break;
 								case 1:
 									if(msg.Length == 0) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -99,7 +88,7 @@ namespace Compiler {
 									break;
 								case 2:
 									if(msg.Length < 2) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -107,7 +96,7 @@ namespace Compiler {
 									break;
 								case 3:
 									if(msg.Length == 0) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -123,7 +112,7 @@ namespace Compiler {
 									break;
 								case 6:
 									if(msg.Length == 0) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -131,14 +120,14 @@ namespace Compiler {
 									break;
 								case 7:
 									if(msg.Length < 2) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
 									error_message += $"the source file {msg[0]} cannot be read : {msg[1]}";
 									break;
 								default:
-									Error(origin, 2, new string[]{ origin, code.ToString() }, ++indentlevel);
+									Error(origin, 2, new string[]{ origin, code.ToString() });
 									break;
 							}
 							break;
@@ -147,7 +136,7 @@ namespace Compiler {
 							switch(code) {
 								case 0:
 									if(msg.Length < 3) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -155,7 +144,7 @@ namespace Compiler {
 									break;
 								case 1:
 									if(msg.Length < 3) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -163,14 +152,14 @@ namespace Compiler {
 									break;
 								case 2:
 									if(msg.Length < 3) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
 									error_message += $"invalid operator at line  {msg[0]}, column {msg[1]} , got : {msg[2]}";
 									break;
 								default:
-									Error(origin, 2, new string[]{ origin, code.ToString() }, ++indentlevel);
+									Error(origin, 2, new string[]{ origin, code.ToString() });
 									return;
 							}
 							break;
@@ -179,7 +168,7 @@ namespace Compiler {
 							switch(code) {
 								case 0:
 									if(msg.Length < 3) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -187,7 +176,7 @@ namespace Compiler {
 									break;
 								case 1:
 									if(msg.Length < 3) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
@@ -195,21 +184,21 @@ namespace Compiler {
 									break;
 								case 2:
 									if(msg.Length < 4) {
-										Error(origin, 3, new string[]{ code.ToString() }, ++indentlevel);
+										Error(origin, 3, new string[]{ code.ToString() });
 										return;
 									}
 									error_message += $"[{code}] : ";
-									error_message += $"unexpected token found at line {msg[0]}, column {msg[1]}, got  {msg[3]}, expected ";
-									for(uint i = 4; i < msg.Length; ++i)
+									error_message += $"unexpected token found at line {msg[0]}, column {msg[1]}, got {msg[2]}, expected ";
+									for(uint i = 3; i < msg.Length; ++i)
 										error_message += msg[i] + ' ';
 									break;
 								default:
-									Error(origin, 2, new string[]{ origin, code.ToString() }, ++indentlevel);
+									Error(origin, 2, new string[]{ origin, code.ToString() });
 									return;
 							}
 							break;
 						default:
-							Error(typeof(Compiler).Name, 1, new string[]{ origin }, ++indentlevel);
+							Error(typeof(Compiler).Name, 1, new string[]{ origin });
 							return;
 					}
 					Console.WriteLine(error_message);
@@ -217,18 +206,12 @@ namespace Compiler {
 				}
 				/**
 				 * Displays an error.
-				 * @param	origin		class name of the object sender.
-				 * @param	msg			body of the info message.
-				 * @param	indentlevel	indentation level.
+				 * @param	origin	class name of the object sender.
+				 * @param	msg		body of the info message.
 				 */
-				public static void Info(string origin, string msg, uint indentlevel = 0) {
-					Console.ForegroundColor = ConsoleColor.Blue;
-					string message = "";
-
-					for(uint i = 0; i < indentlevel; ++i)
-						message += '\t';
-
-					message += "[INFO]";
+				public static void Info(string origin, string msg) {
+					Console.ForegroundColor = ConsoleColor.Cyan;
+					string message = "[INFO]";
 
 					switch(origin) {
 						case "Compiler":
@@ -238,7 +221,7 @@ namespace Compiler {
 							message += msg;
 							break;
 						default:
-							Error(typeof(Compiler).Name, 1, new string[]{ origin }, ++indentlevel);
+							Error(typeof(Compiler).Name, 1, new string[]{ origin });
 							return;
 					}
 					Console.WriteLine(message);

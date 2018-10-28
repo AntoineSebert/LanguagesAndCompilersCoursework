@@ -90,11 +90,10 @@ namespace Compiler {
 								atEndOfFile = true;
 							else if(kind == TokenKind.Error)
 								Environment.Exit(1);
-							/*
-							if(Debug)
-								Compiler.Info(typeof(Scanner).Name, token.ToString(), 1);
-							*/
 
+							if(Debug)
+								Compiler.Info(typeof(Scanner).Name, token.ToString());
+							
 							yield return token;
 						}
 					}
@@ -166,7 +165,7 @@ namespace Compiler {
 									source._Location.LineNumber.ToString(),
 									source._Location.RowNumber.ToString(),
 									currentSpelling.ToString()
-								}, 1);
+								});
 							}
 						}
 						return TokenKind.Operator;
@@ -191,7 +190,7 @@ namespace Compiler {
 							return TokenKind.Semicolon;
 						case ',':
 							TakeIt();
-							return TokenKind.Colon;
+							return TokenKind.Comma;
 						case '(':
 							TakeIt();
 							return TokenKind.LeftParenthese;
@@ -227,7 +226,7 @@ namespace Compiler {
 									source._Location.LineNumber.ToString(),
 									source._Location.RowNumber.ToString(),
 									currentSpelling.ToString()
-								}, 1);
+								});
 								return TokenKind.Error;
 							}
 						default:
@@ -236,7 +235,7 @@ namespace Compiler {
 								source._Location.LineNumber.ToString(),
 								source._Location.RowNumber.ToString(),
 								currentSpelling.ToString()
-							}, 1);
+							});
 							return TokenKind.Error;
 					}
 				}
