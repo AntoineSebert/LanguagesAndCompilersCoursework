@@ -1,0 +1,4 @@
+D:\Users\i\Desktop\RGU\4\L&C\Triangle.Compiler\obj\Debug\netcoreapp2.0\Triangle.Compiler.csprojAssemblyReference.cache
+D:\Users\i\Desktop\RGU\4\L&C\Triangle.Compiler\obj\Debug\netcoreapp2.0\Triangle.Compiler.csproj.CoreCompileInputs.cache
+D:\Users\i\Desktop\RGU\4\L&C\Triangle.Compiler\obj\Debug\netcoreapp2.0\Triangle.Compiler.AssemblyInfoInputs.cache
+D:\Users\i\Desktop\RGU\4\L&C\Triangle.Compiler\obj\Debug\netcoreapp2.0\Triangle.Compiler.AssemblyInfo.cs
