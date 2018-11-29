@@ -22,6 +22,12 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 			CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared", ast.Identifier, ast);
 			return null;
 		}
-		public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg) { return null; }
+		public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg) {
+			/*
+			ast.FirstDeclaration.Visit(this, null);
+			ast.SecondDeclaration.Visit(this, null);
+			*/
+			return null;
+		}
 	}
 }

@@ -18,7 +18,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		/// </throws>
 		private IntegerLiteral ParseIntegerLiteral() {
 			Compiler.WriteDebuggingInfo("Parsing Integer Literal");
-			return(new IntegerLiteral(Accept(TokenKind.IntLiteral)));
+			return new IntegerLiteral(Accept(TokenKind.IntLiteral));
 		}
 		/**
 		 * Parses a character-literal, and constructs a leaf AST to represent it.
@@ -27,7 +27,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		 */
 		private CharacterLiteral ParseCharacterLiteral() {
 			Compiler.WriteDebuggingInfo("Parsing Character Literal");
-			return(new CharacterLiteral(Accept(TokenKind.CharLiteral)));
+			return new CharacterLiteral(Accept(TokenKind.CharLiteral));
 		}
 		/**
 		 * Parses an identifier, and constructs a leaf AST to represent it.

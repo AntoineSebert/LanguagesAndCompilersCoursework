@@ -67,33 +67,33 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 					Accept(TokenKind.In);
 					Command c = ParseSingleCommand();
 					SourcePosition commandPosition = new SourcePosition(startLocation, tokens.Current.Finish);
-					return c;
+					return new LetCommand(declaration, c, commandPosition);
 				}
 				case TokenKind.If: {
 					Compiler.WriteDebuggingInfo("Parsing If Command");
 					AcceptIt();
-					ParseExpression();
+					var e = ParseExpression();
 					Accept(TokenKind.Then);
-					ParseSingleCommand();
+					var tc = ParseSingleCommand();
 					Accept(TokenKind.Else);
-					ParseSingleCommand();
+					var fc = ParseSingleCommand();
 					SourcePosition commandPosition = new SourcePosition(startLocation, tokens.Current.Finish);
-					return null;
+					return new IfCommand(e, tc, fc, commandPosition);
 				}
 				case TokenKind.While: {
 					Compiler.WriteDebuggingInfo("Parsing While Command");
 					AcceptIt();
-					ParseExpression();
+					var e = ParseExpression();
 					Accept(TokenKind.Do);
-					ParseSingleCommand();
+					var c = ParseSingleCommand();
 					SourcePosition commandPosition = new SourcePosition(startLocation, tokens.Current.Finish);
-					return null;
+					return new WhileCommand(e, c, commandPosition);
 				}
 				case TokenKind.Skip: {
 					Compiler.WriteDebuggingInfo("Parsing Skip Command");
 					AcceptIt();
 					SourcePosition commandPosition = new SourcePosition(startLocation, tokens.Current.Finish);
-					return null;
+					return new SkipCommand(commandPosition);
 				}
 				default:
 					RaiseSyntacticError("\"%\" cannot start a command", tokens.Current);
