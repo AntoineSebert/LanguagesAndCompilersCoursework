@@ -27,9 +27,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 					RaiseSyntacticError("\"%\" not expected after end of program", tokens.Current);
 				return program;
 			}
-			catch(SyntaxError) {
-				return null;
-			}
+			catch(SyntaxError) { return null; }
 		}
 	}
 }

@@ -24,9 +24,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		/// Lookup table of reserved words used to screen tokens
 		/// </summary>
 		private static ImmutableDictionary<string, TokenKind> ReservedWords { get; } =
-			Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While)
-			.Cast<TokenKind>()
-			.ToImmutableDictionary(kind => kind.ToString().ToLower(), kind => kind);
+			Enumerable.Range((int)TokenKind.Begin, (int)TokenKind.While).Cast<TokenKind>().ToImmutableDictionary(kind => kind.ToString().ToLower(), kind => kind);
 		/// <summary>
 		/// Creates a new scanner
 		/// </summary>
@@ -90,8 +88,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 
 				if(ReservedWords.TryGetValue(currentSpelling.ToString(), out TokenKind reservedKind))
 					return reservedKind;
-				else
-					return TokenKind.Identifier;
+				return TokenKind.Identifier;
 			}
 			else if(char.IsDigit(source.Current)) {
 				do { TakeIt(); } while(char.IsDigit(source.Current));
@@ -113,17 +110,13 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 								TakeIt();
 								return TokenKind.CharLiteral;
 							}
-							else {
-								// Found something that wasn't a ' as 3rd character
-								TakeIt();
-								return TokenKind.Error;
-							}
-						}
-						else {
-							// Found something that wasn't a graphic as 2nd character
+							// Found something that wasn't a ' as 3rd character
 							TakeIt();
 							return TokenKind.Error;
 						}
+						// Found something that wasn't a graphic as 2nd character
+						TakeIt();
+						return TokenKind.Error;
 					case ';':
 						TakeIt();
 						return TokenKind.Semicolon;
@@ -133,8 +126,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 							TakeIt();
 							return TokenKind.Becomes;
 						}
-						else
-							return TokenKind.Colon;
+						return TokenKind.Colon;
 					case '(':
 						TakeIt();
 						return TokenKind.LeftBracket;
@@ -151,8 +143,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 						TakeIt();
 						return TokenKind.QuestionMark;
 					case default(char):
-						// We have reached the end of the file
-						return TokenKind.EndOfText;
+						return TokenKind.EndOfText; // We have reached the end of the file
 					default:
 						// We encountered something we weren't expecting
 						TakeIt();

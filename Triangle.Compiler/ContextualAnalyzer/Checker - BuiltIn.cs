@@ -40,13 +40,11 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 		}
 		public Void VisitEmptyFormalParameterSequence(EmptyFormalParameterSequence ast, Void arg) { return null; }
 		public Void VisitSingleFormalParameterSequence(SingleFormalParameterSequence ast, Void arg) {
-			ast.Formal.Visit(this, null);
-			return null;
+			return ast.Formal.Visit(this, null);
 		}
 		public Void VisitMultipleFormalParameterSequence(MultipleFormalParameterSequence ast, Void arg) {
 			ast.Formal.Visit(this, null);
-			ast.Formals.Visit(this, null);
-			return null;
+			return ast.Formals.Visit(this, null);
 		}
 		public Void VisitTypeDeclaration(TypeDeclaration ast, Void arg) {
 			ast.Type = ast.Type.Visit(this, null);

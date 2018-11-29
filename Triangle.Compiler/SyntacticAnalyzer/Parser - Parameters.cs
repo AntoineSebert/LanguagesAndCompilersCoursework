@@ -27,7 +27,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 				case TokenKind.Operator:
 				case TokenKind.LeftBracket: {
 					Compiler.WriteDebuggingInfo("Parsing Value Parameter");
-					AcceptIt();
+					//AcceptIt();
 					return new ValueParameter(ParseExpression(), new SourcePosition(startLocation, tokens.Current.Position.Finish));
 				}
 				case TokenKind.Var: {

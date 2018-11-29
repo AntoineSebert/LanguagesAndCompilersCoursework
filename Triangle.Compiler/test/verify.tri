@@ -1,0 +1,38 @@
+let
+	const MAX ~ 10;
+	var numberUnder11: Integer
+in
+	begin
+		numberUnder11 := 6;
+		if numberUnder11>0 then
+			if numberUnder11 <= MAX then
+				while numberUnder11 > 0 do
+					begin
+						putint(numberUnder11);
+						put('.');
+						put(' ');
+						numberUnder11 := numberUnder11-1
+					end
+			else
+				begin
+					put('e');
+					put('r');
+					put('r');
+					put('o');
+					put('r');
+					put(' ');
+					put('1')
+				end
+				! Number was too big
+		else
+			begin
+				put('e');
+				put('r');
+				put('r');
+				put('o');
+				put('r');
+				put(' ');
+				put('2')
+			end
+			! Number was not positive
+	end

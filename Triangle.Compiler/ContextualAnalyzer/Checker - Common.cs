@@ -6,14 +6,13 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 	public partial class Checker : ICheckerVisitor {
 		private ErrorReporter errorReporter;
 		private IdentificationTable idTable;
-		public Checker(ErrorReporter errorReporter) {
-			this.errorReporter = errorReporter;
+		public Checker(ErrorReporter _errorReporter) {
+			errorReporter = _errorReporter;
 			idTable = new IdentificationTable();
 			EstablishStdEnvironment();
 		}
 		public void Check(Program ast) { ast.Visit(this, null); }
-		// Reports that the identifier or operator used at a leaf of the AST
-		// has not been declared.
+		// Reports that the identifier or operator used at a leaf of the AST has not been declared.
 		private void ReportUndeclaredOrError(Declaration binding, Terminal leaf, string message) {
 			ReportError((binding == null ? "\"%\" is not declared" : message), leaf);
 		}
@@ -34,8 +33,7 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 			CheckAndReportError(condition, message, string.Empty, positionNode.Position);
 		}
 		// Creates small ASTs to represent the standard types.
-		// Creates small ASTs to represent "declarations" of standard types,
-		// constants, procedures, functions, and operators.
+		// Creates small ASTs to represent "declarations" of standard types, constants, procedures, functions, and operators.
 		// Enters these "declarations" in the identification table.
 		private void EnterStdDeclaration(Terminal terminal, Declaration declaration) { idTable.Enter(terminal, declaration); }
 		private void EnterStdDeclaration(TypeDeclaration declaration) { EnterStdDeclaration(declaration.Identifier, declaration); }

@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\i\\Desktop\\RGU\\4\\L&C\\Triangle.Compiler\\Triangle.Compiler.csproj",
+      "projectUniqueName": "D:\\Users\\i\\Desktop\\LanguagesAndCompilersCoursework\\Triangle.Compiler\\Triangle.Compiler.csproj",
       "projectName": "Triangle.Compiler",
-      "projectPath": "D:\\Users\\i\\Desktop\\RGU\\4\\L&C\\Triangle.Compiler\\Triangle.Compiler.csproj",
+      "projectPath": "D:\\Users\\i\\Desktop\\LanguagesAndCompilersCoursework\\Triangle.Compiler\\Triangle.Compiler.csproj",
       "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\i\\Desktop\\RGU\\4\\L&C\\Triangle.Compiler\\obj\\",
+      "outputPath": "D:\\Users\\i\\Desktop\\LanguagesAndCompilersCoursework\\Triangle.Compiler\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -5,7 +5,10 @@ using Triangle.Compiler.SyntaxTrees.Terminals;
 namespace Triangle.Compiler.ContextualAnalyzer {
 	public sealed class IdentificationTable {
 		private readonly Stack<Dictionary<string, Declaration>> scopes = null;
-		public IdentificationTable() { scopes = new Stack<Dictionary<string, Declaration>>(1); }
+		public IdentificationTable() {
+			scopes = new Stack<Dictionary<string, Declaration>>();
+			scopes.Push(new Dictionary<string, Declaration>());
+		}
 		// Opens a new level in the identification table, 1 higher than the current topmost level.
 		public void OpenScope() { scopes.Push(new Dictionary<string, Declaration>()); }
 		// Closes the topmost level in the identification table, discarding all entries belonging to that level.
@@ -19,9 +22,11 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 		public void Enter(Terminal terminal, Declaration attr) {
 			if(scopes.Peek().ContainsKey(terminal.Spelling))
 				attr.Duplicated = true;
-			else
+			else {
 				scopes.Peek().Add(terminal.Spelling, attr);
+				attr.Duplicated = false;
 			}
+		}
 		/**
 		 * Finds an entry for the given identifier in the identification table, if any.
 		 * If there are several entries for that identifier, finds the entry at the highest level, in accordance with the scope rules.

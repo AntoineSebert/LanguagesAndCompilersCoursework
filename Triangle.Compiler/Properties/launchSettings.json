@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Triangle.Compiler": {
+      "commandName": "Project",
+      "commandLineArgs": "verify.tri",
+      "workingDirectory": "D:\\Users\\i\\Desktop\\LanguagesAndCompilersCoursework\\Triangle.Compiler\\test"
+    }
+  }
+}

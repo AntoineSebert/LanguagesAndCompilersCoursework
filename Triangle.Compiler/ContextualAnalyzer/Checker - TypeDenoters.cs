@@ -17,10 +17,8 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 			Declaration binding = ast.Identifier.Visit(this, null);
 			if(binding is TypeDeclaration decl)
 				return decl.Type;
-			else {
-				ReportUndeclaredOrError(binding, ast.Identifier, "\"%\" is not a type identifier");
-				return StandardEnvironment.ErrorType;
-			}
+			ReportUndeclaredOrError(binding, ast.Identifier, "\"%\" is not a type identifier");
+			return StandardEnvironment.ErrorType;
 		}
 	}
 }

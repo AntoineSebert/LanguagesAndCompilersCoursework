@@ -15,15 +15,9 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		/// fetches the next token from the source file, if not it throws a
 		/// {@link SyntaxError}.
 		/// </summary>
-		/// <param name="expectedKind">
-		/// the TokenKind expected
-		/// </param>
-		/// <returns>
-		/// the current token
-		/// </returns>
-		/// <throws type="SyntaxError">
-		/// a syntactic error
-		/// </throws>
+		/// <param name="expectedKind">the TokenKind expected</param>
+		/// <returns>the current token</returns>
+		/// <throws type="SyntaxError">a syntactic error</throws>
 		private Token Accept(TokenKind expectedKind) {
 			if(tokens.Current.Kind == expectedKind) {
 				Compiler.WriteDebuggingInfo($"Accepted {tokens.Current}");
@@ -31,10 +25,8 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 				tokens.MoveNext();
 				return token;
 			}
-			else {
-				RaiseSyntacticError("\"%\" expected here", expectedKind);
-				return null;
-			}
+			RaiseSyntacticError("\"%\" expected here", expectedKind);
+			return null;
 		}
 		/// <summary>
 		/// Fetches the next token from the source file.
