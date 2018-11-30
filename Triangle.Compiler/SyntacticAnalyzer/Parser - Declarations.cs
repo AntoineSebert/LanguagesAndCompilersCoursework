@@ -39,7 +39,8 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 					Identifier i = ParseIdentifier();
 					Accept(TokenKind.Is);
 					Expression e = ParseExpression();
-					return new ConstDeclaration(i, e, new SourcePosition(startLocation, tokens.Current.Finish));
+					SourcePosition declarationPosition = new SourcePosition(startLocation, tokens.Current.Finish);
+					return new ConstDeclaration(i, e, declarationPosition);
 				}
 				case TokenKind.Var: {
 					AcceptIt();
@@ -50,8 +51,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 					if(tokens.Current.Kind == TokenKind.Becomes) {
 						AcceptIt();
 						e = ParseExpression();
+						return new InitDeclaration(i, t, e, new SourcePosition(startLocation, tokens.Current.Finish));
 					}
-					return new InitDeclaration(i, t, e, new SourcePosition(startLocation, tokens.Current.Finish));
+					SourcePosition declarationPosition = new SourcePosition(startLocation, tokens.Current.Finish);
+					return new VarDeclaration(i, t, declarationPosition);
 				}
 				default:
 					RaiseSyntacticError("\"%\" cannot start a declaration", tokens.Current);

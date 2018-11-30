@@ -14,10 +14,12 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		private TypeDenoter ParseTypeDenoter() {
 			Compiler.WriteDebuggingInfo("Parsing Type Denoter");
 			Location startLocation = tokens.Current.Start;
+
 			switch(tokens.Current.Kind) {
 				case TokenKind.Identifier: {
 					Identifier i = ParseIdentifier();
-					return new SimpleTypeDenoter(i, new SourcePosition(startLocation, tokens.Current.Finish));
+					SourcePosition typePosition = new SourcePosition(startLocation, tokens.Current.Finish);
+					return new SimpleTypeDenoter(i, typePosition);
 				}
 				default: {
 					RaiseSyntacticError("\"%\" cannot start a type denoter", tokens.Current);

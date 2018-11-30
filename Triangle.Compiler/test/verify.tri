@@ -5,7 +5,7 @@ in
 	begin
 		numberUnder11 := 6;
 		if numberUnder11>0 then
-			if numberUnder11 <= MAX then
+			if numberUnder11 < MAX then
 				while numberUnder11 > 0 do
 					begin
 						putint(numberUnder11);

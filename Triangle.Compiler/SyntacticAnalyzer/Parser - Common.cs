@@ -5,10 +5,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
 		private Scanner scanner;
 		private ErrorReporter errorReporter;
 		private IEnumerator<Token> tokens;
-		public Parser(Scanner scanner, ErrorReporter errorReporter) {
-			this.scanner = scanner;
-			this.errorReporter = errorReporter;
-			tokens = this.scanner.GetEnumerator();
+		public Parser(Scanner _scanner, ErrorReporter _errorReporter) {
+			scanner = _scanner;
+			errorReporter = _errorReporter;
+			tokens = scanner.GetEnumerator();
 		}
 		/// <summary>
 		/// Checks that the kind of the current token matches the expected kind, and

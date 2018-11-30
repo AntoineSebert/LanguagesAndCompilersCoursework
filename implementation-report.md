@@ -1,10 +1,10 @@
 # Implementation report
 
-[Anthony Sébert](mailto:antoine.sb@orange.fr)[^1] , 28 october 2018
+[Anthony Sébert](mailto:antoine.sb@orange.fr)[^1] , 31/11/2018
 
 ## Prerequisites
 
-Microsoft .NET Core 7.0 or later.
+Microsoft .NET Core 2.x, available at https://dotnet.microsoft.com/download
 
 ## Getting started
 
@@ -12,17 +12,26 @@ Decompress the folder, then open a terminal.
 
 ```
 cd path/to/folder/Compiler
+dotnet build
 ```
 
 *Note : if the terminal starts in another drive, just type the name of the drive where the project folder is located, i.e. `D:`*
 
-Once you are in the **Compiler** folder, run the program (a sample [source code file](Compiler/source.txt) is already provided).
+## Compiling a file
+
+Once you are in the **Compiler** folder, run the program (a sample [source code file](Triangle.Compiler/test/verify.tri) is already provided).
 
 ```
-dotnet run source.txt
+dotnet run path/to/myfile.tri
 ```
 
 And voilà !
+
+## Code generation
+
+The code generation part works from the results of the lexing & parsing steps.
+
+
 
 ## Appendix
 

@@ -19,9 +19,12 @@ namespace Triangle.Compiler {
 		private Checker Checker { get; }
 
 		private Encoder Encoder { get; }
+
+		private string source_file = null;
 		/// Creates a compiler for the given source file.
 		/// param	sourceFileName	a File that specifies the source program
 		public Compiler(string sourceFileName, ErrorReporter errorReporter) {
+			source_file = sourceFileName;
 			ErrorReporter = errorReporter;
 			Source = new SourceFile(sourceFileName);
 			Scanner = new Scanner(Source);
@@ -66,9 +69,12 @@ namespace Triangle.Compiler {
 				ErrorReporter.ReportMessage("Compilation was unsuccessful.");
 				return false;
 			}
-			Encoder.SaveObjectProgram("ObjectFileName");
+			Encoder.SaveObjectProgram(source_file + ".tam");
 			System.Console.WriteLine(program);
 			ErrorReporter.ReportMessage("Compilation was successful.");
+
+			System.Console.ReadLine();
+
 			return true;
 		}
 		/// <summary>

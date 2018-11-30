@@ -23,10 +23,8 @@ namespace Triangle.Compiler.ContextualAnalyzer {
 			return null;
 		}
 		public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg) {
-			/*
 			ast.FirstDeclaration.Visit(this, null);
 			ast.SecondDeclaration.Visit(this, null);
-			*/
 			return null;
 		}
 	}
