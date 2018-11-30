@@ -1,7 +1,6 @@
 namespace Triangle.AbstractMachine {
 	public enum OpCode {
-		LOAD, LOADA, LOADI, LOADL, STORE, STOREI, CALL, CALLI, RETURN, PUSH, POP, JUMP, JUMPI, JUMPIF,
-		HALT
+		LOAD, LOADA, LOADI, LOADL, STORE, STOREI, CALL, CALLI, RETURN, PUSH, POP, JUMP, JUMPI, JUMPIF, HALT
 	}
 
 	public enum Register {
@@ -17,26 +16,24 @@ namespace Triangle.AbstractMachine {
 		public const int MaximumRoutineLevel = 7;
 
 		// CODE STORE
-
 		public static Instruction[] Code = new Instruction[1024];
 
 		// CODE STORE REGISTERS
-
 		public const short CodeBase = 0;
 
 		// = upper bound of code array + 1
-		public const int PrimitiveBase = 1024;
-		public const int PrimitiveTop = PrimitiveBase + 28;
+		public const int PrimitiveBase = 1024,
+			PrimitiveTop = PrimitiveBase + 28,
+			
+			BooleanSize = 1,
+			CharacterSize = 1,
+			IntegerSize = 1,
+			AddressSize = 1,
+			ClosureSize = 2 * AddressSize,
+			LinkDataSize = 3 * AddressSize;
 
-		public const int BooleanSize = 1;
-		public const int CharacterSize = 1;
-		public const int IntegerSize = 1;
-		public const int AddressSize = 1;
-		public const int ClosureSize = 2 * AddressSize;
-		public const int LinkDataSize = 3 * AddressSize;
-
-		public const byte FalseValue = 0;
-		public const byte TrueValue = 1;
+		public const byte FalseValue = 0,
+			TrueValue = 1;
 		public const short MaxintValue = 32767;
 	}
 }

@@ -6,37 +6,37 @@ using Triangle.Compiler.SyntaxTrees.Types;
 
 namespace Triangle.Compiler {
 	public static class StandardEnvironment {
-		public static readonly TypeDenoter BooleanType = new BoolTypeDenoter();
-		public static readonly TypeDenoter CharType = new CharTypeDenoter();
-		public static readonly TypeDenoter IntegerType = new IntTypeDenoter();
-		public static readonly TypeDenoter AnyType = new AnyTypeDenoter();
-		public static readonly TypeDenoter ErrorType = new ErrorTypeDenoter();
+		public static readonly TypeDenoter BooleanType = new BoolTypeDenoter(),
+			CharType = new CharTypeDenoter(),
+			IntegerType = new IntTypeDenoter(),
+			AnyType = new AnyTypeDenoter(),
+			ErrorType = new ErrorTypeDenoter();
 
-		public static readonly TypeDeclaration BooleanDecl = DeclareStdType("Boolean", BooleanType);
-		public static readonly TypeDeclaration CharDecl = DeclareStdType("Char", CharType);
-		public static readonly TypeDeclaration IntegerDecl = DeclareStdType("Integer", IntegerType);
+		public static readonly TypeDeclaration BooleanDecl = DeclareStdType("Boolean", BooleanType),
+			CharDecl = DeclareStdType("Char", CharType),
+			IntegerDecl = DeclareStdType("Integer", IntegerType);
 
-		public static readonly ConstDeclaration FalseDecl = DeclareStdConst("false", BooleanType);
-		public static readonly ConstDeclaration TrueDecl = DeclareStdConst("true", BooleanType);
+		public static readonly ConstDeclaration FalseDecl = DeclareStdConst("false", BooleanType),
+			TrueDecl = DeclareStdConst("true", BooleanType);
 
-		public static readonly BinaryOperatorDeclaration AddDecl = DeclareStdBinaryOp("+", IntegerType, IntegerType, IntegerType);
-		public static readonly BinaryOperatorDeclaration SubtractDecl = DeclareStdBinaryOp("-", IntegerType, IntegerType, IntegerType);
-		public static readonly BinaryOperatorDeclaration MultiplyDecl = DeclareStdBinaryOp("*", IntegerType, IntegerType, IntegerType);
-		public static readonly BinaryOperatorDeclaration DivideDecl = DeclareStdBinaryOp("/", IntegerType, IntegerType, IntegerType);
-		public static readonly BinaryOperatorDeclaration EqualDecl = DeclareStdBinaryOp("=", AnyType, AnyType, BooleanType);
-		public static readonly BinaryOperatorDeclaration LessDecl = DeclareStdBinaryOp("<", IntegerType, IntegerType, BooleanType);
-		public static readonly BinaryOperatorDeclaration GreaterDecl = DeclareStdBinaryOp(">", IntegerType, IntegerType, BooleanType);
+		public static readonly BinaryOperatorDeclaration AddDecl = DeclareStdBinaryOp("+", IntegerType, IntegerType, IntegerType),
+			SubtractDecl = DeclareStdBinaryOp("-", IntegerType, IntegerType, IntegerType),
+			MultiplyDecl = DeclareStdBinaryOp("*", IntegerType, IntegerType, IntegerType),
+			DivideDecl = DeclareStdBinaryOp("/", IntegerType, IntegerType, IntegerType),
+			EqualDecl = DeclareStdBinaryOp("=", AnyType, AnyType, BooleanType),
+			LessDecl = DeclareStdBinaryOp("<", IntegerType, IntegerType, BooleanType),
+			GreaterDecl = DeclareStdBinaryOp(">", IntegerType, IntegerType, BooleanType);
 
-		public static readonly ProcDeclaration GetDecl = DeclareStdProc("get", new SingleFormalParameterSequence(new VarFormalParameter(CharType)));
-		public static readonly ProcDeclaration PutDecl = DeclareStdProc("put", new SingleFormalParameterSequence(new ConstFormalParameter(CharType)));
-		public static readonly ProcDeclaration GetintDecl = DeclareStdProc("getint", new SingleFormalParameterSequence(new VarFormalParameter(IntegerType)));
-		public static readonly ProcDeclaration PutintDecl = DeclareStdProc("putint", new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType)));
-		public static readonly ProcDeclaration PuteolDecl = DeclareStdProc("puteol", new EmptyFormalParameterSequence());
+		public static readonly ProcDeclaration GetDecl = DeclareStdProc("get", new SingleFormalParameterSequence(new VarFormalParameter(CharType))),
+			PutDecl = DeclareStdProc("put", new SingleFormalParameterSequence(new ConstFormalParameter(CharType))),
+			GetintDecl = DeclareStdProc("getint", new SingleFormalParameterSequence(new VarFormalParameter(IntegerType))),
+			PutintDecl = DeclareStdProc("putint", new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType))),
+			PuteolDecl = DeclareStdProc("puteol", new EmptyFormalParameterSequence());
 
-		public static readonly FuncDeclaration ChrDecl = DeclareStdFunc("chr", new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType)), CharType);
-		public static readonly FuncDeclaration OrdDecl = DeclareStdFunc("ord", new SingleFormalParameterSequence(new ConstFormalParameter(CharType)), IntegerType);
-		public static readonly FuncDeclaration EolDecl = DeclareStdFunc("eol", new EmptyFormalParameterSequence(), BooleanType);
-		public static readonly FuncDeclaration EofDecl = DeclareStdFunc("eof", new EmptyFormalParameterSequence(), BooleanType);
+		public static readonly FuncDeclaration ChrDecl = DeclareStdFunc("chr", new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType)), CharType),
+			OrdDecl = DeclareStdFunc("ord", new SingleFormalParameterSequence(new ConstFormalParameter(CharType)), IntegerType),
+			EolDecl = DeclareStdFunc("eol", new EmptyFormalParameterSequence(), BooleanType),
+			EofDecl = DeclareStdFunc("eof", new EmptyFormalParameterSequence(), BooleanType);
 		private static TypeDeclaration DeclareStdType(string id, TypeDenoter typedenoter) { return new TypeDeclaration(new Identifier(id), typedenoter); }
 		private static ConstDeclaration DeclareStdConst(string id, TypeDenoter constType) {
 			return new ConstDeclaration(new Identifier(id), new EmptyExpression { Type = constType });

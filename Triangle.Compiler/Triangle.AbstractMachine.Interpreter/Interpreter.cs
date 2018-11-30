@@ -7,16 +7,14 @@ namespace Triangle.AbstractMachine.Interpreter {
 		// DATA STORE
 		private const int MaximumDataSize = 1024;
 		private readonly int[] data = new int[MaximumDataSize];
-
 		// DATA STORE REGISTERS AND OTHER REGISTERS
-		private const int StackBase = 0;
-		private const int HeapBase = MaximumDataSize;
-		private int _codeTop;
-		private int _codePointer;
-		private int _stackTop;
-		private int _heapTop;
-		private int _localBase;
-
+		private const int StackBase = 0,
+			HeapBase = MaximumDataSize;
+		private int _codeTop,
+			_codePointer,
+			_stackTop,
+			_heapTop,
+			_localBase;
 		// status values
 		private enum Status {
 			Running, Halted, FailedDatastoreFull, FailedInvalidCodeAddress, FailedInvalidInstruction,
@@ -158,31 +156,24 @@ namespace Triangle.AbstractMachine.Interpreter {
 			if(_status != Status.Halted)
 				Dump();
 		}
-
 		// INTERPRETATION
+		// Signals failure if there is not enough space to expand the stack or heap by spaceNeeded.
 		private void CheckSpace(int spaceNeeded) {
-			// Signals failure if there is not enough space to expand the stack or heap by spaceNeeded.
 			if(_heapTop - _stackTop < spaceNeeded)
 				_status = Status.FailedDatastoreFull;
 		}
-
-		private bool IsTrue(int datum) {
-			// Tests whether the given datum represents true.
-			return datum == Machine.TrueValue;
-		}
-
+		// Tests whether the given datum represents true.
+		private bool IsTrue(int datum) { return datum == Machine.TrueValue; }
+		// Tests whether two multi-word objects are equal, given their common size and their base addresses.
 		private bool Equal(int size, int addr1, int addr2) {
-			// Tests whether two multi-word objects are equal, given their common size and their base addresses.
 			for(int index = 0; index < size; index++) {
 				if(data[addr1 + index] != data[addr2 + index])
 					return false;
 			}
 			return true;
 		}
-
+		// Signals failure if the datum is too large to fit into a single word, otherwise returns the datum as a single word.
 		private int OverflowChecked(long datum) {
-			// Signals failure if the datum is too large to fit into a single word, otherwise returns the datum as a single word.
-
 			if(-Machine.MaxintValue <= datum && datum <= Machine.MaxintValue)
 				return (int)datum;
 			_status = Status.FailedOverflow;
@@ -194,8 +185,8 @@ namespace Triangle.AbstractMachine.Interpreter {
 		private int currentChar;
 
 		private int ReadInt() {
-			int temp = 0;
-			int sign = 1;
+			int temp = 0,
+				sign = 1;
 
 			do { currentChar = Console.Read(); } while(char.IsWhiteSpace((char)currentChar));
 
@@ -211,12 +202,10 @@ namespace Triangle.AbstractMachine.Interpreter {
 
 			return sign * temp;
 		}
-
+		// Invokes the given primitive routine.
 		private void CallPrimitive(int primitiveDisplacement) {
-			// Invokes the given primitive routine.
-
-			int addr;
-			int size;
+			int addr,
+				size;
 			char ch;
 
 			Primitive primitive = (Primitive)primitiveDisplacement;
@@ -350,10 +339,8 @@ namespace Triangle.AbstractMachine.Interpreter {
 					break;
 			}
 		}
-
+		// Runs the program in code store.
 		private void InterpretProgram() {
-			// Runs the program in code store.
-
 			// Initialize registers ...
 			_stackTop = StackBase;
 			_heapTop = HeapBase;
@@ -491,10 +478,9 @@ namespace Triangle.AbstractMachine.Interpreter {
 					_status = Status.FailedInvalidCodeAddress;
 			} while(_status == Status.Running);
 		}
-
 		// LOADING
+		// Loads the TAM object program into code store from the named file.
 		private int LoadObjectProgram(string objectName) {
-			// Loads the TAM object program into code store from the named file.
 			try {
 				using(FileStream objectStream = new FileStream(objectName, FileMode.Open)) {
 					short addr = Machine.CodeBase;
